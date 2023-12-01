@@ -15,7 +15,7 @@ main{
     flex-grow: 1;
 }
 
-h1, h2, h3{
+h1, h2, h3, h4, button{
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -25,6 +25,10 @@ p, tr{
 
 textarea{
     resize: none;
+}
+
+a{
+    text-decoration: none;
 }
 
 /* Pagina principal  */
@@ -40,4 +44,39 @@ textarea{
 
 .btn-customizado{
     background: #23A6F0;
+    padding: 12px 20px;
+    border-radius: 20px;
+    color: #fff;
+    border: none;
+    font-weight: 700;
+    transition: .4s;
+}
+.btn-customizado:hover{
+    filter: brightness(1.1);
+}
+
+#buscarJuego{
+    height: 42px;
+}
+
+.card-customizada{
+    background: rgba(0,0,0,0.4);
+}
+
+.genero{
+    color: #23A6F0;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.price{
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 32px;
+}
+
+.price span{
+    font-weight: 300;
+    color: #ccc;
+    text-decoration: line-through; 
 }
