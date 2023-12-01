@@ -18,7 +18,7 @@
     <main class="container my-5">
         <h1 class="text-center text-light">Administración de Juegos</h1>
         <section class="my-5">
-            <button class="btn btn-primary my-2">Agregar</button>
+            <button class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#modalJuegos">Agregar</button>
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
@@ -57,6 +57,63 @@
             </div>
         </section>
     </main>
+
+    <div class="modal fade" id="modalJuegos" tabindex="-1" aria-labelledby="modalJuegosLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title fs-5" id="modalPeliculaLabel">Agregar Pelicula</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formPelicula">
+                    <div class="mb-3 d-none">
+                      <label for="codigo" class="form-label">Codigo:</label>
+                      <input type="text" class="form-control" id="codigo" aria-describedby="codigo" minlength="5" maxlength="15">
+                    </div>
+                    <div class="mb-3">
+                      <label for="nombre" class="form-label">Nombre:</label>
+                      <input type="text" class="form-control" id="nombre" placeholder="Nombre del juego" aria-describedby="nombre" minlength="5" maxlength="150" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="precio" class="form-label">Precio:</label>
+                      <input type="number" class="form-control" id="precio" placeholder="Precio" aria-describedby="precio" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoria" class="form-label">Categoria:</label>
+                        <select id="categoria" class="form-control" required>
+                            <option value="">Seleccione una opción</option>
+                            <option value="Accion">Acción</option>
+                            <option value="Fantasia">Fantasia</option>
+                            <option value="Aventura">Aventura</option>
+                            <option value="Terror">Terror</option>
+                            <option value="Animado">Animado</option>
+                            <option value="Deporte">Deporte</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="imagen" class="form-label">Imagen: </label>
+                        <input type="url" class="form-control" id="imagen" placeholder="URL de la imagen" aria-describedby="imagen" minlength="5" maxlength="70">
+                    </div>
+                    <div class="mb-3">
+                        <label for="descripcion" class="form-label">Descripción:</label>
+                        <textarea id="descripcion" placeholder="Ingrese una descripción del juego" rows="4" class="form-control" minlength="10" maxlength="300" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="requisitos" class="form-label">Requisitos del sistema:</label>
+                        <textarea id="requisitos" placeholder="Ingrese los requisitos del sistema del juego" rows="4" class="form-control" minlength="10" maxlength="300" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="desarrollador" class="form-label">Desarrollador:</label>
+                        <input type="text" class="form-control" id="desarrollador" placeholder="Desarrollador del juego" aria-describedby="desarrollador" minlength="5" maxlength="70">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Agregar</button>
+                  </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <footer></footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
