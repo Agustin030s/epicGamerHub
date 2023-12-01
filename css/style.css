@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Roboto&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.bgNav{
-    background-color: #00008B;
+h1, h2, h3{
+    font-family: 'Montserrat', sans-serif;
+}
+
+p, tr{
+    font-family: 'Roboto', sans-serif;
 }
