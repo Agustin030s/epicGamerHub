@@ -15,7 +15,7 @@ main{
     flex-grow: 1;
 }
 
-h1, h2, h3, h4, button{
+h1, h2, h3, h4, h5, button{
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -34,7 +34,7 @@ a{
 /* Pagina principal  */
 .bg-main{
     background-color: #001f54;
-    background-image: linear-gradient(160deg, #001f54 0%, #030c26 100%);
+    background-image: linear-gradient(160deg, #021538 0%, #050e2b 100%);
 }
 
 .imagenCarousel {
@@ -60,7 +60,7 @@ a{
 }
 
 .card-customized{
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.3);
     min-width: 14rem;
 }
 
@@ -95,4 +95,28 @@ a{
 }
 .img-card-container img:hover{
     transform: scale(1.2);
+}
+
+.promocion {
+    background: linear-gradient(to right, rgba(0,0,0,0.5), transparent)
+    ,url("../img/img-promo.jpg") no-repeat top;
+    background-size: cover;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 10px 0 30px 6px rgba(3, 3, 36, 0.5);
+}
+
+.btn-customized-2{
+    background: rgba(100,100,100,0.4);
+    padding: 12px 20px;
+    border-radius: 20px;
+    color: #fff;
+    border: 1px solid #fff;
+    font-weight: 700;
+    transition: .3s;
+}
+.btn-customized-2:hover{
+    filter: brightness(1.2);
 }
