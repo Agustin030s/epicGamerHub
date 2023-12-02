@@ -37,9 +37,19 @@ a{
     background-image: linear-gradient(160deg, #021538 0%, #050e2b 100%);
 }
 
-.imagenCarousel {
-    height: 580px;
+.img-carousel {
+    height: 80vh;
+    max-height: 50rem;
     object-fit: cover;
+}
+
+.carousel-info{
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    text-shadow: 10px 10px 20px #000;
 }
 
 .btn-customized{
@@ -49,6 +59,7 @@ a{
     color: #fff;
     border: none;
     font-weight: 700;
+    text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.4);
     transition: .3s;
 }
 .btn-customized:hover{
@@ -61,7 +72,6 @@ a{
 
 .card-customized{
     background: rgba(0,0,0,0.3);
-    min-width: 14rem;
 }
 
 .genero{
@@ -98,10 +108,11 @@ a{
 }
 
 .promocion {
-    background: linear-gradient(to right, rgba(0,0,0,0.5), transparent)
+    background: linear-gradient(to right, rgba(0,0,0,0.8), transparent)
     ,url("../img/img-promo.jpg") no-repeat top;
     background-size: cover;
-    height: 70vh;
+    height: 75vh;
+    max-height: 40rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,7 +120,7 @@ a{
 }
 
 .btn-customized-2{
-    background: rgba(100,100,100,0.4);
+    background: rgba(100,100,100,0.3);
     padding: 12px 20px;
     border-radius: 20px;
     color: #fff;
