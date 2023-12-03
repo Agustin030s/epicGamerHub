@@ -131,3 +131,9 @@ a{
 .btn-customized-2:hover{
     filter: brightness(1.2);
 }
+
+.tituloAdministracion{
+    background-image: url('../img/gettyimages-1342037882-612x612.jpg');
+    padding: 50px;
+    filter: brightness(1.5);
+}
