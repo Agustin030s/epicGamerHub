@@ -1,11 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-h1, h2, h3{
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main{
+    flex-grow: 1;
+}
+
+h1, h2, h3, h4, h5, button{
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -15,4 +25,109 @@ p, tr{
 
 textarea{
     resize: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* Pagina principal  */
+.bg-main{
+    background-color: #001f54;
+    background-image: linear-gradient(160deg, #021538 0%, #050e2b 100%);
+}
+
+.img-carousel {
+    height: 80vh;
+    max-height: 50rem;
+    object-fit: cover;
+}
+
+.carousel-info{
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    text-shadow: 10px 10px 20px #000;
+}
+
+.btn-customized{
+    background: #23A6F0;
+    padding: 12px 20px;
+    border-radius: 20px;
+    color: #fff;
+    border: none;
+    font-weight: 700;
+    text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.4);
+    transition: .3s;
+}
+.btn-customized:hover{
+    filter: brightness(1.2);
+}
+
+#buscarJuego{
+    height: 42px;
+}
+
+.card-customized{
+    background: rgba(0,0,0,0.3);
+}
+
+.genero{
+    color: #23A6F0;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.price{
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.price span{
+    font-weight: 300;
+    color: #ccc;
+    text-decoration: line-through; 
+}
+
+.img-card-container{
+    height: 340px;
+    overflow: hidden;
+}
+
+.img-card-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .7s;
+}
+.img-card-container img:hover{
+    transform: scale(1.2);
+}
+
+.promocion {
+    background: linear-gradient(to right, rgba(0,0,0,0.8), transparent)
+    ,url("../img/img-promo.jpg") no-repeat top;
+    background-size: cover;
+    height: 75vh;
+    max-height: 40rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 10px 0 30px 6px rgba(3, 3, 36, 0.5);
+}
+
+.btn-customized-2{
+    background: rgba(100,100,100,0.3);
+    padding: 12px 20px;
+    border-radius: 20px;
+    color: #fff;
+    border: 1px solid #fff;
+    font-weight: 700;
+    transition: .3s;
+}
+.btn-customized-2:hover{
+    filter: brightness(1.2);
 }
