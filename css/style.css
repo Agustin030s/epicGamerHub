@@ -141,5 +141,14 @@ a{
 .bg-card{
     background: transparent;
     color: #fff;
+    text-align: center;
     border: 1px solid rgb(133, 94, 21);
+}
+
+.iconRedes{
+    color:white;
+}
+
+.iconRedes:hover{
+    color: black;
 }
