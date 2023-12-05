@@ -21,3 +21,48 @@ class Juego{
         this.#desarrollador = desarrollador;
     }
 }
+
+class RequisitosDelSistema{
+    #sistemaOperativo;
+    #ram;
+    #tarjetaGrafica;
+    #almacenamiento;
+    constructor(sistOper, ram, tarjetaGraf, almacenamiento){
+        this.#sistemaOperativo = sistOper;
+        this.#ram = ram;
+        this.#tarjetaGrafica = tarjetaGraf;
+        this.#almacenamiento = almacenamiento;
+    }
+
+    get sistemaOperativo(){
+        return this.#sistemaOperativo;
+    }
+
+    set sistemaOperativo(so){
+        this.#sistemaOperativo = so;
+    }
+
+    get ram(){
+        return this.#ram;
+    }
+
+    set ram(rm){
+        this.#ram = rm;
+    }
+
+    get tarjetaGrafica(){
+        return this.#tarjetaGrafica;
+    }
+
+    set tarjetaGrafica(tarjGr){
+        this.#tarjetaGrafica = tarjGr;
+    }
+
+    get almacenamiento(){
+        return this.#almacenamiento;
+    }
+
+    set almacenamiento(almac){
+        this.#almacenamiento = almac;
+    }
+}
