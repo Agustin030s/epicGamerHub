@@ -24,37 +24,37 @@
   </head>
   <body class="body-login">
     <main class="container">
-      <form action="" class="col-md-6 mx-auto">
+      <form action="../index.html" class="col-md-6 mx-auto" method="get">
         <div class="container-login">
           <div>
             <img src="../img/logo battle.net.png" alt="" />
             <h1>Iniciar sesión</h1>
 
             <div class="button-container">
-              <button class="btn btn-social btn-google row-top">
-                  <i class="bi bi-google"></i>
-              </button>
-              <button class="btn btn-social btn-facebook row-top">
-                  <i class="bi bi-facebook"></i>
-              </button>
-              <button class="btn btn-social btn-apple row-top">
-                  <i class="bi bi-apple"></i>
-              </button>
-          </div>
-          <div class="button-container">
-              <button class="btn btn-social btn-xbox">
-                  <i class="bi bi-xbox"></i>
-              </button>
-              <button class="btn btn-social btn-playstation">
-                  <i class="bi bi-playstation"></i>
-              </button>
-              <button class="btn btn-social btn-nintendo-switch">
-                  <i class="bi bi-nintendo-switch"></i>
-              </button>
-              <button class="btn btn-social btn-steam">
-                  <i class="bi bi-steam"></i>
-              </button>
-          </div>
+              <a href="../index.html" class="btn btn-social btn-google row-top">
+                <i class="bi bi-google"></i>
+              </a>
+              <a href="../index.html"  class="btn btn-social btn-facebook row-top">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a href="../index.html"  class="btn btn-social btn-apple row-top">
+                <i class="bi bi-apple"></i>
+              </a>
+            </div>
+            <div class="button-container">
+              <a href="../index.html" class="btn btn-social btn-xbox">
+                <i class="bi bi-xbox"></i>
+              </a>
+              <a href="../index.html" class="btn btn-social btn-playstation">
+                <i class="bi bi-playstation"></i>
+              </a>
+              <a href="../index.html" class="btn btn-social btn-nintendo-switch">
+                <i class="bi bi-nintendo-switch"></i>
+              </a>
+              <a href="../index.html" class="btn btn-social btn-steam">
+                <i class="bi bi-steam"></i>
+              </a>
+            </div>
           </div>
           <div class="double-line">
             <hr />
@@ -67,14 +67,19 @@
               name="Ingrese su nombre de usuario o email"
               id="usuario"
               placeholder="Correo electrónico o telefono"
+              required
             />
             <input
-              type="text"
+              type="password"
               name="Ingrese su contraseña"
               id="contraseña"
               placeholder="Ingrese su contraseña"
+              required
             />
-            <button class="btn btn-primary">Iniciar sesión</button>
+            <button class="btn btn-primary" type="submit"> 
+              Iniciar sesión
+            </button>
+            
           </div>
           <div class="enlaces">
             <br />
