@@ -29,6 +29,7 @@
 }
 .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
     background-color: rgba(255, 255, 255, 0.9); 
+    
 }
 
 .navbar-nav .nav-item.dropdown:hover .dropdown-menu a {
@@ -45,6 +46,8 @@
 .navbar-nav .bi-person-circle {
     font-size: 1.5rem;
 }
+
+
 @media (max-width: 991.98px) {
     .navbar-collapse {
         text-align: left; 
