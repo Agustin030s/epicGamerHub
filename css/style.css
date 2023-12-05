@@ -26,7 +26,8 @@ button {
 }
 
 p,
-tr {
+tr,
+li {
     font-family: 'Roboto', sans-serif;
 }
 
