@@ -6,9 +6,10 @@ class Juego{
     #imagenURL;
     #descripcion;
     #requisitos;
+    #requisitosMinimos;
     #desarrollador;
     #reseñas;
-    constructor(codigo = uuidv4(), nombre, precio, categoria, imagen, descripcion, requisitos, desarrollador){
+    constructor(codigo = uuidv4(), nombre, precio, categoria, imagen, descripcion, requisitos, requisitosMinimos, desarrollador){
         this.#codigo = codigo;
         this.#nombre = nombre;
         this.#precio = precio;
@@ -16,6 +17,7 @@ class Juego{
         this.#imagenURL = imagen;
         this.#descripcion = descripcion;
         this.#requisitos = requisitos;
+        this.#requisitosMinimos = requisitosMinimos;
         this.#desarrollador = desarrollador;
     }
 }
