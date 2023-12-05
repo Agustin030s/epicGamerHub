@@ -20,6 +20,78 @@ class Juego{
         this.#requisitosMinimos = requisitosMinimos;
         this.#desarrollador = desarrollador;
     }
+
+    get codigo() {
+        return this.#codigo;
+    }
+
+    set codigo(codigo) {
+        this.#codigo = codigo;
+    }
+
+    get nombre() {
+        return this.#nombre;
+    }
+
+    set nombre(nombre) {
+        this.#nombre = nombre;
+    }
+
+    get precio() {
+        return this.#precio;
+    }
+
+    set precio(precio) {
+        this.#precio = precio;
+    }
+
+    get categoria() {
+        return this.#categoria;
+    }
+
+    set categoria(categoria) {
+        this.#categoria = categoria;
+    }
+
+    get imagenURL() {
+        return this.#imagenURL;
+    }
+
+    set imagenURL(imagen) {
+        this.#imagenURL = imagen;
+    }
+
+    get descripcion() {
+        return this.#descripcion;
+    }
+
+    set descripcion(descripcion) {
+        this.#descripcion = descripcion;
+    }
+
+    get requisitos() {
+        return this.#requisitos;
+    }
+
+    set requisitos(requisitos) {
+        this.#requisitos = requisitos;
+    }
+
+    get requisitosMinimos() {
+        return this.#requisitosMinimos;
+    }
+
+    set requisitosMinimos(requisitosMinimos) {
+        this.#requisitosMinimos = requisitosMinimos;
+    }
+
+    get desarrollador() {
+        return this.#desarrollador;
+    }
+    
+    set desarrollador(desarrollador) {
+        this.#desarrollador = desarrollador;
+    }
 }
 
 class RequisitosDelSistema{
