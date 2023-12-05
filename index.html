@@ -45,7 +45,7 @@
                     <a class="nav-link active" href="./index.html">Inicio</a>
                 </li>   
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Juegos</a>
+                        <a class="nav-link" href="./index.html">Juegos</a>
                     </li>                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -60,7 +60,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="./nosotros.html">Sobre Nosotros</a>
+                      <a class="nav-link" href="./pages/nosotros.html">Sobre Nosotros</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"><i class="bi bi-heart"></i></a>
@@ -72,8 +72,8 @@
                                 <i class="bi bi-person-circle"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-start">
-                                <li><a class="dropdown-item" href="./login.html">Iniciar Sesión</a></li>
-                                <li><a class="dropdown-item" href="./registro.html">Registrarse</a></li>
+                                <li><a class="dropdown-item" href="./pages/login.html">Iniciar Sesión</a></li>
+                                <li><a class="dropdown-item" href="./pages/registro.html">Registrarse</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -84,6 +84,7 @@
         </div>
     </nav>
     </header>
+    
     <main class="bg-main">
       <!-- SECCION BANNER  -->
       <section>
@@ -315,21 +316,23 @@
     <div class="offcanvas offcanvas-end bg-main text-light" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasExampleLabel">Lista de Favoritos</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <div>
-          Estos son tus juegos favoritos:
-        </div>
-        <div class="dropdown mt-3">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-            Dropdown button
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+        <h6>Estos son tus juegos favoritos</h6>
+        <div class="card card-customized mt-3">
+          <div class="row g-0 justify-content-center align-items-center">
+            <div class="col-md-4">
+              <img src="https://th.bing.com/th/id/R.e94b9c3ff8c3df6575fbcd191de78996?rik=iDbm%2fMSi6cnJAQ&riu=http%3a%2f%2fjuegos.es%2fwp-content%2fuploads%2fGTAVportada.jpg&ehk=6vWapvXGNSyhWSfKDpe37%2b%2bh0zBJprUsmd2%2bw7G%2bm7I%3d&risl=&pid=ImgRaw&r=0" alt="Imagen del juego" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body text-end">
+                <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0" aria-label="Eliminar"></button>
+                <h5 class="card-title text-light mb-4">Grand Theft Auto V</h5>
+                <a href="#" class="btn-customized">Ver detalles</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
