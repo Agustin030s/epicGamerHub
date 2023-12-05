@@ -26,7 +26,8 @@ button {
 }
 
 p,
-tr {
+tr,
+li {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -196,4 +197,17 @@ a {
 
 .iconRedes:hover{
     color: black;
+}
+
+/* Estilos pagina detalles  */
+.text-gray{
+    color: #ccc;
+}
+
+.box-shadow-customized{
+    box-shadow: 10px 0 30px 6px rgba(3, 3, 36,0.6);
+}
+
+.bg-gradient-customized{
+    background: linear-gradient(0deg, rgba(0,0,0,0.2),rgba(0,0,0,0.2));
 }
