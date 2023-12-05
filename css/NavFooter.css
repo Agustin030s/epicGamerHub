@@ -96,13 +96,14 @@ footer h6 {
     margin-bottom: 20px;
 }
 
-footer a i {
-    font-size: 1.5em;;
-    color: #007bff; 
-    margin: 0 10px; 
-}
 footer p {
     margin-top: 20px; 
+}
+
+.logo{
+    width: 200px;
+    height: 70px;
+    object-fit: cover;
 }
 
 @media (max-width: 768px) {

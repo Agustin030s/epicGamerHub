@@ -10,6 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 main {
@@ -21,6 +22,7 @@ h2,
 h3,
 h4,
 h5,
+h6,
 button {
     font-family: 'Montserrat', sans-serif;
 }
@@ -47,7 +49,7 @@ textarea {
 
 .bg-register::after{
     content: "";
-    background-image: url(../assets/1366_2000.jpg);
+    background-image: url(../img/1366_2000.jpg);
     height: 100vh;
     width: 100%;
 
@@ -210,4 +212,14 @@ a {
 
 .bg-gradient-customized{
     background: linear-gradient(0deg, rgba(0,0,0,0.2),rgba(0,0,0,0.2));
+}
+
+.active{
+    background-color: #23A6F0;
+    color: white;
+    border-radius: 7px;
+}
+
+.btn-close{
+    color: #fff;
 }
