@@ -2,10 +2,12 @@ class Usuario{
     #usuario;
     #correo;
     #contrasenia;
-    constructor(usuario, correo, contrasenia){
+    #rol;
+    constructor(usuario, correo, contrasenia, rol){
         this.#usuario = usuario;
         this.#correo = correo;
         this.#contrasenia = contrasenia;
+        this.#rol = rol;
     }
 
     get usuario(){
@@ -30,5 +32,13 @@ class Usuario{
 
     set contrasenia(clave){
         this.#contrasenia = clave;
+    }
+
+    get rol(){
+        return this.#rol;
+    }
+
+    set rol(newRol){
+        this.#rol = rol;
     }
 }
