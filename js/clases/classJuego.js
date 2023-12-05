@@ -101,11 +101,13 @@ class Juego{
 
 class RequisitosDelSistema{
     #sistemaOperativo;
+    #procesador;
     #ram;
     #tarjetaGrafica;
     #almacenamiento;
-    constructor(sistOper, ram, tarjetaGraf, almacenamiento){
+    constructor(sistOper, procesador, ram, tarjetaGraf, almacenamiento){
         this.#sistemaOperativo = sistOper;
+        this.#procesador = procesador;
         this.#ram = ram;
         this.#tarjetaGrafica = tarjetaGraf;
         this.#almacenamiento = almacenamiento;
@@ -117,6 +119,14 @@ class RequisitosDelSistema{
 
     set sistemaOperativo(so){
         this.#sistemaOperativo = so;
+    }
+
+    get procesador(){
+        return this.#procesador;
+    }
+
+    set procesador(proces){
+        this.#procesador = proces;
     }
 
     get ram(){
