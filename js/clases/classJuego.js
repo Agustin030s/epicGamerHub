@@ -19,6 +19,7 @@ class Juego{
         this.#requisitos = requisitos;
         this.#requisitosMinimos = requisitosMinimos;
         this.#desarrollador = desarrollador;
+        this.#reseñas = new Reseña();
     }
 
     get codigo() {
@@ -92,6 +93,10 @@ class Juego{
     set desarrollador(desarrollador) {
         this.#desarrollador = desarrollador;
     }
+
+    get reseñas(){
+        return this.#reseñas;
+    }
 }
 
 class RequisitosDelSistema{
@@ -138,3 +143,78 @@ class RequisitosDelSistema{
         this.#almacenamiento = almac;
     }
 }
+
+class Reseña{
+    #votosPositivos;
+    #votosNegativos;
+    #comentarios;
+    constructor(){
+        this.#votosPositivos = 0;
+        this.#votosNegativos = 0;
+        this.#comentarios = [];
+    }
+
+    get votosPositivos(){
+        return this.#votosPositivos;
+    }
+
+    get votosNegativos(){
+        return this.#votosNegativos;
+    }
+
+    get comentarios(){
+        return this.#comentarios;
+    }
+
+    agregarVotoPositivo(){
+        this.#votosPositivos++;
+    }
+
+    agregarVotoNegativo(){
+        this.#votosNegativos++;
+    }
+
+    agregarComentario(comentario){
+        this.#comentarios.push(comentario);
+    }
+
+    puntuacionDelJuego(){
+        const total = this.votosPositivos + this.votosNegativos;
+        let puntuacion = total === 0 ? 0 : (this.votosPositivos / total)*100;
+
+        return puntuacion;
+    }
+}
+
+// Crear un objeto de la clase RequisitosDelSistema
+const requisitosMinimos = new RequisitosDelSistema("Windows 10", "8GB", "NVIDIA GeForce GTX 1050", "50GB");
+
+// Crear un objeto de la clase Juego
+const juego1 = new Juego(
+  undefined, // Se generará automáticamente un código UUID
+  "Ejemplo Juego",
+  29.99,
+  "Aventura",
+  "imagenURL",
+  "Descripción del juego...",
+  requisitosMinimos,
+  requisitosMinimos, // Aquí usamos los mismos requisitos mínimos, pero podrían ser diferentes
+  "DesarrolladorXYZ"
+);
+// Agregar una reseña al juego
+juego1.reseñas.agregarVotoPositivo();
+juego1.reseñas.agregarVotoPositivo();
+juego1.reseñas.agregarVotoNegativo();
+juego1.reseñas.agregarComentario("¡Me encanta este juego! Altamente recomendado.");
+
+// Obtener la puntuación del juego basada en las reseñas
+const puntuacion = juego1.reseñas.puntuacionDelJuego();
+console.log(`Puntuación del juego: ${puntuacion.toFixed(2)}`);
+
+// Imprimir los comentarios de la reseña
+console.log("Comentarios de la reseña:");
+juego1.reseñas.comentarios.forEach((comentario, index) => {
+  console.log(`${index + 1}. ${comentario}`);
+});
+
+console.log(juego1);
