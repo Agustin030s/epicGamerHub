@@ -146,7 +146,7 @@
       </nav>
     </header>
 
-    <main class="my-5">
+    <main class="py-5 my-5">
       <h1 class="text-center text-light tituloAdministracion">
         Administración de Juegos
       </h1>
@@ -251,135 +251,199 @@
       </section>
     </main>
 
-    <div
-      class="modal fade"
-      id="modalJuegos"
-      tabindex="-1"
-      aria-labelledby="modalJuegosLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
+    <div class="modal fade" id="modalJuegos" tabindex="-1" aria-labelledby="modalJuegosLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h2 class="modal-title fs-5" id="modalPeliculaLabel">
-              Agregar Juego
-            </h2>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <h2 class="modal-title fs-5" id="modalPeliculaLabel">Agregar Juego</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <form id="formPelicula">
-              <div class="mb-3 d-none">
-                <label for="codigo" class="form-label">Codigo:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="codigo"
-                  aria-describedby="codigo"
-                  minlength="5"
-                  maxlength="15"
-                />
+              <!-- Sección Información Básica -->
+              <div id="seccion1" class="form-section">
+                <div class="mb-3 d-none">
+                  <label for="codigo" class="form-label">Codigo:</label>
+                  <input type="text" class="form-control" id="codigo" aria-describedby="codigo" minlength="5" maxlength="15">
+                </div>
+                <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre:</label>
+                  <input type="text" class="form-control" id="nombre" placeholder="Nombre del juego" aria-describedby="nombre" minlength="5" maxlength="150" required>
+                  <div class="invalid-feedback">
+                    <span>Debes ingresar un nombre de juego</span>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="precio" class="form-label">Precio:</label>
+                  <input type="number" class="form-control" id="precio" placeholder="Precio" aria-describedby="precio" required>
+                  <div class="invalid-feedback">
+                    <span>Debes ingresar un precio</span>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="categoria" class="form-label">Categoria:</label>
+                  <select id="categoria" class="form-control" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="Accion">Acción</option>
+                    <option value="Fantasia">Fantasia</option>
+                    <option value="Aventura">Aventura</option>
+                    <option value="Terror">Terror</option>
+                    <option value="Animado">Animado</option>
+                    <option value="Deporte">Deporte</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    <span>Debes seleccionar una categoria</span>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="mostrarSeccionModal(2)">Siguiente</button>
               </div>
-              <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="nombre"
-                  placeholder="Nombre del juego"
-                  aria-describedby="nombre"
-                  minlength="5"
-                  maxlength="150"
-                  required
-                />
+    
+              <!-- Sección Imagen y Descripción -->
+              <div id="seccion2" class="form-section d-none">
+                <div class="mb-3">
+                  <label for="imagen" class="form-label">Imagen: </label>
+                  <input type="url" class="form-control" id="imagen" placeholder="URL de la imagen" aria-describedby="imagen" minlength="5" maxlength="70">
+                  <div class="invalid-feedback">
+                    <span>Debes ingresar una url de la imagen</span>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="descripcion" class="form-label">Descripción:</label>
+                  <textarea id="descripcion" placeholder="Ingrese una descripción del juego" rows="4" class="form-control" minlength="10" maxlength="300" required></textarea>
+                  <div class="invalid-feedback">
+                    <span>Debes ingresar una descripción</span>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="mostrarSeccionModal(1)">Atrás</button>
+                <button type="button" class="btn btn-primary" onclick="mostrarSeccionModal(3)">Siguiente</button>
               </div>
-              <div class="mb-3">
-                <label for="precio" class="form-label">Precio:</label>
-                <input
-                  type="number"
-                  class="form-control"
-                  id="precio"
-                  placeholder="Precio"
-                  aria-describedby="precio"
-                  required
-                />
+    
+              <!-- Sección Requisitos del Sistema -->
+              <div id="seccion3" class="form-section d-none">
+                <h4 class="modal-title">Requisitos Recomendados</h4>
+                <div class="mb-3">
+                  <label for="sistOperativo" class="form-label">Sistema Operativo:</label>
+                  <input id="sistOperativo" placeholder="Ingrese el sistema operativo recomendado" class="form-control" minlength="5" maxlength="150" required></input>
+                  <div class="invalid-feedback">
+                    <span>Debes ingresar un sistema operativo</span>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="procesador" class="form-label">Procesador:</label>
+                  <input id="procesador" placeholder="Ingrese el procesador recomendado" class="form-control" minlength="5" maxlength="200" required></input>
+                  <div class="invalid-feedback">
+                    <span>Debes ingresar un procesador</span>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="ram" class="form-label">RAM:</label>
+                  <select id="ram" class="form-control" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="4Gb">4Gb</option>
+                    <option value="8Gb">8Gb</option>
+                    <option value="16Gb">16Gb</option>
+                    <option value="32Gb">32Gb</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    <span>Debes seleccionar una RAM</span>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="tarjGraf" class="form-label">Tarjeta Gráfica:</label>
+                  <input id="tarjGraf" placeholder="Ingrese la tarjeta gráfica recomendada" class="form-control" minlength="10" maxlength="200" required></input>
+                  <div class="invalid-feedback">
+                    <span>Debes ingresar una tarjeta gráfica</span>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="almacenamiento" class="form-label">Almacenamiento:</label>
+                  <select id="almacenamiento" class="form-control" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="40Gb">40Gb</option>
+                    <option value="80Gb">80Gb</option>
+                    <option value="128Gb">128Gb</option>
+                    <option value="240Gb">240Gb</option>
+                    <option value="512Gb">512Gb</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    <span>Debes seleccionar un almacenamiento</span>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="mostrarSeccionModal(2)">Atrás</button>
+                <button type="button" class="btn btn-primary" onclick="mostrarSeccionModal(4)">Siguiente</button>
               </div>
-              <div class="mb-3">
-                <label for="categoria" class="form-label">Categoria:</label>
-                <select id="categoria" class="form-control" required>
-                  <option value="">Seleccione una opción</option>
-                  <option value="Accion">Acción</option>
-                  <option value="Fantasia">Fantasia</option>
-                  <option value="Aventura">Aventura</option>
-                  <option value="Terror">Terror</option>
-                  <option value="Animado">Animado</option>
-                  <option value="Deporte">Deporte</option>
-                </select>
+
+              <div id="seccion4" class="form-section d-none">
+                <h4 class="modal-title">Requisitos Minimos</h4>
+                <div class="mb-3">
+                  <label for="sistOperativoMin" class="form-label">Sistema Operativo:</label>
+                  <input id="sistOperativoMin" placeholder="Ingrese el sistema operativo minimo" class="form-control" minlength="5" maxlength="150"></input>
+                  <div class="invalid-feedback">
+                    <span>Debes ingresar un sistema operativo</span>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="procesadorMin" class="form-label">Procesador:</label>
+                  <input id="procesadorMin" placeholder="Ingrese el procesador minimo" class="form-control" minlength="5" maxlength="200"></input>
+                  <div class="invalid-feedback">
+                    <span>Debes ingresar un procesador</span>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="ramMin" class="form-label">RAM:</label>
+                  <select id="ramMin" class="form-control">
+                    <option value="">Seleccione una opción</option>
+                    <option value="4Gb">4Gb</option>
+                    <option value="8Gb">8Gb</option>
+                    <option value="16Gb">16Gb</option>
+                    <option value="32Gb">32Gb</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    <span>Debes seleccionar la RAM</span>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="tarjGrafMin" class="form-label">Tarjeta Gráfica:</label>
+                  <input id="tarjGrafMin" placeholder="Ingrese la tarjeta gráfica minima" class="form-control" minlength="10" maxlength="200"></input>
+                  <div class="invalid-feedback">
+                    <span>Debes ingresar una tarjeta gráfica</span>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="almacenamientoMin" class="form-label">Almacenamiento:</label>
+                  <select id="almacenamientoMin" class="form-control">
+                    <option value="">Seleccione una opción</option>
+                    <option value="40Gb">40Gb</option>
+                    <option value="80Gb">80Gb</option>
+                    <option value="128Gb">128Gb</option>
+                    <option value="240Gb">240Gb</option>
+                    <option value="512Gb">512Gb</option>
+                  </select>
+                </div>
+                <div class="invalid-feedback">
+                  <span>Debes seleccionar el almacenamiento minimo</span>
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="mostrarSeccionModal(3)">Atrás</button>
+                <button type="button" class="btn btn-primary" onclick="mostrarSeccionModal(5)">Siguiente</button>
               </div>
-              <div class="mb-3">
-                <label for="imagen" class="form-label">Imagen: </label>
-                <input
-                  type="url"
-                  class="form-control"
-                  id="imagen"
-                  placeholder="URL de la imagen"
-                  aria-describedby="imagen"
-                  minlength="5"
-                  maxlength="70"
-                />
+    
+              <!-- Sección Desarrollador -->
+              <div id="seccion5" class="form-section d-none">
+                <div class="mb-3">
+                  <label for="desarrollador" class="form-label">Desarrollador:</label>
+                  <input type="text" class="form-control" id="desarrollador" placeholder="Desarrollador del juego" aria-describedby="desarrollador" minlength="5" maxlength="70" required>
+                  <div class="invalid-feedback">
+                    <span>Debes ingresar el nombre del desarrollador</span>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="mostrarSeccionModal(4)">Atrás</button>
+                <button type="submit" class="btn btn-primary">Agregar</button>
               </div>
-              <div class="mb-3">
-                <label for="descripcion" class="form-label">Descripción:</label>
-                <textarea
-                  id="descripcion"
-                  placeholder="Ingrese una descripción del juego"
-                  rows="4"
-                  class="form-control"
-                  minlength="10"
-                  maxlength="300"
-                  required
-                ></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="requisitos" class="form-label"
-                  >Requisitos del sistema:</label
-                >
-                <textarea
-                  id="requisitos"
-                  placeholder="Ingrese los requisitos del sistema del juego"
-                  rows="4"
-                  class="form-control"
-                  minlength="10"
-                  maxlength="300"
-                  required
-                ></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="desarrollador" class="form-label"
-                  >Desarrollador:</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="desarrollador"
-                  placeholder="Desarrollador del juego"
-                  aria-describedby="desarrollador"
-                  minlength="5"
-                  maxlength="70"
-                />
-              </div>
-              <button type="submit" class="btn btn-primary">Agregar</button>
             </form>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- <footer></footer> -->
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
