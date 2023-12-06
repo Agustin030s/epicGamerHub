@@ -19,5 +19,38 @@ const validarCategoria = (select) => {
     categoria === "Animado" ||
     categoria === "Deporte"
   ) {
+    select.classList.add("is-valid");
+    return true;
+  } else {
+    select.classList.add("is-invalid");
+    return false;
+  }
+};
+
+const validarRam = (select) => {
+  const ram = select.value;
+  if (ram === "4Gb" || ram === "8Gb" || ram === "16Gb" || ram === "32Gb") {
+    select.classList.add("is-valid");
+    return true;
+  } else {
+    select.classList.add("is-invalid");
+    return false;
+  }
+};
+
+const validarAlmacenamiento = (select) => {
+  const almacenamiento = select.value;
+  if (
+    almacenamiento === "40Gb" ||
+    almacenamiento === "80Gb" ||
+    almacenamiento === "128Gb" ||
+    almacenamiento === "240Gb" ||
+    almacenamiento === "512Gb"
+  ) {
+    select.classList.add('is-valid');
+    return true;
+  }else{
+    select.classList.add('is-invalid');
+    return false;
   }
 };
