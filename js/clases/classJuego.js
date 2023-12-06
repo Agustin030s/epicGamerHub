@@ -8,7 +8,7 @@ class Juego{
     #requisitos;
     #requisitosMinimos;
     #desarrollador;
-    #reseñas;
+    #resenias;
     constructor(codigo = uuidv4(), nombre, precio, categoria, imagen, descripcion, requisitos, requisitosMinimos, desarrollador){
         this.#codigo = codigo;
         this.#nombre = nombre;
@@ -19,7 +19,7 @@ class Juego{
         this.#requisitos = requisitos;
         this.#requisitosMinimos = requisitosMinimos;
         this.#desarrollador = desarrollador;
-        this.#reseñas = new Reseña();
+        this.#resenias = new Reseña();
     }
 
     get codigo() {
@@ -94,8 +94,23 @@ class Juego{
         this.#desarrollador = desarrollador;
     }
 
-    get reseñas(){
-        return this.#reseñas;
+    get resenias(){
+        return this.#resenias;
+    }
+
+    toJSON(){
+        return{
+            codigo: this.codigo,
+            nombre: this.nombre,
+            precio: this.precio,
+            categoria: this.categoria,
+            imagen: this.imagenURL,
+            descripcion: this.descripcion,
+            requisitos: this.requisitos,
+            requisitosMinimos: this.requisitosMinimos,
+            desarrollador: this.desarrollador,
+            resenias: this.resenias
+        }
     }
 }
 
@@ -152,6 +167,16 @@ class RequisitosDelSistema{
     set almacenamiento(almac){
         this.#almacenamiento = almac;
     }
+
+    toJSON(){
+        return{
+            sistemaOperativo: this.sistemaOperativo,
+            procesador: this.procesador,
+            ram: this.ram,
+            tarjetaGrafica: this.tarjetaGrafica,
+            almacenamiento: this.almacenamiento
+        }
+    }
 }
 
 export class Reseña{
@@ -195,36 +220,3 @@ export class Reseña{
         return puntuacion;
     }
 }
-
-// Crear un objeto de la clase RequisitosDelSistema
-const requisitosMinimos = new RequisitosDelSistema("Windows 10", "8GB", "NVIDIA GeForce GTX 1050", "50GB");
-
-// Crear un objeto de la clase Juego
-const juego1 = new Juego(
-  undefined, // Se generará automáticamente un código UUID
-  "Ejemplo Juego",
-  29.99,
-  "Aventura",
-  "imagenURL",
-  "Descripción del juego...",
-  requisitosMinimos,
-  requisitosMinimos, // Aquí usamos los mismos requisitos mínimos, pero podrían ser diferentes
-  "DesarrolladorXYZ"
-);
-// Agregar una reseña al juego
-juego1.reseñas.agregarVotoPositivo();
-juego1.reseñas.agregarVotoPositivo();
-juego1.reseñas.agregarVotoNegativo();
-juego1.reseñas.agregarComentario("¡Me encanta este juego! Altamente recomendado.");
-
-// Obtener la puntuación del juego basada en las reseñas
-const puntuacion = juego1.reseñas.puntuacionDelJuego();
-console.log(`Puntuación del juego: ${puntuacion.toFixed(2)}`);
-
-// Imprimir los comentarios de la reseña
-console.log("Comentarios de la reseña:");
-juego1.reseñas.comentarios.forEach((comentario, index) => {
-  console.log(`${index + 1}. ${comentario}`);
-});
-
-console.log(juego1);
