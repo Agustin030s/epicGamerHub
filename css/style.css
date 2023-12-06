@@ -228,6 +228,7 @@ a {
 }
 
 
+
 /*  ESTILOS - PAGINA TODOS LOS JUEGOS  */
 .container-title{
     display: flex;
@@ -244,4 +245,8 @@ a {
 
 .btn-genero{
     width: 100%;
+}
+=======
+.simplificarTexto{
+    max-width: 150px;
 }
