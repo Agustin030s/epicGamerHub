@@ -113,7 +113,7 @@ footer p {
 
 @media (max-width: 768px) {
     footer {
-        padding: 0; 
+        padding: 80px 5px; 
         background-size: cover;
     }
 }
