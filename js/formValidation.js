@@ -54,3 +54,49 @@ const validarAlmacenamiento = (select) => {
     return false;
   }
 };
+
+const validarImagen = (inputImg) =>{
+    const patron = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/;
+    const imagenUrl = inputImg.value;
+    if(patron.test(imagenUrl)){
+        inputImg.classList.add('is-valid');
+        return true;
+    }else{
+        inputImg.classList.add('is-invalid');
+        return false;
+    }
+};
+
+const validarContrasenia = (input) =>{
+    const patron = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
+    const contrasenia = input.value;
+    if(patron.test(contrasenia)){
+        input.classList.add('is-valid');
+        return true;
+    }else{
+        input.classList.add('is-invalid');
+        return false;
+    }
+};
+
+const validarEmail = (input) =>{
+    const email = input.value;
+    const patron = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if(patron.test(email)){
+        input.classList.add('is-valid');
+        return true;
+    }else{
+        input.classList.add('is-invalid');
+        return false;
+    }
+};
+
+const validarCheckBox = (checkBox) =>{
+    if(checkBox.checked){
+        checkBox.classList.add('is-valid');
+        return true;
+    }else{
+        checkBox.classList.add('is-invalid');
+        return true;
+    }
+};
