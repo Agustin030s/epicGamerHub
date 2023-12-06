@@ -16,5 +16,11 @@ const mostrarSeccionJuegos = () =>{
     seccionJuegos.classList.remove('d-none');
 }
 
+const mostrarSeccionModal = (numeroSeccion) =>{
+    const secciones = document.querySelectorAll('.form-section');
+    secciones.forEach(seccion => seccion.classList.add('d-none'));
+    document.getElementById(`seccion${numeroSeccion}`).classList.remove('d-none');
+}
+
 btnAdministrarUsuarios.addEventListener('click', mostrarSeccionUsuarios);
 btnAdministrarJuegos.addEventListener('click', mostrarSeccionJuegos);

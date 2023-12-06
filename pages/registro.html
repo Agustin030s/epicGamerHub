@@ -80,18 +80,37 @@
                 <div class="mb-3">
                     <label for="username" class="form-label text-light">Usuario</label>
                     <input type="username" class="form-control" id="username" aria-describedby="emailHelp">
-                  </div>
+                    <div class="invalid-feedback">
+                      <span>Debes ingresar un nombre de usuario</span>
+                    </div>
+                </div>
                 <div class="mb-3">
                   <label for="correo" class="form-label text-light">Direccion de correo electronico</label>
                   <input type="email" class="form-control" id="correo" aria-describedby="emailHelp">
+                  <div class="invalid-feedback">
+                    <span>Debes ingresar un correo electronico</span>
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label text-light">Contraseña</label>
                   <input type="password" class="form-control" id="exampleInputPassword1">
+                  <div class="invalid-feedback">
+                    <span>La contraseña debe tener al entre 8 y 16 caracteres, al menos un número, al menos una minúscula y al menos una mayúscula.</span>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword2" class="form-label text-light">Confirmar Contraseña</label>
+                  <input type="password" class="form-control" id="exampleInputPassword2">
+                  <div class="invalid-feedback">
+                    <span id="confirmarContraseña">Debes confirmar tu contraseña</span>
+                  </div>
                 </div>
                 <div class="mb-3 form-check text-light">
                   <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1 text-light">Tengo 13 años o más y acepto los términos del Acuerdo de Suscriptor a "" y la Política de Privacidad de Valve.</label>
+                  <label class="form-check-label" for="exampleCheck1 text-light">Tengo 13 años o más y acepto los términos del Acuerdo de Suscriptor a EpicGamerHub y la Política de Privacidad del mismo.</label>
+                  <div class="invalid-feedback">
+                    <span>Debes aceptar los términos y condiciones</span>
+                  </div>
                 </div>
                 <button type="submit" class="btn btn-primary btnRegistrar w-100">Registrar</button>
               </form>
