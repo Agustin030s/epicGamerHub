@@ -42,10 +42,10 @@
             <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link" href="./index.html">Inicio</a>
+                    <a class="nav-link active" href="./index.html">Inicio</a>
                 </li>   
                     <li class="nav-item">
-                        <a class="nav-link" href="./pages/juegos.html">Juegos</a>
+                        <a class="nav-link" href="./index.html">Juegos</a>
                     </li>                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -133,7 +133,7 @@
               <div class="carousel-info text-center text-md-start">
                 <h2 class="text-light display-4 fw-bold">Red Dead Redemption 2</h2>
                 <h4 class="fs-5 genero mb-5">Acción</h4>
-                <a href="./pages/detalleJuego.html" class="btn-customized">Más información</a>
+                <button href="./pages/detalleJuego.html" class="btn-customized">Más información</a>
               </div>
             </div>
             <div class="carousel-item">
@@ -209,7 +209,7 @@
                 </div>       
                 <div>
                   <p class="price fs-2">$29.99 <span class="fs-4">39.99</span></p>
-                  <a href="./pages/detalleJuego.html" class="btn-customized">Más información</a>
+                  <button class="btn-customized" id="masInfoBtn">Más información</button>
                 </div>
               </div>
             </div>
@@ -236,7 +236,7 @@
                 </div>     
                 <div>
                   <p class="price fs-2">$69.99 <span class="fs-4">99.99</span></p>
-                  <a href="./pages/detalleJuego.html" class="btn-customized">Más información</a>
+                  <button class="btn-customized" id="masInfoBtn">Más información</button>
                 </div>
               </div>
             </div>
@@ -263,7 +263,7 @@
                 </div>     
                 <div>
                   <p class="price fs-2">$49.99 <span class="fs-4">69.99</span></p>
-                  <a href="./pages/detalleJuego.html" class="btn-customized">Más información</a>
+                  <button class="btn-customized" id="masInfoBtn">Más información</button>
                 </div>
               </div>
             </div>
@@ -290,7 +290,7 @@
                 </div>     
                 <div>
                   <p class="price fs-2">$59.99 <span class="fs-4">69.99</span></p>
-                  <a href="./pages/detalleJuego.html" class="btn-customized">Más información</a>
+                  <button class="btn-customized" id="masInfoBtn">Más información</button>
                 </div>
               </div>
             </div>
@@ -350,5 +350,9 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
+
+    <script src="./js/adminJuegos.js" type="module"></script>
+    <script src="./js/masInformacion.js" type="module"></script>
   </body>
 </html>

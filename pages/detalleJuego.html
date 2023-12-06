@@ -88,35 +88,28 @@
         <div class="row justify-content-center align-items-center gap-3 mt-4">
           <div class="col-md-12 col-lg-4 text-center">
             <img
-              src="https://th.bing.com/th/id/R.e94b9c3ff8c3df6575fbcd191de78996?rik=iDbm%2fMSi6cnJAQ&riu=http%3a%2f%2fjuegos.es%2fwp-content%2fuploads%2fGTAVportada.jpg&ehk=6vWapvXGNSyhWSfKDpe37%2b%2bh0zBJprUsmd2%2bw7G%2bm7I%3d&risl=&pid=ImgRaw&r=0"
               alt="Portada del juego"
               class="img-fluid"
+              id="imagenJuego"
             />
           </div>
           <div
             class="col-md-12 col-lg-6 text-center text-lg-start box-shadow-customized p-3"
           >
             <p class="lead text-secondary fs-4">VGJK37LP9Q</p>
-            <h2 class="text-light fw-bold display-5">Grand Theft Auto V</h2>
-            <p class="genero fs-3">Accion</p>
+            <h2 class="text-light fw-bold display-5" id="tituloJuego"></h2>
+            <p class="genero fs-3" id="categoriaJuego"></p>
             <div class="mb-4">
-              <p class="text-uppercase text-gray fw-bold fs-5">
-                Rockstar Games
+              <p class="text-uppercase text-gray fw-bold fs-5" id="desarrolladorJuego">
               </p>
               <i class="bi bi-playstation fs-3 text-info"></i>
               <i class="bi bi-xbox fs-3 text-info mx-2"></i>
               <i class="bi bi-windows fs-3 text-info"></i>
             </div>
-            <p class="price display-4 fw-bold">
-              $39.99 <span class="fs-2">49.99</span>
+            <p class="price display-4 fw-bold" id="precioJuego">
+               <span class="fs-2" id="precioJuego2">49.99</span>
             </p>
-            <i class="bi bi-playstation fs-3 text-info"></i>
-            <i class="bi bi-xbox fs-3 text-info mx-2"></i>
-            <i class="bi bi-windows fs-3 text-info"></i>
           </div>
-          <p class="price display-4 fw-bold">
-            $39.99 <span class="fs-2">49.99</span>
-          </p>
           <div class="d-flex gap-3 flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <button href="#" class="btn-customized fs-5">Comprar</button>
             <button href="#" class="btn-customized-2 fs-5">
@@ -133,15 +126,7 @@
         <h3 class="text-light fs-2 text-uppercase fw-bold">Descripcion</h3>
         <hr class="text-info" />
         <article class="mt-4">
-          <p class="text-gray fs-5">
-            En Grand Theft Auto V, Los Santos se convierte en un escenario de
-            crimen, acción y posibilidades ilimitadas. Con tres personajes
-            principales, los jugadores se sumergen en una trama emocionante
-            llena de misiones, actividades secundarias y un vasto mundo para
-            explorar. GTA Online amplía la experiencia con desafíos en línea.
-            Gráficos asombrosos y una atención excepcional al detalle hacen de
-            este juego un referente, combinando una narrativa absorbente,
-            jugabilidad variada y un universo que sigue creciendo
+          <p class="text-gray fs-5" id="descripcionJuego">
           </p>
         </article>
       </div>
@@ -158,24 +143,23 @@
           <ul class="list-unstyled">
             <li class="text-light fs-5 mb-4">
               <span class="text-uppercase fw-bold d-block text-secondary">Sistema Operativo</span>
-              Windows 7
+              <p id="sistemaOperativoJuegoM"></p>
             </li>
             <li class="text-light fs-5 mb-4">
               <span class="text-uppercase fw-bold d-block text-secondary">Procesador</span>
-              Intel Core 2 Quad CPU Q6600 @ 2.40GHz (4 CPUs) / AMD Phenom 9850
-              Quad-Core Processor (4 CPUs) @ 2.5GHz
+              <p id="procesadorM"></p>
             </li>
             <li class="text-light fs-5 mb-4">
               <span class="text-uppercase fw-bold d-block text-secondary">Memoria RAM</span>
-              4 GB RAM
+              <p  id="ramM"></p>
             </li>
             <li class="text-light fs-5 mb-4">
               <span class="text-uppercase fw-bold d-block text-secondary">Tarjeta Gráfica</span>
-              NVIDIA 9800 GT 1GB / AMD HD 4870 1GB (DX 10, 10.1, 11)
+              <p id="tarjetaGraficaM"></p>
             </li>
             <li class="text-light fs-5 mb-4">
               <span class="text-uppercase fw-bold d-block text-secondary">Espacio en disco</span>
-              90 GB
+              <p id="espacioM"></p>
             </li>
           </ul>
         </div>
@@ -184,23 +168,23 @@
           <ul class="list-unstyled">
             <li class="text-light mb-4 fs-5">
               <span class="text-uppercase fw-bold d-block text-secondary">Sistema Operativo</span>
-              Windows 7
+              <p id="sistemaOperativoJuegoR"></p>
             </li>
             <li class="text-light mb-4 fs-5">
               <span class="text-uppercase fw-bold d-block text-secondary">Procesador</span>
-              Intel Core i5 3470 @ 3.2GHZ (4 CPUs) / AMD X8 FX-8350 @ 4GHZ (8 CPUs)
+              <p id="procesadorR"></p>
             </li>
             <li class="text-light mb-4 fs-5">
               <span class="text-uppercase fw-bold d-block text-secondary">Memoria RAM</span>
-              8 GB RAM
+              <p id="ramR"></p>
             </li>
             <li class="text-light mb-4 fs-5">
               <span class="text-uppercase fw-bold d-block text-secondary">Tarjeta Gráfica</span>
-              NVIDIA GTX 660 2GB / AMD HD7870 2GB
+              <p id="tarjetaGraficaR"></p>
             </li>
             <li class="text-light mb-4 fs-5">
               <span class="text-uppercase fw-bold d-block text-secondary">Espacio en disco</span>
-              90 GB
+              <p id="espacioR"></p>
             </li>
           </ul>
         </div>
@@ -251,6 +235,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
+  <script src="../js/masInformacion.js" type="module"></script>
   <script src="../js/resenias.js" type="module"></script>
 </body>
 </html>
