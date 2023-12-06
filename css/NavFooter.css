@@ -4,7 +4,12 @@
 }
 
 .navbar{
-    background-color:#00008B;
+    background: linear-gradient(0deg, rgba(0,0,80,0.7),rgba(0,0,80,0.7));
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(30px);
+    box-shadow: 5px 5px 18px rgba(0,0,20,0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,10 +23,11 @@
     align-items: center;
 }
 
-
 .navbar-nav .nav-link {
     color: white !important; 
     margin: 0 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
 }
 
 .navbar-nav .nav-link:hover {
@@ -29,7 +35,6 @@
 }
 .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
     background-color: rgba(255, 255, 255, 0.9); 
-    
 }
 
 .navbar-nav .nav-item.dropdown:hover .dropdown-menu a {
@@ -108,7 +113,7 @@ footer p {
 
 @media (max-width: 768px) {
     footer {
-        padding: 0; 
+        padding: 80px 5px; 
         background-size: cover;
     }
 }
