@@ -154,7 +154,7 @@ class RequisitosDelSistema{
     }
 }
 
-class Reseña{
+export class Reseña{
     #votosPositivos;
     #votosNegativos;
     #comentarios;
