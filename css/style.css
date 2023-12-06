@@ -157,7 +157,8 @@ a {
 }
 
 .promocion {
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent), url("../img/img-promo.jpg") no-repeat top;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent), url("../img/img-promo.jpg") no-repeat;
+    background-position: 70% 0%;
     background-size: cover;
     height: 75vh;
     max-height: 40rem;
@@ -233,9 +234,14 @@ a {
     justify-content: center;
     align-items: flex-end;
     height: 50vh;
+    max-height: 38rem;
     padding-bottom: 40px;
     background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.9))
     ,url(../img/fondo-juegos.jpg) no-repeat;
-    background-position: 0 20% ;
+    background-position: 50% 20% ;
     background-size: cover;
+}
+
+.btn-genero{
+    width: 100%;
 }
