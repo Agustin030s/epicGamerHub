@@ -6,14 +6,12 @@ let params = new URLSearchParams(queryString)
 //Este es el nombre del juego que nos llega desde el index
 let nombreJuego = params.get('nombreJuego')
 
-
-
 //Funcion para obtener el juego a renderizar
 let getGame = () => {
     let listaJuegos = getLocalStorage('juegos')
     let juego = listaJuegos.filter((e) => e.nombre === nombreJuego)
 
-    return juego[0]
+    return juego[0];
 }
 
 let renderizarJuego = (juego) => {
@@ -22,6 +20,8 @@ let renderizarJuego = (juego) => {
     let imagenJuego = d.getElementById('imagenJuego');
     let desarrolladorJuego = d.getElementById('desarrolladorJuego');
     let precioJuego = d.getElementById('precioJuego');
+    let precioJuego2 = d.getElementById('precioJuego2');
+    console.log(precioJuego2);
     let descripcionJuego = d.getElementById('descripcionJuego');
     let categoriaJuego = d.getElementById('categoriaJuego');
     let sistemaOperativoJuegoM = d.getElementById('sistemaOperativoJuegoM');
@@ -36,30 +36,29 @@ let renderizarJuego = (juego) => {
     let tarjetaGraficaR= d.getElementById('tarjetaGraficaR');
     let espacioR= d.getElementById('espacioR');
 
-
-
-    console.log(juego)
     if(juego){
         tituloJuego.textContent = juego.nombre
         imagenJuego.src = juego.imagen
         desarrolladorJuego.textContent = juego.desarrollador
         precioJuego.textContent = `$${juego.precio }`
+        precioJuego2.innerText = `$${juego.precio + 10}`
+        console.log(precioJuego2);
         desarrolladorJuego.textContent = juego.desarrollador
         descripcionJuego.textContent = juego.descripcion 
         categoriaJuego.textContent = juego.categoria
 
-        sistemaOperativoJuegoM.textContent = juego.requisitos.minimos.sistemaOperativo
-        procesadorM.textContent = juego.requisitos.minimos.procesador
-        ramM.textContent = juego.requisitos.minimos.ram
-        tarjetaGraficaM.textContent = juego.requisitos.minimos.tarjetaGrafica
-        espacioM.textContent = juego.requisitos.minimos.almacenamiento
+        sistemaOperativoJuegoM.textContent = juego.requisitosMinimos.sistemaOperativo
+        procesadorM.textContent = juego.requisitosMinimos.procesador
+        ramM.textContent = juego.requisitosMinimos.ram
+        tarjetaGraficaM.textContent = juego.requisitosMinimos.tarjetaGrafica
+        espacioM.textContent = juego.requisitosMinimos.almacenamiento
 
 
-        sistemaOperativoJuegoR.textContent = juego.requisitos.recomendados.sistemaOperativo
-        procesadorR.textContent = juego.requisitos.recomendados.procesador
-        ramR.textContent = juego.requisitos.recomendados.ram
-        tarjetaGraficaR.textContent = juego.requisitos.recomendados.tarjetaGrafica
-        espacioR.textContent = juego.requisitos.recomendados.almacenamiento
+        sistemaOperativoJuegoR.innerText = juego.requisitos.sistemaOperativo
+        procesadorR.innerText = juego.requisitos.procesador
+        ramR.innerText = juego.requisitos.ram
+        tarjetaGraficaR.innerText = juego.requisitos.tarjetaGrafica
+        espacioR.innerText = juego.requisitos.almacenamiento
 
     }
 }
