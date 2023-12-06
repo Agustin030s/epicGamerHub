@@ -85,29 +85,29 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                  <label for="correo" class="form-label text-light">Direccion de correo electronico</label>
-                  <input type="email" class="form-control" id="correo" aria-describedby="emailHelp">
+                  <label for="correoRegister" class="form-label text-light">Direccion de correo electronico</label>
+                  <input type="email" class="form-control" id="correoRegister" aria-describedby="emailHelp" minlength="10" maxlength="320"  required>
                   <div class="invalid-feedback">
                     <span>Debes ingresar un correo electronico</span>
                   </div>
                 </div>
                 <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label text-light">Contraseña</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
+                  <label for="contraseniaRegister" class="form-label text-light">Contraseña</label>
+                  <input type="password" class="form-control" id="contraseniaRegisterConfirm" minlength="8" maxlength="16" required>
                   <div class="invalid-feedback">
                     <span>La contraseña debe tener al entre 8 y 16 caracteres, al menos un número, al menos una minúscula y al menos una mayúscula.</span>
                   </div>
                 </div>
                 <div class="mb-3">
-                  <label for="exampleInputPassword2" class="form-label text-light">Confirmar Contraseña</label>
-                  <input type="password" class="form-control" id="exampleInputPassword2">
+                  <label for="contraseniaRegisterConfirm" class="form-label text-light">Confirmar Contraseña</label>
+                  <input type="password" class="form-control" id="contraseniaRegisterConfirm" minlength="8" maxlength="16" required>
                   <div class="invalid-feedback">
                     <span id="confirmarContraseña">Debes confirmar tu contraseña</span>
                   </div>
                 </div>
                 <div class="mb-3 form-check text-light">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1 text-light">Tengo 13 años o más y acepto los términos del Acuerdo de Suscriptor a EpicGamerHub y la Política de Privacidad del mismo.</label>
+                  <input type="checkbox" class="form-check-input" id="checkboxRegister" required>
+                  <label class="form-check-label" for="checkboxRegister">Tengo 13 años o más y acepto los términos del Acuerdo de Suscriptor a EpicGamerHub y la Política de Privacidad del mismo.</label>
                   <div class="invalid-feedback">
                     <span>Debes aceptar los términos y condiciones</span>
                   </div>
@@ -131,5 +131,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
 </body>
 </html>
