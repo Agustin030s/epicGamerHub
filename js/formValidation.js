@@ -1,4 +1,4 @@
-const validarTexto = (input, min, max) => {
+export const validarTexto = (input, min, max) => {
   const texto = input.value;
   if (texto.length === 0) {
     input.classList.add("is-invalid");
@@ -9,7 +9,7 @@ const validarTexto = (input, min, max) => {
   }
 };
 
-const validarCategoria = (select) => {
+export const validarCategoria = (select) => {
   const categoria = select.value;
   if (
     categoria === "Accion" ||
@@ -27,7 +27,7 @@ const validarCategoria = (select) => {
   }
 };
 
-const validarRam = (select) => {
+export const validarRam = (select) => {
   const ram = select.value;
   if (ram === "4Gb" || ram === "8Gb" || ram === "16Gb" || ram === "32Gb") {
     select.classList.add("is-valid");
@@ -38,7 +38,7 @@ const validarRam = (select) => {
   }
 };
 
-const validarAlmacenamiento = (select) => {
+export const validarAlmacenamiento = (select) => {
   const almacenamiento = select.value;
   if (
     almacenamiento === "40Gb" ||
@@ -55,7 +55,7 @@ const validarAlmacenamiento = (select) => {
   }
 };
 
-const validarImagen = (inputImg) =>{
+export const validarImagen = (inputImg) =>{
     const patron = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/;
     const imagenUrl = inputImg.value;
     if(patron.test(imagenUrl)){
@@ -67,7 +67,7 @@ const validarImagen = (inputImg) =>{
     }
 };
 
-const validarContrasenia = (input) =>{
+export const validarContrasenia = (input) =>{
     const patron = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
     const contrasenia = input.value;
     if(patron.test(contrasenia)){
@@ -79,7 +79,7 @@ const validarContrasenia = (input) =>{
     }
 };
 
-const validarEmail = (input) =>{
+export const validarEmail = (input) =>{
     const email = input.value;
     const patron = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if(patron.test(email)){
@@ -91,7 +91,7 @@ const validarEmail = (input) =>{
     }
 };
 
-const validarCheckBox = (checkBox) =>{
+export const validarCheckBox = (checkBox) =>{
     if(checkBox.checked){
         checkBox.classList.add('is-valid');
         return true;
