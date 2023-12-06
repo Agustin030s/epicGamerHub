@@ -1,4 +1,4 @@
-class Juego{
+export class Juego{
     #codigo;
     #nombre;
     #precio;
@@ -114,7 +114,7 @@ class Juego{
     }
 }
 
-class RequisitosDelSistema{
+export class RequisitosDelSistema{
     #sistemaOperativo;
     #procesador;
     #ram;
