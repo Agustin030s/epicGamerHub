@@ -7,7 +7,6 @@ const codigoDeJuego = parametroURL.get('codigo');
 
 const listaDeJuegos = getLocalStorage('juegos');
 const juego = listaDeJuegos.find((elemento) => elemento.codigo === codigoDeJuego);
-console.log(listaDeJuegos)
 
 let renderizarJuego = (juego) => {
     //Componentes para hacer el renderizado dinamico

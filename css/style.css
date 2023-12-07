@@ -131,7 +131,7 @@ a {
 .price {
     font-weight: 700;
     color: #fff;
-    margin: 7px 0 20px 0;
+    margin-top: 25px;
 }
 
 .img-card-container {
@@ -173,7 +173,7 @@ a {
 }
 
 .btn-customized-2:hover {
-    filter: brightness(1.2);
+    filter: brightness(1.8);
 }
 
 .tituloAdministracion{
@@ -216,7 +216,6 @@ a {
     object-fit: cover;
     border-radius: 7px;
 }
-
 
 
 /*containerComentario*/
