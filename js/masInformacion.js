@@ -2,20 +2,12 @@ import { getLocalStorage } from "./dataStorageManager.js";
 
 let d = document;
 
-
 const parametroURL = new URLSearchParams(window.location.search);
 const codigoDeJuego = parametroURL.get('codigo');
 
 const listaDeJuegos = getLocalStorage('juegos');
 const juego = listaDeJuegos.find((elemento) => elemento.codigo === codigoDeJuego);
 
-//Funcion para obtener el juego a renderizar
-let getGame = () => {
-    let listaJuegos = getLocalStorage('juegos')
-    let juego = listaJuegos.filter((e) => e.nombre === nombreJuego)
-
-    return juego[0];
-}
 
 let renderizarJuego = (juego) => {
     //Componentes para hacer el renderizado dinamico
@@ -24,8 +16,6 @@ let renderizarJuego = (juego) => {
     let imagenJuego = d.getElementById('imagenJuego');
     let desarrolladorJuego = d.getElementById('desarrolladorJuego');
     let precioJuego = d.getElementById('precioJuego');
-    let precioJuego2 = d.getElementById('precioJuego2');
-    console.log(precioJuego2);
     let descripcionJuego = d.getElementById('descripcionJuego');
     let categoriaJuego = d.getElementById('categoriaJuego');
     let sistemaOperativoJuegoM = d.getElementById('sistemaOperativoJuegoM');
@@ -46,8 +36,6 @@ let renderizarJuego = (juego) => {
         imagenJuego.src = juego.imagen
         desarrolladorJuego.textContent = juego.desarrollador
         precioJuego.textContent = `$${juego.precio }`
-        precioJuego2.innerText = `$${juego.precio + 10}`
-        console.log(precioJuego2);
         desarrolladorJuego.textContent = juego.desarrollador
         descripcionJuego.textContent = juego.descripcion 
         categoriaJuego.textContent = juego.categoria
