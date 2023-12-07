@@ -131,13 +131,8 @@ a {
 .price {
     font-weight: 700;
     color: #fff;
-    margin-bottom: 30px;
-}
-
-.price span {
-    font-weight: 300;
-    color: #ccc;
-    text-decoration: line-through;
+    margin: 7px 0 20px 0;
+    font-size: 2.4rem;
 }
 
 .img-card-container {
