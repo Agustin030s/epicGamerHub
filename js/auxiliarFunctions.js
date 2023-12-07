@@ -15,3 +15,15 @@ export const limpiarFormularios = (form) =>{
 
     form.reset();
 }
+
+export const key = 'clave-super-secreta';
+
+export const encriptarContrasenia = (password, key) => {
+    const encrypted = CryptoJS.AES.encrypt(password, key).toString();
+    return encrypted;
+};
+
+export const desencriptarContrasenia = (encryptedPassword, key) => {
+    const decrypted = CryptoJS.AES.decrypt(encryptedPassword, key).toString(CryptoJS.enc.Utf8);
+    return decrypted;
+};

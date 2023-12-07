@@ -6,7 +6,7 @@ import {
   validarCheckBox,
 } from "./formValidation.js";
 
-import { insertLocalStorage } from './dataStorageManager.js';
+import { insertLocalStorage, getLocalStorage } from './dataStorageManager.js';
 import {limpiarFormularios} from './auxiliarFunctions.js';
 
 const email = document.querySelector("#correoRegister"),
@@ -16,7 +16,7 @@ const email = document.querySelector("#correoRegister"),
         termCondiciones = document.querySelector("#checkboxRegister");
 
 const formRegister = document.querySelector("#formRegister");
-const usuarios = [];
+const usuarios = getLocalStorage('usuarios');
 
 const crearUsuario = (e) => {
   e.preventDefault();
@@ -33,6 +33,15 @@ const crearUsuario = (e) => {
         usuarios.push(user);
         insertLocalStorage('usuarios', usuarios);
         limpiarFormularios(formRegister);
+        Swal.fire({
+            title: "Usuario creado!",
+            text: "El usuario se creo exitosamente.",
+            icon: "success",
+            confirmButtonText: "Aceptar",
+            willClose: () => {
+                window.location.href = window.location.origin + "/pages/login.html";
+            }
+        });
     }
   }
 };
