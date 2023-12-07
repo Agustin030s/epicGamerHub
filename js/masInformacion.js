@@ -11,7 +11,8 @@ console.log(listaDeJuegos)
 
 let renderizarJuego = (juego) => {
     //Componentes para hacer el renderizado dinamico
-    let tituloJuego = d.getElementById('tituloJuego')
+    let codigoJuego = d.getElementById('codigoDelJuego');
+    let tituloJuego = d.getElementById('tituloJuego');
     let imagenJuego = d.getElementById('imagenJuego');
     let desarrolladorJuego = d.getElementById('desarrolladorJuego');
     let precioJuego = d.getElementById('precioJuego');
@@ -33,6 +34,7 @@ let renderizarJuego = (juego) => {
 
     console.log(juego)
     if(juego){
+        codigoJuego.textContent = "Codigo: " + juego.codigo
         tituloJuego.textContent = juego.nombre
         imagenJuego.src = juego.imagen
         desarrolladorJuego.textContent = juego.desarrollador

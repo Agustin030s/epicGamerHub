@@ -35,7 +35,7 @@ const mostrarJuegos = () => {
                   </div>
                 </div>       
                 <div>
-                  <p class="price">$${listaDeJuegos[i].precio}</p>
+                  <p class="price fs-1">$${listaDeJuegos[i].precio}</p>
                   <button class="btn-customized" onclick="verDetalle('${listaDeJuegos[i].codigo}')">Más información</button>
                 </div>
               </div>
