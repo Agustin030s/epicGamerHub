@@ -98,10 +98,22 @@
                   </li>
                 </ul>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="administrador.html"
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
                   >Administrador</a
                 >
+                <ul class="dropdown-menu dropdown-menu-start">
+                  <li>
+                    <a class="dropdown-item active" href="./administrador.html">Juegos</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./adminUsuarios.html">Usuarios</a>
+                  </li>
+                </ul>
               </li>
               <li class="nav-item d-none">
                 <a
@@ -153,12 +165,10 @@
       <section class="container my-5" id="seccionJuegos">
         <button
           class="btn btn-primary my-2"
-          data-bs-toggle="modal"
-          data-bs-target="#modalJuegos"
+          id="btnAgregarJuego"
         >
           Agregar
         </button>
-        <button class="btn btn-primary my-2" id="btnAdministrarUsuarios">Administrar Usuarios</button>
         <div class="table-responsive">
           <table class="table table-hover">
             <thead>
@@ -221,37 +231,17 @@
           </table>
         </div>
       </section>
-
-      <section class="container my-5 d-none" id="seccionUsuarios">
-        <button class="btn btn-primary my-2" id="btnAdministrarJuegos">Administrar Juegos</button>
-        <div class="table-responsive">
-          <table class="table table-hover">
-            <thead>
-              <tr class="table-primary">
-                <th scope="col">#</th>
-                <th scope="col">Usuario</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Correo Electronico</th>
-                <th scope="col">Acciones</th>
-              </tr>
-            </thead>
-            <tbody id="tbodyUsuario">
-              
-            </tbody>
-          </table>
-        </div>
-      </section>
     </main>
 
     <div class="modal fade" id="modalJuegos" tabindex="-1" aria-labelledby="modalJuegosLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h2 class="modal-title fs-5" id="modalPeliculaLabel">Agregar Juego</h2>
+            <h2 class="modal-title fs-5" id="modalJuegosLabel">Agregar Juego</h2>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form id="formPelicula">
+            <form id="formJuegos">
               <!-- Sección Información Básica -->
               <div id="seccion1" class="form-section">
                 <div class="mb-3 d-none">
@@ -447,6 +437,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
     <script src="../js/visualAdminTools.js"></script>
     <script type="module" src="../js/adminJuegos.js"></script>
-    <script type="module" src="../js/userAdmin.js"></script>
   </body>
 </html>
