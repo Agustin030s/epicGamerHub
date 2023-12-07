@@ -1,7 +1,9 @@
 import { Juego, RequisitosDelSistema } from "./clases/classJuego.js";
 import { getLocalStorage, insertLocalStorage } from "./dataStorageManager.js";
+import Usuario from "./clases/classUsuario.js";
+import { key, encriptarContrasenia } from "./auxiliarFunctions.js";
 
-//Carga inicial
+//Carga inicial de juegos
 const juegosIniciales = [];
 
 const gta5 = new Juego(
@@ -33,6 +35,21 @@ juegosIniciales.push(fifa24);
 
 insertLocalStorage('juegos', juegosIniciales);
 
+// carga inicial de Usuario admin
+const users = getLocalStorage('usuarios');
+if(users.length === 0){
+  const contraseniaEncriptada = encriptarContrasenia("Admin1234", key);
+  const usuarioAdmin = new Usuario(
+      undefined,
+      "administrador",
+      "administrador",
+      "admin@admin.com",
+      contraseniaEncriptada,
+      "administrador"
+    );
+    users.push(usuarioAdmin);
+    insertLocalStorage('usuarios', users);
+}
 //Detalle de Juego
 
 const listaDeJuegos = getLocalStorage('juegos');
