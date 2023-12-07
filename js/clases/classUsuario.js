@@ -1,12 +1,14 @@
 export default class Usuario{
     #codigo;
     #usuario;
+    #nombre;
     #correo;
     #contrasenia;
     #rol;
-    constructor(codigo = uuidv4() ,usuario, correo, contrasenia, rol){
+    constructor(codigo = uuidv4() ,usuario, nombre, correo, contrasenia, rol){
         this.#codigo = codigo;
         this.#usuario = usuario;
+        this.#nombre = nombre;
         this.#correo = correo;
         this.#contrasenia = contrasenia;
         this.#rol = rol;
@@ -18,6 +20,10 @@ export default class Usuario{
 
     get usuario(){
         return this.#usuario;
+    }
+
+    get nombre(){
+        return this.#nombre;
     }
 
     set usuario(user){
@@ -52,6 +58,7 @@ export default class Usuario{
         return{
             codigo: this.codigo,
             usuario: this.usuario,
+            nombre: this.nombre,
             correo: this.correo,
             contrasenia: this.contrasenia,
             rol: this.rol
