@@ -1,20 +1,13 @@
 import { getLocalStorage } from "./dataStorageManager.js";
 
-let d = document
-const queryString = window.location.search;
-let params = new URLSearchParams(queryString)
-//Este es el nombre del juego que nos llega desde el index
-let nombreJuego = params.get('nombreJuego')
+let d = document;
 
+const parametroURL = new URLSearchParams(window.location.search);
+const codigoDeJuego = parametroURL.get('codigo');
 
-
-//Funcion para obtener el juego a renderizar
-let getGame = () => {
-    let listaJuegos = getLocalStorage('juegos')
-    let juego = listaJuegos.filter((e) => e.nombre === nombreJuego)
-
-    return juego[0]
-}
+const listaDeJuegos = getLocalStorage('juegos');
+const juego = listaDeJuegos.find((elemento) => elemento.codigo === codigoDeJuego);
+console.log(listaDeJuegos)
 
 let renderizarJuego = (juego) => {
     //Componentes para hacer el renderizado dinamico
@@ -66,17 +59,4 @@ let renderizarJuego = (juego) => {
 
 
 //Renderizar el juego
-let juego = getGame()
 renderizarJuego(juego)
-
-
-
-d.addEventListener('click',(e)=>{
-    //Este es el nombre que mandaremos desde el index hasta la pagina detalle Juego
-    let nombreJuego = e.target.parentNode.parentNode.querySelector('h3').textContent
-    
-    if(e.target.id === "masInfoBtn"){
-        location.href = `./pages/detalleJuego.html?nombreJuego=${nombreJuego}`
-    }
-})
-

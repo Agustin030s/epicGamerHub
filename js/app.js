@@ -36,7 +36,7 @@ const mostrarJuegos = () => {
                 </div>       
                 <div>
                   <p class="price">$${listaDeJuegos[i].precio}</p>
-                  <button class="btn-customized" id="masInfoBtn">Más información</button>
+                  <button class="btn-customized" onclick="verDetalle('${listaDeJuegos[i].codigo}')">Más información</button>
                 </div>
               </div>
             </div>
@@ -45,6 +45,10 @@ const mostrarJuegos = () => {
     } else {
         contenedorJuegos.innerHTML = '<h2 class="fs-2 mt-5 text-center text-secondary">No hay peliculas para mostrar</h2>'
     }
+}
+
+window.verDetalle = (codigoDeJuego) => {
+    window.location.href = window.location.origin + '/pages/detalleJuego.html?codigo=' + codigoDeJuego;
 }
 
 mostrarJuegos();
