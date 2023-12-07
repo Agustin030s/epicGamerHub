@@ -6,7 +6,9 @@ const listaFavoritos = getLocalStorage('favoritos');
 const parametroURL = new URLSearchParams(window.location.search);
 const codigoDeJuego = parametroURL.get('codigo');
 
-const btnAgregarFavorito = document.getElementById('btnAgregarFavorito');
+const btnAgregarFavorito = document.getElementById('btnAgregarFavorito'),
+        btnFavoritos = document.getElementById('btnFavoritos');
+const offCanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasFavoritos'));
 
 const agregarFavorito = () =>{
     const juego = listaJuegos.find(game => game.codigo === codigoDeJuego);
@@ -62,8 +64,15 @@ const cargaInicialDeFavoritos = () =>{
     }
 }
 
+const abrirCanvas = () =>{
+    offCanvas.show();
+}
+
 window.verDetalle = (codigoDeJuego) => {
     window.location.href = window.location.origin + '/pages/detalleJuego.html?codigo=' + codigoDeJuego;
 }
 
 btnAgregarFavorito.addEventListener('click', agregarFavorito);
+btnFavoritos.addEventListener('click', abrirCanvas);
+
+cargaInicialDeFavoritos();
