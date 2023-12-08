@@ -10,16 +10,9 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     const correo = document.getElementById("correo").value;
     const contrasenia = document.getElementById("contrasenia").value;
   
-    console.log("Correo:", correo);
-    console.log("Contraseña:", contrasenia);
-  
     const usuarios = getLocalStorage("usuarios");
   
-    console.log("Usuarios en localStorage:", usuarios);
-  
     const usuario = usuarios.find((user) => (user.correo === correo));
-  
-    console.log("Usuario encontrado:", usuario);
   
     if (!usuario) {
       Swal.fire({
@@ -37,7 +30,8 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
       insertSessionStorage('sesion', usuario);
       if (usuario.rol === "administrador") {
         Swal.fire({
-          title: "Bienvenido Admin!",
+          title: "Inicio de sesión exitoso!",
+          text: `Bienvenido ${usuario.usuario}`,
           icon: "success",
           confirmButtonText: "Aceptar",
           willClose: () => {
@@ -45,7 +39,15 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
           },
         });
       }else{
-        window.location.href = window.location.origin + '/index.html';
+        Swal.fire({
+          title: "Inicio de sesión exitoso!",
+          text: `Bienvenido ${usuario.usuario}`,
+          icon: "success",
+          confirmButtonText: "Aceptar",
+          willClose: () => {
+            window.location.href = window.location.origin + '/index.html';
+          },
+        });
       }
     } else {
       Swal.fire({
