@@ -16,6 +16,8 @@
     />
     <link rel="stylesheet" href="../css/NavFooter.css">
     <link rel="stylesheet" href="../css/login.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <script type="module" src="../js/login.js"></script>
   </head>
   <body class="body-login">
     <!-- <header>
@@ -74,7 +76,7 @@
     </header> -->
 
     <main class="container">
-      <form action="../index.html" class="col-md-6 mx-auto" method="get">
+      <form id="loginForm" action="../index.html" class="col-md-6 mx-auto" method="get">
         <div class="container-login">
           <div>
             <img src="../img/logo.png" alt="" />
@@ -139,7 +141,7 @@
           </div>
           <div class="enlaces">
             <br />
-            <a href="../index.html">Si aun no posee cuenta de Battle.net</a>
+            <a href="./registro.html">Si aun no posee cuenta de Battle.net</a>
             <br />
             <a href="../index.html">¿Aun no puede iniciar sesión?</a>
           </div>
