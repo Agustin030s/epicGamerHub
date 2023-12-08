@@ -72,12 +72,16 @@
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-person-circle"></i>
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-start">
+                            <ul class="dropdown-menu dropdown-menu-start" id="opcionesUser">
                                 <li><a class="dropdown-item" href="./login.html">Iniciar Sesión</a></li>
                                 <li><a class="dropdown-item" href="./registro.html">Registrarse</a></li>
+                                <li class="d-none"><input type="text" disabled class="dropdown-item"></li>
+                                <li class="d-none">
+                                  <button class="dropdown-item text-dark" id="btnCerrarSesion">Cerrar sesión</button>
+                                </li>
                             </ul>
                         </li>
-                    </ul>
+                      </ul>
                     </li>
                 </ul>
                 
@@ -226,6 +230,7 @@
       src="https://kit.fontawesome.com/2068760ca5.js"
       crossorigin="anonymous"
     ></script>
+    <script type="module" src="../js/sessionManager.js"></script>
     <script type="module" src="../js/favourites.js"></script>
   </body>
 </html>

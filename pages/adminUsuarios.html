@@ -98,37 +98,28 @@
                   </li>
                 </ul>
               </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
+              <li class="nav-item ocultarAdmin">
+                <a class="nav-link" href="./pages/nosotros.html">Sobre Nosotros</a>
+              </li>
+              <li class="nav-item ocultarAdmin">
+                <button class="nav-link" id="btnFavoritos"><i class="bi bi-heart"></i></button>
+              </li>
+              <li class="nav-item dropdown d-none" id="opcionesAdmin">
+                <a class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
                   >Administrador</a
                 >
                 <ul class="dropdown-menu dropdown-menu-start">
                   <li>
-                    <a class="dropdown-item" href="./administrador.html"
-                      >Juegos</a
-                    >
+                    <a class="dropdown-item active" href="./administrador.html">Juegos</a>
                   </li>
                   <li>
-                    <a class="dropdown-item active" href="./adminUsuarios.html"
-                      >Usuarios</a
-                    >
+                    <a class="dropdown-item" href="./adminUsuarios.html">Usuarios</a>
                   </li>
                 </ul>
-              </li>
-              <li class="nav-item d-none">
-                <a
-                  class="nav-link"
-                  data-bs-toggle="offcanvas"
-                  href="#offcanvasExample"
-                  role="button"
-                  aria-controls="offcanvasExample"
-                  ><i class="bi bi-heart"></i
-                ></a>
               </li>
               <li class="nav-item">
                 <ul class="navbar-nav">
@@ -142,7 +133,7 @@
                     >
                       <i class="bi bi-person-circle"></i>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-start">
+                    <ul class="dropdown-menu dropdown-menu-start" id="opcionesUser">
                       <li>
                         <a class="dropdown-item" href="./login.html"
                           >Iniciar Sesión</a
@@ -152,6 +143,10 @@
                         <a class="dropdown-item" href="./registro.html"
                           >Registrarse</a
                         >
+                      </li>
+                      <li class="d-none"><input type="text" disabled class="dropdown-item"></li>
+                      <li class="d-none">
+                        <button class="dropdown-item text-dark" id="btnCerrarSesion">Cerrar sesión</button>
                       </li>
                     </ul>
                   </li>
@@ -197,6 +192,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+    <script type="module" src="../js/sessionManager.js"></script>
     <script type="module" src="../js/userAdmin.js"></script>
   </body>
 </html>

@@ -10,7 +10,6 @@ const juego = listaDeJuegos.find((elemento) => elemento.codigo === codigoDeJuego
 
 
 let renderizarJuego = (juego) => {
-    console.log(juego)
     //Componentes para hacer el renderizado dinamico
     let tituloJuego = d.getElementById('tituloJuego')
     let imagenJuego = d.getElementById('imagenJuego');
