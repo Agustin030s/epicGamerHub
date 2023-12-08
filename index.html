@@ -45,7 +45,7 @@
                     <a class="nav-link active" href="./index.html">Inicio</a>
                 </li>   
                     <li class="nav-item">
-                        <a class="nav-link" href="./index.html">Juegos</a>
+                        <a class="nav-link" href="./pages/juegos.html">Juegos</a>
                     </li>                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -63,7 +63,7 @@
                       <a class="nav-link" href="./pages/nosotros.html">Sobre Nosotros</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"><i class="bi bi-heart"></i></a>
+                      <button class="nav-link" id="btnFavoritos"><i class="bi bi-heart"></i></button>
                     </li>
                     <li class="nav-item">
                       <ul class="navbar-nav">
@@ -204,27 +204,14 @@
       </section>
     </main>
 
-    <div class="offcanvas offcanvas-end bg-main text-light" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas offcanvas-end bg-main text-light" tabindex="-1" id="offcanvasFavoritos" aria-labelledby="offcanvasFavoritosLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Lista de Favoritos</h5>
+        <h5 class="offcanvas-title" id="offcanvasFavoritosLabel">Lista de Favoritos</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
         <h6>Estos son tus juegos favoritos</h6>
-        <div class="card card-customized mt-3">
-          <div class="row g-0 justify-content-center align-items-center">
-            <div class="col-md-4">
-              <img src="https://th.bing.com/th/id/R.e94b9c3ff8c3df6575fbcd191de78996?rik=iDbm%2fMSi6cnJAQ&riu=http%3a%2f%2fjuegos.es%2fwp-content%2fuploads%2fGTAVportada.jpg&ehk=6vWapvXGNSyhWSfKDpe37%2b%2bh0zBJprUsmd2%2bw7G%2bm7I%3d&risl=&pid=ImgRaw&r=0" alt="Imagen del juego" class="img-fluid">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body text-end">
-                <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0" aria-label="Eliminar"></button>
-                <h5 class="card-title text-light mb-4">Grand Theft Auto V</h5>
-                <a href="#" class="btn-customized">Ver detalles</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
 
@@ -244,6 +231,7 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+    <script type="module" src="./js/favourites.js"></script>
     <script src="./js/app.js" type="module"></script>
     <script src="./js/masInformacion.js" type="module"></script>
   </body>
