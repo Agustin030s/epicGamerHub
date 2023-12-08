@@ -38,11 +38,6 @@ insertLocalStorage('juegos', juegosIniciales);
 const listaDeJuegos = getLocalStorage('juegos');
 const contenedorJuegos = document.getElementById('contenedorJuegos');
 
-const juegosConDescuento = listaDeJuegos.map(juego => ({
-    ...juego,
-    precioConDescuento: juego.precio - 10
-}));
-
 // Funcion para mostrar los juegos 
 const mostrarJuegos = () => {
     if (listaDeJuegos.length !== 0) {
