@@ -2,7 +2,7 @@ import { Juego, RequisitosDelSistema } from "./clases/classJuego.js";
 import { getLocalStorage, insertLocalStorage } from "./dataStorageManager.js";
 
 //Carga inicial
-const juegosIniciales = [];
+const juegosIniciales = getLocalStorage('juegos') || [];
 
 const gta5 = new Juego(
     undefined, // Se generará automáticamente un código UUID
@@ -28,8 +28,10 @@ let fifa24 = new Juego(
     "EA Sports"
 )
 
-juegosIniciales.push(gta5);
-juegosIniciales.push(fifa24);
+if(juegosIniciales.length === 0){
+  juegosIniciales.push(gta5);
+  juegosIniciales.push(fifa24);
+}
 
 insertLocalStorage('juegos', juegosIniciales);
 
@@ -83,7 +85,7 @@ const mostrarJuegos = () => {
 }
 
 window.verDetalle = (codigoDeJuego) => {
-    window.location.href = window.location.origin + '/pages/detalleJuego.html?codigo=' + codigoDeJuego;
+    window.location.href = './pages/detalleJuego.html?codigo=' + codigoDeJuego;
 }
 
 mostrarJuegos();
