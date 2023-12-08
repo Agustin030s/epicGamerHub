@@ -1,4 +1,4 @@
-import { getLocalStorage } from "./dataStorageManager.js";
+import { getLocalStorage, insertSessionStorage } from "./dataStorageManager.js";
 import { desencriptarContrasenia, key } from "./auxiliarFunctions.js";
 import { limpiarFormularios} from "./auxiliarFunctions.js";
 
@@ -34,6 +34,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     const contraseniaDesencriptada = desencriptarContrasenia(usuario.contrasenia, key);
   
     if (contrasenia === contraseniaDesencriptada) {
+      insertSessionStorage('sesion', usuario);
       if (usuario.rol === "administrador") {
         Swal.fire({
           title: "Bienvenido Admin!",
@@ -44,7 +45,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
           },
         });
       }else{
-        window.location.href = window.location.origin + 'index.html';
+        window.location.href = window.location.origin + '/index.html';
       }
     } else {
       Swal.fire({

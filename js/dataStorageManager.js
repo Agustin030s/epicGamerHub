@@ -9,3 +9,11 @@ export const getLocalStorage = (key) =>{
 export const insertSessionStorage = (key, array) =>{
     sessionStorage.setItem(key, JSON.stringify(array));
 }
+
+export const getSessionStorage = (key) =>{
+    return JSON.parse(sessionStorage.getItem(key));
+}
+
+export const removeSessionStorage = (key) =>{
+    sessionStorage.removeItem(key);
+}

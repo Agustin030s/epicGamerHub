@@ -59,11 +59,28 @@
                             <li><a class="dropdown-item" href="./error404.html">Novedades</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ocultarAdmin">
                       <a class="nav-link" href="./pages/nosotros.html">Sobre Nosotros</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ocultarAdmin">
                       <button class="nav-link" id="btnFavoritos"><i class="bi bi-heart"></i></button>
+                    </li>
+                    <li class="nav-item dropdown d-none" id="opcionesAdmin">
+                      <a class="nav-link dropdown-toggle"
+                      href="#"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                        >Administrador</a
+                      >
+                      <ul class="dropdown-menu dropdown-menu-start">
+                        <li>
+                          <a class="dropdown-item" href="./pages/administrador.html">Juegos</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="./pages/adminUsuarios.html">Usuarios</a>
+                        </li>
+                      </ul>
                     </li>
                     <li class="nav-item">
                       <ul class="navbar-nav">
@@ -71,12 +88,12 @@
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-person-circle"></i>
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-start">
+                            <ul class="dropdown-menu dropdown-menu-start" id="opcionesUser">
                                 <li><a class="dropdown-item" href="./pages/login.html">Iniciar Sesión</a></li>
                                 <li><a class="dropdown-item" href="./pages/registro.html">Registrarse</a></li>
-                                <li><input type="text" disabled class="dropdown-item"></li>
-                                <li>
-                                  <button class="dropdown-item text-dark">Cerrar sesión</button>
+                                <li class="d-none"><input type="text" disabled class="dropdown-item"></li>
+                                <li class="d-none">
+                                  <button class="dropdown-item text-dark" id="btnCerrarSesion">Cerrar sesión</button>
                                 </li>
                             </ul>
                         </li>
@@ -236,7 +253,8 @@
     <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
     <script type="module" src="./js/favourites.js"></script>
-    <script src="./js/app.js" type="module"></script>
+    <script type="module" src="./js/sessionManager.js"></script>
     <script src="./js/masInformacion.js" type="module"></script>
+    <script src="./js/app.js" type="module"></script>
   </body>
 </html>
