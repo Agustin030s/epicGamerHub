@@ -3,8 +3,9 @@ import { getLocalStorage, insertLocalStorage } from "./dataStorageManager.js";
 import Usuario from "./clases/classUsuario.js";
 import { key, encriptarContrasenia } from "./auxiliarFunctions.js";
 
-//Carga inicial de juegos
-const juegosIniciales = getLocalStorage('juegos');
+//Carga inicial
+const juegosIniciales = getLocalStorage('juegos') || [];
+
 
 if(juegosIniciales.length === 0){
   const gta5 = new Juego(
@@ -35,6 +36,12 @@ if(juegosIniciales.length === 0){
   juegosIniciales.push(fifa24);
   
   insertLocalStorage('juegos', juegosIniciales);
+}
+
+
+if(juegosIniciales.length === 0){
+  juegosIniciales.push(gta5);
+  juegosIniciales.push(fifa24);
 }
 
 
@@ -104,7 +111,7 @@ const mostrarJuegos = () => {
 }
 
 window.verDetalle = (codigoDeJuego) => {
-    window.location.href = window.location.origin + '/pages/detalleJuego.html?codigo=' + codigoDeJuego;
+    window.location.href = './pages/detalleJuego.html?codigo=' + codigoDeJuego;
 }
 
 mostrarJuegos();
