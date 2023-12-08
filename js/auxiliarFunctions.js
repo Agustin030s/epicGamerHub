@@ -55,3 +55,19 @@ export const cargaInicialDeFavoritos = (arrayFavoritos) =>{
         canvas.innerHTML += `<p class='parraFav'>Aún no tienes juegos favoritos<p>`;
     }
 }
+
+export function mostrarAlerta(mensaje, tipo) {
+  const tiposValidos = ['success', 'error', 'warning', 'info'];
+
+  if (!tiposValidos.includes(tipo)) {
+      console.error('Tipo de alerta no válido. Use uno de: success, error, warning, info');
+      return;
+  }
+
+  Swal.fire({
+      icon: tipo,
+      title: mensaje,
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'OK',
+  });
+}
