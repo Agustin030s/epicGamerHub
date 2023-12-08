@@ -17,13 +17,13 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
   
     console.log("Usuarios en localStorage:", usuarios);
   
-    const usuario = usuarios.find((user) => user.correo === correo || user.usuario === correo);
+    const usuario = usuarios.find((user) => (user.correo === correo || user.usuario === correo));
   
     console.log("Usuario encontrado:", usuario);
   
     if (!usuario) {
-      alert("Usuario no encontrado. Verifica tu correo electrónico o nombre de usuario");
-      console.log("Usuario no encontrado. Verifica tu correo electrónico.");
+      alert("Credenciales incorrectas. Verifica tu correo electrónico o nombre de usuario y contraseña.");
+      console.log("Credenciales incorrectas. Verifica tu correo electrónico o nombre de usuario y contraseña.");
       return false; 
     }
   
@@ -31,6 +31,11 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
   
     if (contrasenia === contraseniaDesencriptada) {
       alert("Inicio de sesión exitoso");
+
+      if (usuario.rol === "administrador") {
+        alert("Bienvenido Administrador");
+      }
+
       window.location.href = "../index.html";
     } else {
       alert("Contraseña incorrecta. Intenta de nuevo.");
@@ -38,4 +43,4 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
       limpiarFormularios(document.getElementById("loginForm")); 
       return false; 
     }
-  });
+});
