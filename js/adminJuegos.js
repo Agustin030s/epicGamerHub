@@ -41,7 +41,7 @@ const crearFila = (juego,fila) => {
             <div class="btn-group" role="group" aria-label="Basic example">
                 <button type="button" class="btn btn-info" onclick="verDetalle('${juego.codigo}')">Detalles</button>
                 <button type="button" class="btn btn-warning mx-2">Editar</button>
-                <button type="button" class="btn btn-danger">Eliminar</button>
+                <button type="button" class="btn btn-danger" onclick="eliminarJuego('${juego.codigo}')">Eliminar</button>
             </div>
         </td>
     </tr>` 
@@ -113,3 +113,38 @@ window.verDetalle = (codigoDeJuego) => {
 
 
 cargaInicialDeJuegos();
+
+window.eliminarJuego = (codigo) => {
+    const juegoAEliminar = juegos.find(juego => juego.codigo === codigo);
+
+    if (juegoAEliminar) {
+        const confirmacion = window.confirm(`¿Estás seguro de eliminar el juego "${juegoAEliminar.nombre}"?`);
+
+        if (confirmacion) {
+            const indiceJuego = juegos.findIndex(juego => juego.codigo === codigo);
+
+            if (indiceJuego !== -1) {
+                juegos.splice(indiceJuego, 1);
+
+                insertLocalStorage('juegos', juegos);
+
+                limpiarTabla();
+                cargaInicialDeJuegos();
+
+                console.log('Juego eliminado exitosamente');
+                mostrarAlerta('Juego eliminado exitosamente', 'success');
+            } else {
+                console.error('No se encontró el juego a eliminar');
+                mostrarAlerta('No se encontró el juego a eliminar', 'error');
+            }
+        } else {
+            console.log('Eliminación cancelada por el usuario');
+        }
+    } else {
+        console.error('No se encontró el juego a eliminar');
+        mostrarAlerta('No se encontró el juego a eliminar', 'error');
+    }
+}
+const limpiarTabla = () => {
+    tablaDeJuego.innerHTML = '';
+}
