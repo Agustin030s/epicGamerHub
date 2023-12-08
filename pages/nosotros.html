@@ -64,7 +64,7 @@
                       <a class="nav-link active" href="nosotros.html">Sobre Nosotros</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"><i class="bi bi-heart"></i></a>
+                      <button class="nav-link" id="btnFavoritos"><i class="bi bi-heart"></i></button>
                     </li>
                     <li class="nav-item">
                       <ul class="navbar-nav">
@@ -197,6 +197,17 @@
       </section>
     </main>
 
+    <div class="offcanvas offcanvas-end bg-main text-light" tabindex="-1" id="offcanvasFavoritos" aria-labelledby="offcanvasFavoritosLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasFavoritosLabel">Lista de Favoritos</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <h6>Estos son tus juegos favoritos</h6>
+        
+      </div>
+    </div>
+
     <footer>
       <img src="../img/logo.png" alt="Logo" class="logo d-inline-block align-text-center">
       <h6>Sigue a EpicGamerHub</h6>
@@ -215,5 +226,6 @@
       src="https://kit.fontawesome.com/2068760ca5.js"
       crossorigin="anonymous"
     ></script>
+    <script type="module" src="../js/favourites.js"></script>
   </body>
 </html>

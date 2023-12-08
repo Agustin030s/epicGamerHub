@@ -10,9 +10,9 @@ const juego = listaDeJuegos.find((elemento) => elemento.codigo === codigoDeJuego
 
 
 let renderizarJuego = (juego) => {
+    console.log(juego)
     //Componentes para hacer el renderizado dinamico
-    let codigoJuego = d.getElementById('codigoDelJuego');
-    let tituloJuego = d.getElementById('tituloJuego');
+    let tituloJuego = d.getElementById('tituloJuego')
     let imagenJuego = d.getElementById('imagenJuego');
     let desarrolladorJuego = d.getElementById('desarrolladorJuego');
     let precioJuego = d.getElementById('precioJuego');
@@ -31,7 +31,6 @@ let renderizarJuego = (juego) => {
     let espacioR= d.getElementById('espacioR');
 
     if(juego){
-        codigoJuego.textContent = "Codigo: " + juego.codigo
         tituloJuego.textContent = juego.nombre
         imagenJuego.src = juego.imagen
         desarrolladorJuego.textContent = juego.desarrollador

@@ -56,7 +56,7 @@
                       <a class="nav-link" href="nosotros.html">Sobre Nosotros</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"><i class="bi bi-heart"></i></a>
+                      <button class="nav-link" id="btnFavoritos"><i class="bi bi-heart"></i></button>
                     </li>
                     <li class="nav-item">
                       <ul class="navbar-nav">
@@ -111,9 +111,9 @@
             </p>
             <div class="d-flex gap-3 flex-wrap align-items-center justify-content-center justify-content-lg-start mt-4">
               <a href="#" class="btn-customized fs-5">Comprar</a>
-              <a href="#" class="btn-customized-2 fs-5">
+              <button class="btn-customized-2 fs-5" id="btnAgregarFavorito">
                 Añadir a favoritos
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -222,6 +222,18 @@
       </div>
     </section>
   </main>
+
+  <div class="offcanvas offcanvas-end bg-main text-light" tabindex="-1" id="offcanvasFavoritos" aria-labelledby="offcanvasFavoritosLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasFavoritosLabel">Lista de Favoritos</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <h6>Estos son tus juegos favoritos</h6>
+      
+    </div>
+  </div>
+
   <footer>
       <img src="../img/logo.png" alt="Logo" class="logo d-inline-block align-text-center">
       <h6>Sigue a EpicGamerHub</h6>
@@ -235,6 +247,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../js/addFavourites.js" type="module"></script>
   <script src="../js/masInformacion.js" type="module"></script>
   <script src="../js/resenias.js" type="module"></script>
 </body>
