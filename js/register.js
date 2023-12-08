@@ -33,6 +33,7 @@ const crearUsuario = (e) => {
     validarUsuario(username.value) &&
     validarTexto(nombre, 3, 200) &&
     validarEmail(email) &&
+    validarEmailRegistrado(email.value) &&
     validarCheckBox(termCondiciones)
   ) {
     if (contrasenia.value === contrasenia2.value) {
@@ -78,5 +79,23 @@ const validarUsuario = (usuario) => {
     return true;
   }
 };
+
+const validarEmailRegistrado = (email) =>{
+  const usuarioBuscado = usuarios.find((user) => user.correo === email);
+  Swal.fire({
+    title: "Ups!",
+    text: `Ya existe un usuario registrado con el email ${usuarioBuscado.correo}, deseas iniciar sesión?`,
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Aceptar",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location.href = window.location.origin + '/pages/login.html';
+    }
+  });
+}
 
 formRegister.addEventListener("submit", crearUsuario);
