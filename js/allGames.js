@@ -4,7 +4,7 @@ import {getLocalStorage} from "./dataStorageManager.js";
 const listaDeJuegos = getLocalStorage('juegos');
 const contenedorJuegos = document.getElementById('gamesContainer');
 
-// Mostramos loe juegos en la pagina 
+// Mostramos todos los juegos guardados en el localStorage
 mostrarJuegos(listaDeJuegos,listaDeJuegos.length,contenedorJuegos);
 
 window.verDetalle = (codigoDeJuego) => {
