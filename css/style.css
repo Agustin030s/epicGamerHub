@@ -129,8 +129,9 @@ a {
 }
 
 .price {
-    font-weight: 700;
+    font-weight: 500;
     color: #fff;
+    font-family: 'Montserrat',sans-serif;
 }
 
 .img-card-container {
