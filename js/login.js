@@ -13,33 +13,46 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     console.log("Correo:", correo);
     console.log("Contraseña:", contrasenia);
   
-    const usuarios = getLocalStorage("usuarios") || [];
+    const usuarios = getLocalStorage("usuarios");
   
     console.log("Usuarios en localStorage:", usuarios);
   
-    const usuario = usuarios.find((user) => (user.correo === correo || user.usuario === correo));
+    const usuario = usuarios.find((user) => (user.correo === correo));
   
     console.log("Usuario encontrado:", usuario);
   
     if (!usuario) {
-      alert("Credenciales incorrectas. Verifica tu correo electrónico o nombre de usuario y contraseña.");
-      console.log("Credenciales incorrectas. Verifica tu correo electrónico o nombre de usuario y contraseña.");
+      Swal.fire({
+        title: "Error",
+        text: "Credenciales incorrectas. Verifica tu correo electrónico y contraseña.",
+        icon: "error",
+        confirmButtonText: "Aceptar",
+      });
       return false; 
     }
   
     const contraseniaDesencriptada = desencriptarContrasenia(usuario.contrasenia, key);
   
     if (contrasenia === contraseniaDesencriptada) {
-      alert("Inicio de sesión exitoso");
-
       if (usuario.rol === "administrador") {
-        alert("Bienvenido Administrador");
+        Swal.fire({
+          title: "Bienvenido Admin!",
+          icon: "success",
+          confirmButtonText: "Aceptar",
+          willClose: () => {
+            window.location.href = window.location.origin + '/pages/administrador.html';
+          },
+        });
+      }else{
+        window.location.href = window.location.origin + 'index.html';
       }
-
-      window.location.href = "../index.html";
     } else {
-      alert("Contraseña incorrecta. Intenta de nuevo.");
-      console.log("Contraseña incorrecta. Intenta de nuevo.");
+      Swal.fire({
+        title: "Error",
+        text: "Contraseña incorrecta. Intentalo nuevamente",
+        icon: "error",
+        confirmButtonText: "Aceptar",
+      });
       limpiarFormularios(document.getElementById("loginForm")); 
       return false; 
     }
