@@ -1,52 +1,51 @@
-import Usuario from "./clases/classUsuario.js";
-import {
-  validarTexto,
-  validarContrasenia,
-  validarEmail,
-  validarCheckBox,
-} from "./formValidation.js";
+import { getLocalStorage, insertLocalStorage } from "./dataStorageManager.js";
 
-import { insertLocalStorage, getLocalStorage } from './dataStorageManager.js';
-import {limpiarFormularios, key, encriptarContrasenia} from './auxiliarFunctions.js';
+const usuariosRegistrados = getLocalStorage('usuarios');
 
-const email = document.querySelector("#correoRegister"),
-        username = document.querySelector('#username'),
-        contrasenia = document.querySelector("#contraseniaRegister"),
-        contrasenia2 = document.querySelector("#contraseniaRegisterConfirm"),
-        termCondiciones = document.querySelector("#checkboxRegister"),
-        nombre = document.querySelector('#name');
-
-const formRegister = document.querySelector("#formRegister");
-const usuarios = getLocalStorage('usuarios');
-
-const crearUsuario = (e) => {
-  e.preventDefault();
-  if (
-    validarContrasenia(contrasenia) &&
-    validarContrasenia(contrasenia2) &&
-    validarTexto(email, 10, 320) &&
-    validarTexto(username, 3, 50) &&
-    validarTexto(nombre, 3, 200) &&
-    validarEmail(email) &&
-    validarCheckBox(termCondiciones)
-  ) {
-    if(contrasenia.value === contrasenia2.value){
-        const contraseniaEncriptada = encriptarContrasenia(contrasenia.value, key);
-        const user = new Usuario(undefined, username.value, nombre.value, email.value, contraseniaEncriptada, "invitado");
-        usuarios.push(user);
-        insertLocalStorage('usuarios', usuarios);
-        limpiarFormularios(formRegister);
-        Swal.fire({
-            title: "Usuario creado!",
-            text: "El usuario se creo exitosamente.",
-            icon: "success",
-            confirmButtonText: "Aceptar",
-            willClose: () => {
-                window.location.href = window.location.origin + "/pages/login.html";
-            }
-        });
-    }
+const cargaInicial = () => {
+  if (usuariosRegistrados.length !== 0) {
+    usuariosRegistrados.map((user, posicion) => crearFila(user, posicion + 1));
   }
 };
 
-formRegister.addEventListener('submit', crearUsuario);
+const crearFila = (user, fila) => {
+  const tablaUsuarios = document.getElementById("tbodyUsuario");
+  tablaUsuarios.innerHTML += `<tr>
+  <th scope="row">${fila}</th>
+  <td>${user.usuario}</td>
+  <td>${user.nombre}</td>
+  <td>${user.correo}</td>
+  <td>${user.rol}</td>
+  <td>
+    <button class="btn btn-danger" onclick="eliminarUsuario('${user.codigo}')">Eliminar</button>
+  </td>
+</tr>`;
+};
+
+window.eliminarUsuario = (codigo) =>{
+  Swal.fire({
+    title: "Estás seguro de eliminar este usuario?",
+    text: "No puedes revertir este paso",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Eliminar",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const posicionUsuario = usuariosRegistrados.findIndex(user => user.codigo === codigo);
+      usuariosRegistrados.splice(posicionUsuario, 1);
+      insertLocalStorage('usuarios', usuariosRegistrados);
+      const tablaUsuarios = document.getElementById("tbodyUsuario");
+      tablaUsuarios.removeChild(tablaUsuarios.children[posicionUsuario]);
+      Swal.fire({
+        title: "Usuario eliminado!",
+        text: "El usuario fue eliminado exitosamente.",
+        icon: "success",
+      });
+    }
+  });
+}
+
+cargaInicial();
