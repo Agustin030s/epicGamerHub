@@ -4,6 +4,8 @@ import { getLocalStorage, insertLocalStorage } from './dataStorageManager.js';
 
 const formJuegos = document.getElementById('formJuegos');
 const modalJuegos = new bootstrap.Modal(document.getElementById('modalJuegos'));
+const tablaDeJuego = document.getElementById('datosJuego');
+const juegos = getLocalStorage('juegos') || [];
 
 formJuegos.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -11,18 +13,48 @@ formJuegos.addEventListener('submit', function (event) {
     const nuevoJuego = validarYObtenerDatos();
 
     if (nuevoJuego) {
-        const juegos = getLocalStorage('juegos') || [];
 
         juegos.push(nuevoJuego);
-
         insertLocalStorage('juegos', juegos);
-
+        
         limpiarFormularios(formJuegos);
         modalJuegos.hide();
+        crearFila(nuevoJuego,juegos.length)
+
         console.log('Juego agregado exitosamente');
         mostrarAlerta('Juego agregado exitosamente', 'success');
     }
 });
+
+// Funcion para crear la tabla con los datos de cada juego
+const crearFila = (juego,fila) => {
+    tablaDeJuego.innerHTML +=`
+    <tr>
+        <th scope="row">${fila}</th>
+        <td class="simplificarTexto overflow-hidden text-truncate">${juego.nombre}</td>
+        <td>${juego.precio}</td>
+        <td class="simplificarTexto overflow-hidden text-truncate">${juego.categoria}</td>
+        <td class="simplificarTexto overflow-hidden text-truncate">${juego.imagen}</td>
+        <td class="simplificarTexto overflow-hidden text-truncate">${juego.descripcion}</td>
+        <td class="simplificarTexto overflow-hidden text-truncate">${juego.desarrollador}</td>
+        <td>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-info" onclick="verDetalle('${juego.codigo}')">Detalles</button>
+                <button type="button" class="btn btn-warning mx-2">Editar</button>
+                <button type="button" class="btn btn-danger">Eliminar</button>
+            </div>
+        </td>
+    </tr>` 
+}
+
+// Funcion para cargar los juegos 
+const cargaInicialDeJuegos = () => {
+    if (juegos.length !== 0){
+        juegos.map((juego,posicion) => crearFila(juego,posicion + 1));
+    } else {
+        console.log('No hay juegos cargados')
+    }
+}
 
 function validarYObtenerDatos() {
     const codigo = uuidv4();
@@ -74,3 +106,10 @@ function validarYObtenerDatos() {
 
     return nuevoJuego;
 }
+
+window.verDetalle = (codigoDeJuego) => {
+    window.location.href = './detalleJuego.html?codigo=' + codigoDeJuego;
+}
+
+
+cargaInicialDeJuegos();
