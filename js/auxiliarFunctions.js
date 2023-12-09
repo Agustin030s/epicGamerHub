@@ -1,37 +1,38 @@
-// deben hacer obtener el formulario previamente y luego pasarlo por parametro a esta función, asi se puedan obtener todos los input y selects en caso que corresponda y quitar las clases valid o invalid y luego limpiar el form.
-export const limpiarFormularios = (form) =>{
-    const inputs = form.querySelectorAll('input');
-    const selects = form.querySelectorAll('select');
+export const limpiarFormularios = (form) => {
+  const inputs = form.querySelectorAll("input");
+  const selects = form.querySelectorAll("select");
 
-    if(selects.length > 0){
-        selects.forEach((select) => {
-            select.classList.remove('is-valid', 'is-invalid');
-        });
-    }
-
-    inputs.forEach((input) => {
-        input.classList.remove('is-valid', 'is-invalid');
+  if (selects.length > 0) {
+    selects.forEach((select) => {
+      select.classList.remove("is-valid", "is-invalid");
     });
+  }
 
-    form.reset();
-}
+  inputs.forEach((input) => {
+    input.classList.remove("is-valid", "is-invalid");
+  });
 
-export const key = 'clave-super-secreta';
+  form.reset();
+};
+
+export const key = "clave-super-secreta";
 
 export const encriptarContrasenia = (password, key) => {
-    const encrypted = CryptoJS.AES.encrypt(password, key).toString();
-    return encrypted;
+  const encrypted = CryptoJS.AES.encrypt(password, key).toString();
+  return encrypted;
 };
 
 export const desencriptarContrasenia = (encryptedPassword, key) => {
-    const decrypted = CryptoJS.AES.decrypt(encryptedPassword, key).toString(CryptoJS.enc.Utf8);
-    return decrypted;
+  const decrypted = CryptoJS.AES.decrypt(encryptedPassword, key).toString(
+    CryptoJS.enc.Utf8
+  );
+  return decrypted;
 };
 
 //Favoritos
-export const crearCardFavorito = (juego) =>{
-    const canvas = document.querySelector('.offcanvas-body');
-    canvas.innerHTML += `<div class="card card-customized mt-3">
+export const crearCardFavorito = (juego) => {
+  const canvas = document.querySelector(".offcanvas-body");
+  canvas.innerHTML += `<div class="card card-customized mt-3">
     <div class="row g-0 justify-content-center align-items-center">
       <div class="col-md-4">
         <img src="${juego.imagen}" alt="Imagen del juego" class="img-fluid">
@@ -45,39 +46,41 @@ export const crearCardFavorito = (juego) =>{
       </div>
     </div>
   </div>`;
-}
+};
 
-export const cargaInicialDeFavoritos = (arrayFavoritos) =>{
-    if(arrayFavoritos.length !== 0){
-        arrayFavoritos.map(fav => crearCardFavorito(fav));
-    }else{
-        const canvas = document.querySelector('.offcanvas-body');
-        canvas.innerHTML += `<p class='parraFav'>Aún no tienes juegos favoritos<p>`;
-    }
-}
+export const cargaInicialDeFavoritos = (arrayFavoritos) => {
+  if (arrayFavoritos.length !== 0) {
+    arrayFavoritos.map((fav) => crearCardFavorito(fav));
+  } else {
+    const canvas = document.querySelector(".offcanvas-body");
+    canvas.innerHTML += `<p class='parraFav'>Aún no tienes juegos favoritos<p>`;
+  }
+};
 
 export function mostrarAlerta(mensaje, tipo) {
-  const tiposValidos = ['success', 'error', 'warning', 'info'];
+  const tiposValidos = ["success", "error", "warning", "info"];
 
   if (!tiposValidos.includes(tipo)) {
-      console.error('Tipo de alerta no válido. Use uno de: success, error, warning, info');
-      return;
+    console.error(
+      "Tipo de alerta no válido. Use uno de: success, error, warning, info"
+    );
+    return;
   }
 
   Swal.fire({
-      icon: tipo,
-      title: mensaje,
-      confirmButtonColor: '#3085d6',
-      confirmButtonText: 'OK',
+    icon: tipo,
+    title: mensaje,
+    confirmButtonColor: "#3085d6",
+    confirmButtonText: "OK",
   });
 }
 
-// Funcion para maquetar los juegos obtenidos de un array de objetos 
-export const mostrarJuegos = (arrayDeJuegos,iteraciones,contenedor) => {
+// Funcion para maquetar los juegos obtenidos de un array de objetos
+export const mostrarJuegos = (arrayDeJuegos, iteraciones, contenedor) => {
   if (arrayDeJuegos.length !== 0) {
-      contenedor.innerHTML = '';
-      for (let i = 0; i < iteraciones; i++) {
-          contenedor.innerHTML += `
+    contenedor.innerHTML = "";
+    for (let i = 0; i < iteraciones; i++) {
+      contenedor.innerHTML += `
           <div class="col-sm-6 col-md-5 col-lg-3 mb-5">
           <div class="card card-customized pb-3 h-100">
             <div class="img-card-container p-1">
@@ -104,9 +107,10 @@ export const mostrarJuegos = (arrayDeJuegos,iteraciones,contenedor) => {
               </div>
             </div>
           </div>
-        </div>`
-      }
+        </div>`;
+    }
   } else {
-      contenedor.innerHTML = '<h2 class="fs-2 mt-5 text-center text-secondary">No hay juegos para mostrar</h2>'
+    contenedor.innerHTML =
+      '<h2 class="fs-2 mt-5 text-center text-secondary">No hay juegos para mostrar</h2>';
   }
-}
+};
