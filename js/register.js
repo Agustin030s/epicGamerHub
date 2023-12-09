@@ -80,7 +80,7 @@ const validarUsuario = (usuario) => {
   }
 };
 
-const validarEmailRegistrado = (email) =>{
+const validarEmailRegistrado = (email) => {
   const usuarioBuscado = usuarios.find((user) => user.correo === email);
   Swal.fire({
     title: "Ups!",
@@ -93,9 +93,9 @@ const validarEmailRegistrado = (email) =>{
     cancelButtonText: "Cancelar",
   }).then((result) => {
     if (result.isConfirmed) {
-      window.location.href = window.location.origin + '/pages/login.html';
+      window.location.href = window.location.origin + "/pages/login.html";
     }
   });
-}
+};
 
 formRegister.addEventListener("submit", crearUsuario);

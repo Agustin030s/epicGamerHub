@@ -3,11 +3,12 @@ import { getLocalStorage } from "./dataStorageManager.js";
 let d = document;
 
 const parametroURL = new URLSearchParams(window.location.search);
-const codigoDeJuego = parametroURL.get('codigo');
+const codigoDeJuego = parametroURL.get("codigo");
 
-const listaDeJuegos = getLocalStorage('juegos');
-const juego = listaDeJuegos.find((elemento) => elemento.codigo === codigoDeJuego);
-
+const listaDeJuegos = getLocalStorage("juegos");
+const juego = listaDeJuegos.find(
+  (elemento) => elemento.codigo === codigoDeJuego
+);
 
 let renderizarJuego = (juego) => {
     //Componentes para hacer el renderizado dinamico
@@ -54,6 +55,5 @@ let renderizarJuego = (juego) => {
     }
 }
 
-
 //Renderizar el juego
-renderizarJuego(juego)
+renderizarJuego(juego);

@@ -1,5 +1,5 @@
-import {mostrarJuegos} from "./auxiliarFunctions.js";
-import {getLocalStorage} from "./dataStorageManager.js";
+import { mostrarJuegos } from "./auxiliarFunctions.js";
+import { getLocalStorage } from "./dataStorageManager.js";
 
 // VARIABLES 
 
@@ -63,7 +63,7 @@ const buscarJuegosPorGeneros = (generoBuscado) => {
 }
 
 // Mostramos todos los juegos guardados en el localStorage
-mostrarJuegos(listaDeJuegos,listaDeJuegos.length,contenedorJuegos);
+mostrarJuegos(listaDeJuegos, listaDeJuegos.length, contenedorJuegos);
 
 window.verDetalle = (codigoDeJuego) => {
     window.location.href = './detalleJuego.html?codigo=' + codigoDeJuego;
@@ -85,3 +85,4 @@ btnAllGames.addEventListener('click', () => {
     mostrarJuegos(listaDeJuegos,listaDeJuegos.length,contenedorJuegos);
     btnAllGames.classList.add('d-none')
 })
+

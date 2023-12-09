@@ -1,6 +1,6 @@
 import { getLocalStorage, insertLocalStorage } from "./dataStorageManager.js";
 
-const usuariosRegistrados = getLocalStorage('usuarios');
+const usuariosRegistrados = getLocalStorage("usuarios");
 
 const cargaInicial = () => {
   if (usuariosRegistrados.length !== 0) {
@@ -22,7 +22,7 @@ const crearFila = (user, fila) => {
 </tr>`;
 };
 
-window.eliminarUsuario = (codigo) =>{
+window.eliminarUsuario = (codigo) => {
   Swal.fire({
     title: "Estás seguro de eliminar este usuario?",
     text: "No puedes revertir este paso",
@@ -34,9 +34,11 @@ window.eliminarUsuario = (codigo) =>{
     cancelButtonText: "Cancelar",
   }).then((result) => {
     if (result.isConfirmed) {
-      const posicionUsuario = usuariosRegistrados.findIndex(user => user.codigo === codigo);
+      const posicionUsuario = usuariosRegistrados.findIndex(
+        (user) => user.codigo === codigo
+      );
       usuariosRegistrados.splice(posicionUsuario, 1);
-      insertLocalStorage('usuarios', usuariosRegistrados);
+      insertLocalStorage("usuarios", usuariosRegistrados);
       const tablaUsuarios = document.getElementById("tbodyUsuario");
       tablaUsuarios.removeChild(tablaUsuarios.children[posicionUsuario]);
       Swal.fire({
@@ -46,6 +48,6 @@ window.eliminarUsuario = (codigo) =>{
       });
     }
   });
-}
+};
 
 cargaInicial();
