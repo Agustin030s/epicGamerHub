@@ -194,6 +194,8 @@ if(users.length === 0){
 
 const listaDeJuegos = getLocalStorage('juegos');
 const contenedorJuegos = document.getElementById('contenedorJuegos');
+const buscarJuegos = document.getElementById('searchGames');
+const inputJuego = document.getElementById('inputGames');
 
 // Funcion para mostrar los juegos en la pagina principal (solo mostramos 8 juegos)
 if (listaDeJuegos.length >= 8) {
@@ -202,6 +204,18 @@ if (listaDeJuegos.length >= 8) {
   mostrarJuegos(listaDeJuegos,listaDeJuegos.length,contenedorJuegos);
 }
 
+// Funcion para buscar juegos en la pagina principal 
+const busquedaDeJuegos = (e) => {
+  e.preventDefault();
+  const juegoBuscado = listaDeJuegos.filter((juego) => juego.nombre.includes(inputJuego.value));
+  if (juegoBuscado.length !== 0) {
+    (juegoBuscado.length > 8) ? mostrarJuegos(juegoBuscado,8,contenedorJuegos) : mostrarJuegos(juegoBuscado,juegoBuscado.length,contenedorJuegos);
+  } else {
+    contenedorJuegos.innerHTML = `<h2 class="text-center text-secondary display-5 my-4">No se encontro el juego buscado</h2>`
+  }
+}
+
+buscarJuegos.addEventListener('submit',busquedaDeJuegos);
 
 window.verDetalle = (codigoDeJuego) => {
     window.location.href = './pages/detalleJuego.html?codigo=' + codigoDeJuego;

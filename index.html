@@ -197,12 +197,14 @@
           <div class="col-md-12 col-lg-6">
             <h1 class="text-light fs-2 fw-bold text-center text-lg-start">JUEGOS DESTACADOS</h1>
           </div>
-          <form id="buscarJuego" class="col-md-10 m-sm-auto m-lg-0 col-lg-5 d-flex">
+          <form id="searchGames" class="col-md-10 m-sm-auto m-lg-0 col-lg-5 d-flex">
             <input
               type="text"
               class="form-control"
-              id="inputJuego"
+              id="inputGames"
               placeholder="Escriba el nombre del juego"
+              minlength="2"
+              maxlength="80"
             />
             <button type="submit" class="btn-customized ms-2">Buscar</button>
           </form>
