@@ -12,74 +12,38 @@ const juegosIniciales = getLocalStorage("juegos");
 
 if (juegosIniciales.length === 0) {
   let gta5 = new Juego(
-    undefined, // Se generará automáticamente un código UUID
-    "Grand Theft Auto V",
-    29.99,
-    "Accion",
-    "https://media.vandal.net/m/15192/grand-theft-auto-v-2015413122229_1.jpg",
-    "Cuando un joven estafador callejero, un ladrón de bancos retirado y un psicópata aterrador se ven involucrados con lo peor y más desquiciado del mundo criminal, del gobierno de los EE. UU. y de la industria del espectáculo, tendrán que llevar a cabo una serie de peligrosos golpes para sobrevivir en una ciudad implacable en la que no pueden confiar en nadie. Y mucho menos los unos en los otros.",
-    new RequisitosDelSistema(
-      "Windows 10 64 Bit, Windows 8.1 64 Bit, Windows 8 64 Bit, Windows 7 64 Bit",
-      "Intel Core 2 Quad CPU Q6600 a 2,4 GHz (4 CPU)/AMD Phenom 9850 Quad-Core (4 CPU) a 2,5 GHz.",
-      "4GB de RAM",
-      " NVIDIA 9800 GT 1 GB/AMD HD 4870 1 GB (DX 10, 10.1, 11).",
-      "90G"
-    ),
-    new RequisitosDelSistema(
-      "Windows 10 64 Bit, Windows 8.1 64 Bit, Windows 8 64 Bit, Windows 7 64 Bit Service Pack 1",
-      "Intel Core i5 3470 @ 3.2GHZ (4 CPUs) / AMD X8 FX-8350 @ 4GHZ (8 CPUs)",
-      "8GB de RAM",
-      "NVIDIA GTX 660 2GB / AMD HD7870 2GB",
-      "90GB"
-    ),
-    "Rockstar Games"
+      undefined, // Se generará automáticamente un código UUID
+      "Grand Theft Auto V",
+      29.99,
+      "Accion",
+      "https://media.vandal.net/m/15192/grand-theft-auto-v-2015413122229_1.jpg",
+      "Cuando un joven estafador callejero, un ladrón de bancos retirado y un psicópata aterrador se ven involucrados con lo peor y más desquiciado del mundo criminal, del gobierno de los EE. UU. y de la industria del espectáculo, tendrán que llevar a cabo una serie de peligrosos golpes para sobrevivir en una ciudad implacable en la que no pueden confiar en nadie. Y mucho menos los unos en los otros.",
+      new RequisitosDelSistema("Windows 10 64 Bit, Windows 8.1 64 Bit, Windows 8 64 Bit, Windows 7 64 Bit Service Pack 1", "Intel Core i5 3470 @ 3.2GHZ (4 CPUs) / AMD X8 FX-8350 @ 4GHZ (8 CPUs)", "8GB de RAM", "NVIDIA GTX 660 2GB / AMD HD7870 2GB", "90GB"), 
+      new RequisitosDelSistema("Windows 10 64 Bit, Windows 8.1 64 Bit, Windows 8 64 Bit, Windows 7 64 Bit", "Intel Core 2 Quad CPU Q6600 a 2,4 GHz (4 CPU)/AMD Phenom 9850 Quad-Core (4 CPU) a 2,5 GHz.", "4GB de RAM", " NVIDIA 9800 GT 1 GB/AMD HD 4870 1 GB (DX 10, 10.1, 11).", "90G"),
+      "Rockstar Games"
   );
 
   let hogwartLegacy = new Juego(
-    undefined,
-    "Hogwarts Legacy",
-    17.99,
-    "Fanstasia",
-    "https://th.bing.com/th/id/OIP.y8DjAgYGddJ9mn_BXvGMIQHaJ4?rs=1&pid=ImgDetMain",
-    "Hogwarts Legacy es un RPG de acción en un mundo abierto ambientado en el universo de los libros de Harry Potter. Embárcate en una aventura que te llevará por lugares nuevos y conocidos, mientras descubres animales mágicos, personalizas tu personaje, elaboras pociones, dominas hechizos, mejoras tus talentos y te conviertes en el mago que siempre has querido ser.\nDisfruta de Hogwarts en el siglo XIX. Tu personaje es un estudiante que tiene la clave de un antiguo secreto que amenaza con destruir el mundo mágico. Haz aliados, lucha contra magos tenebrosos y decide el destino del mundo mágico. Crea tu propio legado. Escribe tu propia historia.",
-    new RequisitosDelSistema(
-      "64-bit Windows 10",
-      "Intel Core i7-8700 (3.2Ghz) or AMD Ryzen 5 3600 (3.6 Ghz)",
-      "16GB de RAM",
-      "NVIDIA GeForce 1080 Ti or AMD Radeon RX 5700 XT or INTEL Arc A770",
-      "128GB"
-    ),
-    new RequisitosDelSistema(
-      "64-bit Windows 10",
-      "Intel Core i5-6600 (3.3Ghz) or AMD Ryzen 5 1400 (3.2Ghz)",
-      "16GB de RAM",
-      "NVIDIA GeForce GTX 960 4GB or AMD Radeon RX 470 4GB",
-      "128GB"
-    ),
-    "EA Sports"
-  );
+      undefined,
+      "Hogwarts Legacy",
+      17.99,
+      "Fantasia",
+      "https://th.bing.com/th/id/OIP.y8DjAgYGddJ9mn_BXvGMIQHaJ4?rs=1&pid=ImgDetMain",
+      "Hogwarts Legacy es un RPG de acción en un mundo abierto ambientado en el universo de los libros de Harry Potter. Embárcate en una aventura que te llevará por lugares nuevos y conocidos, mientras descubres animales mágicos, personalizas tu personaje, elaboras pociones, dominas hechizos, mejoras tus talentos y te conviertes en el mago que siempre has querido ser.\nDisfruta de Hogwarts en el siglo XIX. Tu personaje es un estudiante que tiene la clave de un antiguo secreto que amenaza con destruir el mundo mágico. Haz aliados, lucha contra magos tenebrosos y decide el destino del mundo mágico. Crea tu propio legado. Escribe tu propia historia.",
+      new RequisitosDelSistema("64-bit Windows 10", "Intel Core i7-8700 (3.2Ghz) or AMD Ryzen 5 3600 (3.6 Ghz)", "16GB de RAM", "NVIDIA GeForce 1080 Ti or AMD Radeon RX 5700 XT or INTEL Arc A770", "128GB"),
+      new RequisitosDelSistema("64-bit Windows 10", "Intel Core i5-6600 (3.3Ghz) or AMD Ryzen 5 1400 (3.2Ghz)", "16GB de RAM", "NVIDIA GeForce GTX 960 4GB or AMD Radeon RX 470 4GB", "128GB"),
+      "Warner Bros"
+  )
 
   let fifa24 = new Juego(
     undefined,
     "EA Sports FC 24",
     69.99,
-    "Deportes",
+    "Deporte",
     "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2023/09/ea-sports-fc-24-1695890252985-3146700.jpg?tf=256x",
     "EA Sports FC 24 es un juego de fútbol para Nintendo Switch, PlayStation 4, PlayStation 5, Xbox One, Xbox Series y PC que forma parte de la saga de simuladores deportivos de Electronic Arts, siendo el sucesor de FIFA. Con modos en solitario y con énfasis en el online, así como con un FIFA Ultimate Team renovado, ofrece de nuevo todas las licencias de las principales ligas europeas y americanas, el retorno de modos clásicos y una ración de mejoras técnicas gráficas y jugables.",
-    new RequisitosDelSistema(
-      "Windows 10 - 64-Bit",
-      "Intel Core i5-6600K @ 3.50GHz or AMD Ryzen 5 1600 @ 3.2 GHZ",
-      " 8GB de RAM",
-      "NVIDIA GeForce GTX 1050 Ti 4GB or AMD Radeon RX 570 4GB",
-      "100GB"
-    ),
-    new RequisitosDelSistema(
-      "Windows 10 - 64-Bit",
-      "Intel Core i7-6700 @ 3.40GHz or AMD Ryzen 7 2700X @ 3.7 GHZ",
-      "12GB de RAM",
-      "NVIDIA GeForce GTX 1660 or AMD RX 5600 XT",
-      "100GB"
-    ),
+    new RequisitosDelSistema("Windows 10 - 64-Bit", "Intel Core i7-6700 @ 3.40GHz or AMD Ryzen 7 2700X @ 3.7 GHZ", "12GB de RAM", "NVIDIA GeForce GTX 1660 or AMD RX 5600 XT", "100GB"),
+    new RequisitosDelSistema("Windows 10 - 64-Bit", "Intel Core i5-6600K @ 3.50GHz or AMD Ryzen 5 1600 @ 3.2 GHZ", "8GB de RAM", "NVIDIA GeForce GTX 1050 Ti 4GB or AMD Radeon RX 570 4GB", "100GB"),
     "EA Sports"
   );
 
@@ -336,8 +300,11 @@ if (users.length === 0) {
   insertLocalStorage("usuarios", users);
 }
 
-const listaDeJuegos = getLocalStorage("juegos");
-const contenedorJuegos = document.getElementById("contenedorJuegos");
+
+const listaDeJuegos = getLocalStorage('juegos');
+let contenedorJuegos = document.getElementById('gamesContainer');
+const buscarJuegos = document.getElementById('searchGames');
+const inputJuego = document.getElementById('inputGames');
 
 // Funcion para mostrar los juegos en la pagina principal (solo mostramos 8 juegos)
 if (listaDeJuegos.length >= 8) {
@@ -345,6 +312,29 @@ if (listaDeJuegos.length >= 8) {
 } else {
   mostrarJuegos(listaDeJuegos, listaDeJuegos.length, contenedorJuegos);
 }
+
+// Funcion para buscar juegos en la pagina principal 
+const busquedaDeJuegos = (e) => {
+  e.preventDefault();
+  const juegoBuscado = listaDeJuegos.filter((juego) => juego.nombre.includes(inputJuego.value));
+  let mensaje = `<h3 class="order-first d-block text-center text-light fs-1 mb-5">Se muestran resultados de busqueda de '${inputJuego.value}'</h3>`;
+
+  if (juegoBuscado.length !== 0) {
+
+    if (juegoBuscado.length === listaDeJuegos.length) {
+      mostrarJuegos(listaDeJuegos,8,contenedorJuegos);
+    } else if (juegoBuscado.length <= 8){
+      mostrarJuegos(juegoBuscado,juegoBuscado.length,contenedorJuegos);
+      contenedorJuegos.innerHTML += mensaje;
+    }
+
+  } else {
+    contenedorJuegos.innerHTML = `<p class="text-center text-secondary display-6 mb-5">No se encontro el juego buscado</p>`
+    contenedorJuegos.innerHTML += mensaje;
+  }
+}
+
+buscarJuegos.addEventListener('submit',busquedaDeJuegos);
 
 window.verDetalle = (codigoDeJuego) => {
   window.location.href = "./pages/detalleJuego.html?codigo=" + codigoDeJuego;
