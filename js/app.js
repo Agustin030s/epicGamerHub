@@ -193,7 +193,7 @@ if(users.length === 0){
 
 
 const listaDeJuegos = getLocalStorage('juegos');
-const contenedorJuegos = document.getElementById('contenedorJuegos');
+let contenedorJuegos = document.getElementById('gamesContainer');
 const buscarJuegos = document.getElementById('searchGames');
 const inputJuego = document.getElementById('inputGames');
 
@@ -208,10 +208,20 @@ if (listaDeJuegos.length >= 8) {
 const busquedaDeJuegos = (e) => {
   e.preventDefault();
   const juegoBuscado = listaDeJuegos.filter((juego) => juego.nombre.includes(inputJuego.value));
+  let mensaje = `<h3 class="order-first d-block text-center text-light fs-1 mb-5">Se muestran resultados de busqueda de '${inputJuego.value}'</h3>`;
+
   if (juegoBuscado.length !== 0) {
-    (juegoBuscado.length > 8) ? mostrarJuegos(juegoBuscado,8,contenedorJuegos) : mostrarJuegos(juegoBuscado,juegoBuscado.length,contenedorJuegos);
+
+    if (juegoBuscado.length === listaDeJuegos.length) {
+      mostrarJuegos(listaDeJuegos,8,contenedorJuegos);
+    } else if (juegoBuscado.length <= 8){
+      mostrarJuegos(juegoBuscado,juegoBuscado.length,contenedorJuegos);
+      contenedorJuegos.innerHTML += mensaje;
+    }
+
   } else {
-    contenedorJuegos.innerHTML = `<h2 class="text-center text-secondary display-5 my-4">No se encontro el juego buscado</h2>`
+    contenedorJuegos.innerHTML = `<p class="text-center text-secondary display-6 mb-5">No se encontro el juego buscado</p>`
+    contenedorJuegos.innerHTML += mensaje;
   }
 }
 

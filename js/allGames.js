@@ -13,6 +13,7 @@ window.verDetalle = (codigoDeJuego) => {
     window.location.href = './detalleJuego.html?codigo=' + codigoDeJuego;
 }
 
+// Función para buscar juegos por texto 
 const busquedaDeJuegos = (e) => {
     e.preventDefault();
     const juegoBuscado = listaDeJuegos.filter((juego) => juego.nombre.includes(inputJuego.value));
