@@ -182,11 +182,19 @@ a {
     filter: brightness(1.5);
 }
 
+.text-justify{
+    text-align: justify;
+}
+
+.titIntegrantes{
+    color: #23A6F0;
+}
+
 .bg-card{
     background: transparent;
     color: #fff;
     text-align: center;
-    border: 1px solid rgb(133, 94, 21);
+    border: 1px solid #23A6F0;
 }
 
 .iconRedes{
