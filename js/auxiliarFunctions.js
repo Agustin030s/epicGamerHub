@@ -79,7 +79,7 @@ export const mostrarJuegos = (arrayDeJuegos,iteraciones,contenedor) => {
       for (let i = 0; i < iteraciones; i++) {
           contenedor.innerHTML += `
           <div class="col-sm-6 col-md-5 col-lg-3 mb-5">
-          <div class="card card-customized pb-3 h-100">
+          <div class="card card-customized pb-1 h-100">
             <div class="img-card-container p-1">
               <img
                 src="${arrayDeJuegos[i].imagen}"
@@ -99,7 +99,7 @@ export const mostrarJuegos = (arrayDeJuegos,iteraciones,contenedor) => {
                 </div>
               </div>       
               <div>
-                <p class="price fs-1">$${arrayDeJuegos[i].precio}</p>
+                <p class="price fs-2">$${arrayDeJuegos[i].precio}</p>
                 <button class="btn-customized" onclick="verDetalle('${arrayDeJuegos[i].codigo}')">Más información</button>
               </div>
             </div>
