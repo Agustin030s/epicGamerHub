@@ -40,16 +40,16 @@ let renderizarJuego = (juego) => {
 
         sistemaOperativoJuegoM.textContent = juego.requisitosMinimos.sistemaOperativo
         procesadorM.textContent = juego.requisitosMinimos.procesador
-        ramM.textContent = juego.requisitosMinimos.ram
+        ramM.textContent = juego.requisitosMinimos.ram.toUpperCase() + " de RAM"
         tarjetaGraficaM.textContent = juego.requisitosMinimos.tarjetaGrafica
-        espacioM.textContent = juego.requisitosMinimos.almacenamiento
+        espacioM.textContent = juego.requisitosMinimos.almacenamiento.toUpperCase()
 
 
         sistemaOperativoJuegoR.innerText = juego.requisitos.sistemaOperativo
         procesadorR.innerText = juego.requisitos.procesador
-        ramR.innerText = juego.requisitos.ram
+        ramR.innerText = juego.requisitos.ram.toUpperCase() + " de RAM"
         tarjetaGraficaR.innerText = juego.requisitos.tarjetaGrafica
-        espacioR.innerText = juego.requisitos.almacenamiento
+        espacioR.innerText = juego.requisitos.almacenamiento.toUpperCase()
 
     }
 }

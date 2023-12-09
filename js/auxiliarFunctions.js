@@ -71,3 +71,42 @@ export function mostrarAlerta(mensaje, tipo) {
       confirmButtonText: 'OK',
   });
 }
+
+// Funcion para maquetar los juegos obtenidos de un array de objetos 
+export const mostrarJuegos = (arrayDeJuegos,iteraciones,contenedor) => {
+  if (arrayDeJuegos.length !== 0) {
+      contenedor.innerHTML = '';
+      for (let i = 0; i < iteraciones; i++) {
+          contenedor.innerHTML += `
+          <div class="col-sm-6 col-md-5 col-lg-3 mb-5">
+          <div class="card card-customized pb-3 h-100">
+            <div class="img-card-container p-1">
+              <img
+                src="${arrayDeJuegos[i].imagen}"
+                alt="Portada del juego"
+              />
+            </div>
+            <div class="card-body d-flex flex-column justify-content-between">
+              <div>
+                <h3 class="fs-4 fw-bold text-light">${arrayDeJuegos[i].nombre}</h3>
+                <div class="d-flex justify-content-between align-items-center">
+                  <h4 class="fs-6 genero">${arrayDeJuegos[i].categoria}</h4>
+                  <div class="text-secondary">
+                    <i class="bi bi-playstation fs-5"></i>
+                    <i class="bi bi-xbox fs-5"></i>
+                    <i class="bi bi-windows fs-5"></i>
+                  </div>
+                </div>
+              </div>       
+              <div>
+                <p class="price fs-1">$${arrayDeJuegos[i].precio}</p>
+                <button class="btn-customized" onclick="verDetalle('${arrayDeJuegos[i].codigo}')">Más información</button>
+              </div>
+            </div>
+          </div>
+        </div>`
+      }
+  } else {
+      contenedor.innerHTML = '<h2 class="fs-2 mt-5 text-center text-secondary">No hay juegos para mostrar</h2>'
+  }
+}
