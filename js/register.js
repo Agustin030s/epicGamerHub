@@ -82,20 +82,24 @@ const validarUsuario = (usuario) => {
 
 const validarEmailRegistrado = (email) => {
   const usuarioBuscado = usuarios.find((user) => user.correo === email);
-  Swal.fire({
-    title: "Ups!",
-    text: `Ya existe un usuario registrado con el email ${usuarioBuscado.correo}, deseas iniciar sesión?`,
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Aceptar",
-    cancelButtonText: "Cancelar",
-  }).then((result) => {
-    if (result.isConfirmed) {
-      window.location.href = window.location.origin + "/pages/login.html";
-    }
-  });
+  if(usuarioBuscado){
+    Swal.fire({
+      title: "Ups!",
+      text: `Ya existe un usuario registrado con el email ${usuarioBuscado.correo}, deseas iniciar sesión?`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Aceptar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = window.location.origin + "/pages/login.html";
+      }
+    });
+  }else{
+    return true;
+  }
 };
 
 formRegister.addEventListener("submit", crearUsuario);

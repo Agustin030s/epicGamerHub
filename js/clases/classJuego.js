@@ -180,13 +180,21 @@ export class RequisitosDelSistema{
 }
 
 export class Reseña{
+    #usuarios;
     #votosPositivos;
     #votosNegativos;
     #comentarios;
+    #valoracion;
     constructor(){
+        this.#usuarios = [];
         this.#votosPositivos = 0;
         this.#votosNegativos = 0;
         this.#comentarios = [];
+        this.#valoracion = 0;
+    }
+
+    get usuarios(){
+        return this.#usuarios;
     }
 
     get votosPositivos(){
@@ -201,6 +209,10 @@ export class Reseña{
         return this.#comentarios;
     }
 
+    get valoracion(){
+        return this.#valoracion;
+    }
+
     agregarVotoPositivo(){
         this.#votosPositivos++;
     }
@@ -213,10 +225,8 @@ export class Reseña{
         this.#comentarios.push(comentario);
     }
 
-    puntuacionDelJuego(){
-        const total = this.votosPositivos + this.votosNegativos;
-        let puntuacion = total === 0 ? 0 : (this.votosPositivos / total)*100;
-
-        return puntuacion;
+    calcularValoracion(){
+        let total = this.votosPositivos + this.#votosNegativos;
+        return total === 0 ? 0 : (this.#votosPositivos/total)*10;
     }
 }
