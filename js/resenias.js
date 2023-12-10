@@ -18,7 +18,7 @@ let usuarioLogueado = getSessionStorage('sesion');
 Funcion para mostrar comentarios
 */
 let mostrarComentarios = (comentarios) => {
-  containerReseña.innerHTML = "";
+  // containerReseña.innerHTML = "";
   comentarios.map((e) => {
     let div = d.createElement("div");
     let p = d.createElement("p");
@@ -70,16 +70,17 @@ let reseniasData = {
 };
 
 if (reseniasData.comentarios.length > 0) {
+  let total = reseniasData.likes + reseniasData.dislikes;
   let parrafoPrincipal = d.createElement("p");
   parrafoPrincipal.classList.add("parrafoPrincipal");
   parrafoPrincipal.innerHTML = `Se muestran ${
     reseniasData.comentarios.length
-  } reseñas con un total de  <b id="promedio">${
-    (reseniasData.likes + reseniasData.dislikes) / 2
+  } reseñas con una valoración del juego de  <b id="promedio">${
+    (reseniasData.likes/total)*10
   }</b> ${
-    (reseniasData.likes + reseniasData.dislikes) / 2 > 50
-      ? '<b id="positivos">"Muy Positivos"</b>'
-      : '<b id="negativos">"Muy Negativos"</b>'
+    (reseniasData.likes/total)*10 > 7
+      ? '<b id="positivos">"Muy Positivo"</b>'
+      : '<b id="negativos">"Muy Negativo"</b>'
   }`;
   containerReseña.appendChild(parrafoPrincipal);
 

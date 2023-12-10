@@ -226,7 +226,7 @@ export class Reseña{
     }
 
     calcularValoracion(){
-        let total = this.votosPositivos + this.#votosNegativos;
-        return total === 0 ? 0 : (this.#votosPositivos/total)*10;
+        let total = this.votosPositivos + this.votosNegativos;
+        return total === 0 ? 0 : (this.votosPositivos/total)*10;
     }
 }
