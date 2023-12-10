@@ -245,23 +245,29 @@ a {
 }
 
 .containerComentario{
-    background: rgba(30, 30, 85, 0.658);
-    padding: 15px 10px;
-    border-radius: 10px;
+    background: linear-gradient(0deg, rgba(0,0,30,0.3), rgba(10,10,70,0.4));
+    border: 1px solid #777;
+    box-shadow: 2px 2px 20px rgba(0,0,0,0.4);
+    padding: 16px;
+    border-radius: 15px;
     margin-bottom: 30px;
-    box-shadow: 3px 3px 16px rgba(0,0,0,0.3);
 }
 
 .containerComentario .pComentario{
     font-size: 19px;
-    color: #eee;
+    color: #ccc;
     word-wrap: break-word;
+    font-style: italic;
 }
 
 .containerIcons{
     width: 10%;
     display: flex;
     justify-content: space-between;
+}
+
+.text-montserrat{
+    font-family: 'Montserrat',sans-serif;
 }
 
 .pDislikes{
@@ -292,9 +298,11 @@ a {
 }
 
 #textoReseña{
-    background: transparent;
     margin: 20px 0;
+    background: transparent;
+    border: 1px solid #888;
 }
+
 #textoReseña::placeholder{
     color: #ccc;
 }
