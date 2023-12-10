@@ -5,7 +5,7 @@ import { getLocalStorage, insertLocalStorage } from "./dataStorageManager.js";
 const formJuegos = document.getElementById("formJuegos");
 const modalJuegos = new bootstrap.Modal(document.getElementById("modalJuegos"));
 const tablaDeJuego = document.getElementById("datosJuego");
-const juegos = getLocalStorage("juegos");
+const juegos = getLocalStorage("juegos"); 
 
 formJuegos.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -35,6 +35,7 @@ const crearFila = (juego, fila) => {
         <td class="simplificarTexto overflow-hidden text-truncate">${juego.imagen}</td>
         <td class="simplificarTexto overflow-hidden text-truncate">${juego.descripcion}</td>
         <td class="simplificarTexto overflow-hidden text-truncate">${juego.desarrollador}</td>
+        <td class="simplificarTexto overflow-hidden text-truncate">${juego.resenias.valoracion === undefined ? 'Sin reseñas' : juego.resenias.valoracion}</td>
         <td>
             <div class="btn-group" role="group" aria-label="Basic example">
                 <button type="button" class="btn btn-info" onclick="verDetalle('${juego.codigo}')">Detalles</button>

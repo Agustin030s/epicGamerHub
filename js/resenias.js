@@ -57,17 +57,16 @@ const mostrarVentanaError = (texto) =>{
 }
 
 /*Se crea la logica para guardar las reseñas*/
-
 let juegos = getLocalStorage("juegos");
 
 let juego = juegos.find((e) => e.nombre === titleJuego.textContent);
-let juegoIndex = juegos.findIndex((e) => e.nombre === titleJuego.textContent);
 
 let reseniasData = {
-  usuario: juego.resenias.usuario || '',
+  usuario: juego.resenias.usuario || [],
   comentarios: juego.resenias.comentarios || [],
   likes: juego.resenias.likes || 0,
   dislikes: juego.resenias.dislikes || 0,
+  valoracion: juego.resenias.valoracion || 0,
 };
 
 if (reseniasData.comentarios.length > 0) {
@@ -93,15 +92,14 @@ if (reseniasData.comentarios.length > 0) {
 /*Logica para añadir las reseñas*/
 
 añadirReseñaBtn.addEventListener("click", (e) => {
-
   if(usuarioLogueado && usuarioLogueado.rol === 'invitado'){
-    if(usuarioLogueado.usuario === reseniasData.usuario){
+    const comentarioUsuario = reseniasData.comentarios.find(c => c.includes(usuarioLogueado.usuario));
+    if(comentarioUsuario){
       mostrarVentanaError('dejaste una reseña');
     }else{
       let texto = `${usuarioLogueado.usuario}: ${textoReseña.value}`;
       reseña.agregarComentario(texto);
     
-      reseniasData.usuario = usuarioLogueado.usuario;
       reseniasData.comentarios.push(texto);
       juego.resenias = reseniasData;
     
@@ -120,11 +118,14 @@ pDislikes.innerHTML = reseniasData.dislikes;
 
 btnLike.addEventListener("click", (e) => {
   if(usuarioLogueado && usuarioLogueado.rol === 'invitado'){
-    if(usuarioLogueado.usuario === reseniasData.usuario){
+    const usuarioResenia = reseniasData.usuario.find(u => u === usuarioLogueado.usuario);
+    if(usuarioResenia){
       mostrarVentanaError('votaste');
     }else{
       reseniasData.likes += 1;
       reseña.agregarVotoPositivo();
+      reseniasData.valoracion = reseña.calcularValoracion();
+      reseniasData.usuario.push(usuarioLogueado.usuario);
       juego.resenias = reseniasData;
       insertLocalStorage("juegos", juegos);
     
@@ -138,11 +139,14 @@ btnLike.addEventListener("click", (e) => {
 
 btnDisLike.addEventListener("click", (e) => {
   if(usuarioLogueado && usuarioLogueado.rol === 'invitado'){
-    if(usuarioLogueado.usuario === reseniasData.usuario){
+    const usuarioResenia = reseniasData.usuario.find(u => u === usuarioLogueado.usuario);
+    if(usuarioResenia){
       mostrarVentanaError('votaste');
     }else{
       reseniasData.dislikes += 1;
       reseña.agregarVotoPositivo();
+      reseniasData.valoracion = reseña.calcularValoracion();
+      reseniasData.usuario.push(usuarioLogueado.usuario);
       juego.resenias = reseniasData;
       insertLocalStorage("juegos", juegos);
     
