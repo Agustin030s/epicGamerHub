@@ -306,6 +306,10 @@ let contenedorJuegos = document.getElementById('gamesContainer');
 const buscarJuegos = document.getElementById('searchGames');
 const inputJuego = document.getElementById('inputGames');
 
+const tituloDeJuego = document.querySelectorAll('.titleGame');
+const btnContainer = document.querySelectorAll('.btn-container');
+
+
 // Funcion para mostrar los juegos en la pagina principal (solo mostramos 8 juegos)
 if (listaDeJuegos.length >= 8) {
   mostrarJuegos(listaDeJuegos, 8, contenedorJuegos);
@@ -334,8 +338,19 @@ const busquedaDeJuegos = (e) => {
   }
 }
 
+// Funcion para ir a detalles de los juegos del carousel 
+const detallesJuegosCarousel = () => {
+  for (let i = 0; i < tituloDeJuego.length; i++) {
+    const juego = listaDeJuegos.find((juego) => juego.nombre === tituloDeJuego[i].textContent);
+    btnContainer[i].innerHTML = `<button class="btn-customized" onclick="verDetalle('${juego.codigo}')">Más información</button>`
+  }
+}
+
+detallesJuegosCarousel()
+
 buscarJuegos.addEventListener('submit',busquedaDeJuegos);
 
 window.verDetalle = (codigoDeJuego) => {
   window.location.href = "./pages/detalleJuego.html?codigo=" + codigoDeJuego;
 };
+
