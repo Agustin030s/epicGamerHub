@@ -186,13 +186,13 @@ window.editarJuego = (codigo) => {
     procesadorR.value = JuegoAEditar.requisitos.procesador
     ramSelectR.value = JuegoAEditar.requisitos.ram
     tarjetaGraficaR.value = JuegoAEditar.requisitos.tarjetaGrafica
-    almacenamientoR.value = JuegoAEditar.requisitos.alamacenamiento
+    almacenamientoR.value = JuegoAEditar.requisitos.almacenamiento
 
     sistOperativoM.value = JuegoAEditar.requisitosMinimos.sistemaOperativo
     procesadorM.value = JuegoAEditar.requisitosMinimos.procesador
     ramSelectM.value = JuegoAEditar.requisitosMinimos.ram
     tarjetaGraficaM.value = JuegoAEditar.requisitosMinimos.tarjetaGrafica
-    almacenamientoM.value = JuegoAEditar.requisitosMinimos.alamacenamiento
+    almacenamientoM.value = JuegoAEditar.requisitosMinimos.almacenamiento
 
     desarrolladorInput.value= JuegoAEditar.desarrollador
     btnSubmit.textContent = "Editar"

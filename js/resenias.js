@@ -22,8 +22,8 @@ let mostrarComentarios = (comentarios) => {
     let div = d.createElement("div");
     let p = d.createElement("p");
     p.textContent = e;
-    p.classList.add("text-light");
-    p.classList.add("containerComentario");
+    div.classList.add("containerComentario");
+    p.classList.add("pComentario");
     div.appendChild(p);
     containerReseña.appendChild(div);
   });
