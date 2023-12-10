@@ -30,6 +30,32 @@ let mostrarComentarios = (comentarios) => {
   });
 };
 
+const mostrarVentanaInicioSesion = () =>{
+  Swal.fire({
+    title: "Ups!",
+    text: "Debes iniciar sesión para poder dejar una reseña.",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Iniciar Sesión",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location.href = window.location.origin + '/pages/login.html'
+    }
+  });
+};
+
+const mostrarVentanaError = (texto) =>{
+  Swal.fire({
+    title: "Error!",
+    text: `Ya ${texto} en este juego`,
+    icon: "error",
+    confirmButtonText: "Aceptar",
+  });
+}
+
 /*Se crea la logica para guardar las reseñas*/
 
 let juegos = getLocalStorage("juegos");
@@ -38,6 +64,7 @@ let juego = juegos.find((e) => e.nombre === titleJuego.textContent);
 let juegoIndex = juegos.findIndex((e) => e.nombre === titleJuego.textContent);
 
 let reseniasData = {
+  usuario: juego.resenias.usuario || '',
   comentarios: juego.resenias.comentarios || [],
   likes: juego.resenias.likes || 0,
   dislikes: juego.resenias.dislikes || 0,
@@ -68,31 +95,23 @@ if (reseniasData.comentarios.length > 0) {
 añadirReseñaBtn.addEventListener("click", (e) => {
 
   if(usuarioLogueado && usuarioLogueado.rol === 'invitado'){
-    let texto = `${usuarioLogueado.usuario}: ${textoReseña.value}`;
-    reseña.agregarComentario(texto);
-  
-    reseniasData.comentarios.push(texto);
-    juego.resenias = reseniasData;
-  
-    insertLocalStorage("juegos", juegos);
-  
-    mostrarComentarios(reseniasData.comentarios);
-    d.getElementById("textoReseña").value = '';
+    if(usuarioLogueado.usuario === reseniasData.usuario){
+      mostrarVentanaError('dejaste una reseña');
+    }else{
+      let texto = `${usuarioLogueado.usuario}: ${textoReseña.value}`;
+      reseña.agregarComentario(texto);
+    
+      reseniasData.usuario = usuarioLogueado.usuario;
+      reseniasData.comentarios.push(texto);
+      juego.resenias = reseniasData;
+    
+      insertLocalStorage("juegos", juegos);
+    
+      mostrarComentarios(reseniasData.comentarios);
+      d.getElementById("textoReseña").value = '';
+    }
   }else{
-    Swal.fire({
-      title: "Ups!",
-      text: "Debes iniciar sesión para poder dejar una reseña.",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Iniciar Sesión",
-      cancelButtonText: "Cancelar",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        window.location.href = window.location.origin + '/pages/login.html'
-      }
-    });
+    mostrarVentanaInicioSesion();
   }
 });
 
@@ -100,21 +119,37 @@ pLikes.innerHTML = reseniasData.likes;
 pDislikes.innerHTML = reseniasData.dislikes;
 
 btnLike.addEventListener("click", (e) => {
-  reseniasData.likes += 1;
-  reseña.agregarVotoPositivo();
-  juego.resenias = reseniasData;
-  insertLocalStorage("juegos", juegos);
-
-  pLikes.innerHTML = reseniasData.likes;
-  pDislikes.innerHTML = reseniasData.dislikes;
+  if(usuarioLogueado && usuarioLogueado.rol === 'invitado'){
+    if(usuarioLogueado.usuario === reseniasData.usuario){
+      mostrarVentanaError('votaste');
+    }else{
+      reseniasData.likes += 1;
+      reseña.agregarVotoPositivo();
+      juego.resenias = reseniasData;
+      insertLocalStorage("juegos", juegos);
+    
+      pLikes.innerHTML = reseniasData.likes;
+      pDislikes.innerHTML = reseniasData.dislikes;
+    }
+  }else{
+    mostrarVentanaInicioSesion();
+  }
 });
 
 btnDisLike.addEventListener("click", (e) => {
-  reseniasData.dislikes += 1;
-  reseña.agregarVotoPositivo();
-  juego.resenias = reseniasData;
-  insertLocalStorage("juegos", juegos);
-
-  pLikes.innerHTML = reseniasData.likes;
-  pDislikes.innerHTML = reseniasData.dislikes;
+  if(usuarioLogueado && usuarioLogueado.rol === 'invitado'){
+    if(usuarioLogueado.usuario === reseniasData.usuario){
+      mostrarVentanaError('votaste');
+    }else{
+      reseniasData.dislikes += 1;
+      reseña.agregarVotoPositivo();
+      juego.resenias = reseniasData;
+      insertLocalStorage("juegos", juegos);
+    
+      pLikes.innerHTML = reseniasData.likes;
+      pDislikes.innerHTML = reseniasData.dislikes;
+    }
+  }else{
+    mostrarVentanaInicioSesion();
+  }
 });

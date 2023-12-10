@@ -180,13 +180,19 @@ export class RequisitosDelSistema{
 }
 
 export class Reseña{
+    #usuario;
     #votosPositivos;
     #votosNegativos;
     #comentarios;
     constructor(){
+        this.#usuario = '';
         this.#votosPositivos = 0;
         this.#votosNegativos = 0;
         this.#comentarios = [];
+    }
+
+    get usuario(){
+        return this.#usuario;
     }
 
     get votosPositivos(){
