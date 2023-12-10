@@ -41,7 +41,7 @@ textarea {
 .bg-register{
     background-image: linear-gradient(to right, #023683, #063297, #1c2553, #1c1c63, #644ae7);
     background-size: cover;
-    height: 100vh;
+    height: 120vh;
 
     position: relative;
     z-index: 2;
@@ -50,7 +50,7 @@ textarea {
 .bg-register::after{
     content: "";
     background-image: url(../img/1366_2000.jpg);
-    height: 100vh;
+    min-height: 120vh;
     width: 100%;
 
     position: absolute;
@@ -76,6 +76,11 @@ index{
 a {
     text-decoration: none;
 }
+
+.mt-6{
+    margin-top: 100px;
+}
+
 
 /* Pagina principal  */
 .bg-main {
