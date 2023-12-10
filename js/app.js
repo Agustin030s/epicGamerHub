@@ -18,8 +18,8 @@ if (juegosIniciales.length === 0) {
       "Accion",
       "https://media.vandal.net/m/15192/grand-theft-auto-v-2015413122229_1.jpg",
       "Cuando un joven estafador callejero, un ladrón de bancos retirado y un psicópata aterrador se ven involucrados con lo peor y más desquiciado del mundo criminal, del gobierno de los EE. UU. y de la industria del espectáculo, tendrán que llevar a cabo una serie de peligrosos golpes para sobrevivir en una ciudad implacable en la que no pueden confiar en nadie. Y mucho menos los unos en los otros.",
-      new RequisitosDelSistema("Windows 10 64 Bit, Windows 8.1 64 Bit, Windows 8 64 Bit, Windows 7 64 Bit Service Pack 1", "Intel Core i5 3470 @ 3.2GHZ (4 CPUs) / AMD X8 FX-8350 @ 4GHZ (8 CPUs)", "8GB de RAM", "NVIDIA GTX 660 2GB / AMD HD7870 2GB", "90GB"), 
-      new RequisitosDelSistema("Windows 10 64 Bit, Windows 8.1 64 Bit, Windows 8 64 Bit, Windows 7 64 Bit", "Intel Core 2 Quad CPU Q6600 a 2,4 GHz (4 CPU)/AMD Phenom 9850 Quad-Core (4 CPU) a 2,5 GHz.", "4GB de RAM", " NVIDIA 9800 GT 1 GB/AMD HD 4870 1 GB (DX 10, 10.1, 11).", "90G"),
+      new RequisitosDelSistema("Windows 10 64 Bit, Windows 8.1 64 Bit, Windows 8 64 Bit, Windows 7 64 Bit Service Pack 1", "Intel Core i5 3470 @ 3.2GHZ (4 CPUs) / AMD X8 FX-8350 @ 4GHZ (8 CPUs)", "8Gb", "NVIDIA GTX 660 2GB / AMD HD7870 2GB", "128Gb"), 
+      new RequisitosDelSistema("Windows 10 64 Bit, Windows 8.1 64 Bit, Windows 8 64 Bit, Windows 7 64 Bit", "Intel Core 2 Quad CPU Q6600 a 2,4 GHz (4 CPU)/AMD Phenom 9850 Quad-Core (4 CPU) a 2,5 GHz.", "4Gb", " NVIDIA 9800 GT 1 GB/AMD HD 4870 1 GB (DX 10, 10.1, 11).", "128Gb"),
       "Rockstar Games"
   );
 
@@ -30,8 +30,8 @@ if (juegosIniciales.length === 0) {
       "Fantasia",
       "https://th.bing.com/th/id/OIP.y8DjAgYGddJ9mn_BXvGMIQHaJ4?rs=1&pid=ImgDetMain",
       "Hogwarts Legacy es un RPG de acción en un mundo abierto ambientado en el universo de los libros de Harry Potter. Embárcate en una aventura que te llevará por lugares nuevos y conocidos, mientras descubres animales mágicos, personalizas tu personaje, elaboras pociones, dominas hechizos, mejoras tus talentos y te conviertes en el mago que siempre has querido ser.\nDisfruta de Hogwarts en el siglo XIX. Tu personaje es un estudiante que tiene la clave de un antiguo secreto que amenaza con destruir el mundo mágico. Haz aliados, lucha contra magos tenebrosos y decide el destino del mundo mágico. Crea tu propio legado. Escribe tu propia historia.",
-      new RequisitosDelSistema("64-bit Windows 10", "Intel Core i7-8700 (3.2Ghz) or AMD Ryzen 5 3600 (3.6 Ghz)", "16GB de RAM", "NVIDIA GeForce 1080 Ti or AMD Radeon RX 5700 XT or INTEL Arc A770", "128GB"),
-      new RequisitosDelSistema("64-bit Windows 10", "Intel Core i5-6600 (3.3Ghz) or AMD Ryzen 5 1400 (3.2Ghz)", "16GB de RAM", "NVIDIA GeForce GTX 960 4GB or AMD Radeon RX 470 4GB", "128GB"),
+      new RequisitosDelSistema("64-bit Windows 10", "Intel Core i7-8700 (3.2Ghz) or AMD Ryzen 5 3600 (3.6 Ghz)", "16Gb", "NVIDIA GeForce 1080 Ti or AMD Radeon RX 5700 XT or INTEL Arc A770", "128Gb"),
+      new RequisitosDelSistema("64-bit Windows 10", "Intel Core i5-6600 (3.3Ghz) or AMD Ryzen 5 1400 (3.2Ghz)", "16Gb", "NVIDIA GeForce GTX 960 4GB or AMD Radeon RX 470 4GB", "128Gb"),
       "Warner Bros"
   )
 
@@ -42,8 +42,8 @@ if (juegosIniciales.length === 0) {
     "Deporte",
     "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2023/09/ea-sports-fc-24-1695890252985-3146700.jpg?tf=256x",
     "EA Sports FC 24 es un juego de fútbol para Nintendo Switch, PlayStation 4, PlayStation 5, Xbox One, Xbox Series y PC que forma parte de la saga de simuladores deportivos de Electronic Arts, siendo el sucesor de FIFA. Con modos en solitario y con énfasis en el online, así como con un FIFA Ultimate Team renovado, ofrece de nuevo todas las licencias de las principales ligas europeas y americanas, el retorno de modos clásicos y una ración de mejoras técnicas gráficas y jugables.",
-    new RequisitosDelSistema("Windows 10 - 64-Bit", "Intel Core i7-6700 @ 3.40GHz or AMD Ryzen 7 2700X @ 3.7 GHZ", "12GB de RAM", "NVIDIA GeForce GTX 1660 or AMD RX 5600 XT", "100GB"),
-    new RequisitosDelSistema("Windows 10 - 64-Bit", "Intel Core i5-6600K @ 3.50GHz or AMD Ryzen 5 1600 @ 3.2 GHZ", "8GB de RAM", "NVIDIA GeForce GTX 1050 Ti 4GB or AMD Radeon RX 570 4GB", "100GB"),
+    new RequisitosDelSistema("Windows 10 - 64-Bit", "Intel Core i7-6700 @ 3.40GHz or AMD Ryzen 7 2700X @ 3.7 GHZ", "12Gb", "NVIDIA GeForce GTX 1660 or AMD RX 5600 XT", "100Gb"),
+    new RequisitosDelSistema("Windows 10 - 64-Bit", "Intel Core i5-6600K @ 3.50GHz or AMD Ryzen 5 1600 @ 3.2 GHZ", "8Gb", "NVIDIA GeForce GTX 1050 Ti 4GB or AMD Radeon RX 570 4GB", "100Gb"),
     "EA Sports"
   );
 
@@ -57,16 +57,16 @@ if (juegosIniciales.length === 0) {
     new RequisitosDelSistema(
       "Windows 10 - April 2018 Update (v1803)",
       "Intel® Core™ i7-4770K / AMD Ryzen 5 1500X",
-      "16GB de RAM",
+      "16Gb",
       "Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB",
-      "240GB"
+      "240Gb"
     ),
     new RequisitosDelSistema(
       "Windows 10 - April 2018 Update (v1803)",
       "Intel® Core™ i7-4770K / AMD Ryzen 5 1500X",
-      "16GB de RAM",
+      "16Gb",
       "Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB",
-      "240GB"
+      "240Gb"
     ),
     "Rockstar Games"
   );
@@ -81,16 +81,16 @@ if (juegosIniciales.length === 0) {
     new RequisitosDelSistema(
       "64-bit Windows 10",
       "Core i7-12700 or Ryzen 7 7800X3D",
-      "16GB de RAM",
+      "16Gb",
       "GeForce RTX 2060 SUPER or Radeon RX 5700 XT or Arc A770",
-      "80GB"
+      "80Gb"
     ),
     new RequisitosDelSistema(
       "64-bit Windows 10",
       "Core i7-6700 or Ryzen 5 1600",
-      "16GB de RAM",
+      "16Gb",
       "GeForce GTX 1060 6GB or Radeon RX 580 8GB or Arc A380",
-      "80GB"
+      "80Gb"
     ),
     "CD PROJEKT RED"
   );
@@ -105,16 +105,16 @@ if (juegosIniciales.length === 0) {
     new RequisitosDelSistema(
       "Windows 10 (64 bit)/Windows 11 (64 bit)",
       "AMD Ryzen 5 3600 / Intel Core i7 8700",
-      "16GB de RAM",
+      "16Gb",
       "AMD Radeon RX 5700 / NVIDIA GeForce GTX 1070",
       "128GB"
     ),
     new RequisitosDelSistema(
       "Windows 10 (64 bit)",
       "AMD Ryzen 3 1200 / Intel Core i5-7500",
-      "16GB de RAM",
+      "16Gb",
       "AMD Radeon RX 560 with 4GB VRAM / NVIDIA GeForce GTX 1050 Ti with 4GB VRAM",
-      "128GB"
+      "128Gb"
     ),
     "CAPCOM"
   );
@@ -129,16 +129,16 @@ if (juegosIniciales.length === 0) {
     new RequisitosDelSistema(
       "Windows 10 64-bit or Windows 11 64-bit",
       "Intel® Core™ i5-4430 @ 3 GHz/ AMD FX-8370 @ 3.4 GHz or better",
-      "8GB de RAM",
+      "8Gb",
       "NVIDIA® GeForce® GTX 770 2GB/ ATI® Radeon™ R9 270 2GB or better",
       "240GB"
     ),
     new RequisitosDelSistema(
       "Windows 10 64-bit or Windows 11 64-bit",
       "Intel® Core™ i3-2100 @ 3.10 GHz/ AMD FX-6200 @ 3.80 GHz or better",
-      "8GB de RAM",
+      "8Gb",
       "NVIDIA® GeForce® GT 450 1GB/ ATI® Radeon™ HD 7770 1 GB or better",
-      "240GB"
+      "240Gb"
     ),
     "Visual Concepts 2K"
   );
@@ -153,16 +153,16 @@ if (juegosIniciales.length === 0) {
     new RequisitosDelSistema(
       "Windows 10/11 with updates",
       "AMD Ryzen 5 3600X, Intel i5-10600K",
-      "32GB de RAM",
+      "32Gb",
       "AMD Radeon RX 6800, NVIDIA GeForce RTX 3080",
-      "80GB"
+      "80Gb"
     ),
     new RequisitosDelSistema(
       "Windows 10/11 with updates",
       "AMD Ryzen 5 2600X, Intel Core i7-6800K",
-      "16GB de RAM",
+      "16Gb",
       "AMD Radeon RX 5600 XT, NVIDIA GeForce 1080",
-      "80GB"
+      "80Gb"
     ),
     "Studio Wilcard"
   );
@@ -177,16 +177,16 @@ if (juegosIniciales.length === 0) {
     new RequisitosDelSistema(
       "Windows 10/11",
       "INTEL CORE I7-8700K or AMD RYZEN 5 3600X",
-      "16GB de RAM",
+      "16Gb",
       "NVIDIA GEFORCE GTX 1070 8 GB or AMD RADEON RX VEGA 56 8 GB",
-      "80GB"
+      "80Gb"
     ),
     new RequisitosDelSistema(
       "Windows 10",
       "INTEL CORE I5-8400 or AMD RYZEN 3 3300X",
-      "16GB de RAM",
+      "16Gb",
       "NVIDIA GEFORCE GTX 1060 3 GB or AMD RADEON RX 580 4 GB",
-      "80GB"
+      "80Gb"
     ),
     "FromSoftware"
   );
@@ -201,16 +201,16 @@ if (juegosIniciales.length === 0) {
     new RequisitosDelSistema(
       "Windows 10 (Version 1909 or Newer)",
       "AMD Ryzen 5 3600X, Intel Core i7-8700",
-      "16GB de RAM",
+      "16Gb",
       "AMD Radeon RX 5700 XT (8 GB), AMD Radeon RX 6600 XT (8 GB), NVIDIA GeForce RTX 2070 SUPER (8 GB), NVIDIA GeForce RTX 3060 (8 GB)",
-      "128GB"
+      "128Gb"
     ),
     new RequisitosDelSistema(
       "Windows 10 (Version 1909 or Newer)",
       "AMD Ryzen 5 1500X, Intel Core i7-4770K",
-      "16GB de RAM",
+      "16Gb",
       "AMD Radeon RX 470 (4 GB), AMD Radeon RX 6500 XT (4 GB), NVIDIA GeForce GTX 970 (4 GB), NVIDIA GeForce GTX 1050 Ti (4 GB)",
-      "128GB"
+      "128Gb"
     ),
     "Naughty Dog LLC"
   );
@@ -225,16 +225,16 @@ if (juegosIniciales.length === 0) {
     new RequisitosDelSistema(
       "Windows 10 (20H1 version or newer, 64-bit versions)",
       "AMD Ryzen 5 3600X @ 3.8 GHz or Intel Core i7-7700 @ 3.6 GHz (AVX, AVX2 and SSE 4.2 support required)",
-      "16GB de RAM",
+      "16Gb",
       "AMD RX Vega 64 (8 GB) or NVIDIA GeForce GTX 1080 (8 GB)",
-      "240GB"
+      "240Gb"
     ),
     new RequisitosDelSistema(
       "Windows 10 (20H1 version or newer, 64-bit versions)",
       "AMD Ryzen 3 1200 @ 3. GHz or Intel Core i5-4460 @ 3.1 GHz (AVX, AVX2 and SSE 4.2 support required)",
-      "8GB de RAM",
+      "8Gb",
       "AMD RX 460 (4 GB) or NVIDIA GeForce GTX 960 (4 GB)",
-      "240GB"
+      "240Gb"
     ),
     "Ubisoft"
   );
@@ -249,16 +249,16 @@ if (juegosIniciales.length === 0) {
     new RequisitosDelSistema(
       "Windows 10 version 18362.0 or higher",
       "Intel i5-8400 or AMD Ryzen 5 1500X",
-      "16 GB de RAM",
+      "16Gb",
       "NVidia GTX 1070 OR AMD RX 590",
       "128GB"
     ),
     new RequisitosDelSistema(
       "Windows 10 version 18362.0 or higher",
       "Intel i5-4460 or AMD Ryzen 3 1200",
-      "8 GB de RAM",
+      "8Gb",
       "NVidia GTX 970 OR AMD RX 470",
-      "128GB"
+      "128Gb"
     ),
     "PlayGround Games"
   );

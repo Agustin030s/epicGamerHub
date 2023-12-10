@@ -215,7 +215,7 @@ a {
 }
 
 .bg-gradient-customized{
-    background: linear-gradient(0deg, rgba(0,0,0,0.2),rgba(0,0,0,0.2));
+    background: linear-gradient(0deg, rgba(0,0,0,0.3),rgba(0,0,0,0.3));
 }
 
 .img-portada-container {
@@ -245,9 +245,19 @@ a {
 }
 
 .containerComentario{
-    border: 1px solid white;
-    text-align: center;
-    padding: 50px;
+    background: linear-gradient(0deg, rgba(0,0,30,0.3), rgba(10,10,70,0.4));
+    border: 1px solid #777;
+    box-shadow: 2px 2px 20px rgba(0,0,0,0.4);
+    padding: 16px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.containerComentario .pComentario{
+    font-size: 19px;
+    color: #ccc;
+    word-wrap: break-word;
+    font-style: italic;
 }
 
 .containerIcons{
@@ -256,12 +266,12 @@ a {
     justify-content: space-between;
 }
 
-.pDislikes{
-    cursor: pointer;
+.text-montserrat{
+    font-family: 'Montserrat',sans-serif;
 }
 
-.pDislikes:hover{
-    color: #23A6F0;
+.pDislikes{
+    cursor: pointer;
 }
 
 .parrafoPrincipal{
@@ -287,17 +297,14 @@ a {
     font-size: 20px;
 }
 
-.btn-customize-3 {
-    background: #23A6F0;
-    padding: 5px 20px;
-    border-radius: 5px;
-    color: #fff;
-    border: none;
-    font-weight: bold;
-    text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.4);
-    transition: .3s;
+#textoReseña{
+    margin: 20px 0;
+    background: transparent;
+    border: 1px solid #888;
+}
 
-    margin-top: 5px;
+#textoReseña::placeholder{
+    color: #ccc;
 }
 
 .active{
@@ -308,6 +315,13 @@ a {
 
 .btn-close{
     color: #fff;
+}
+
+#btnLike{
+    border-radius: 45%;
+}
+#btnDislike{
+    border-radius: 45%;
 }
 
 
