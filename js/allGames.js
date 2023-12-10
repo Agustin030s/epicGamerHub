@@ -17,9 +17,6 @@ const deporte = document.getElementById('btnDeporte');
 
 const btnAllGames = document.getElementById('btnAllGames');
 
-
-// FUNCIONES 
-
 // Función para buscar juegos por texto 
 const busquedaDeJuegos = (e) => {
     e.preventDefault();
@@ -68,9 +65,6 @@ mostrarJuegos(listaDeJuegos, listaDeJuegos.length, contenedorJuegos);
 window.verDetalle = (codigoDeJuego) => {
     window.location.href = './detalleJuego.html?codigo=' + codigoDeJuego;
 }
-
-
-// EVENTOS 
 
 buscarJuegos.addEventListener('submit',busquedaDeJuegos);
 
