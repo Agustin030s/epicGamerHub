@@ -1,5 +1,5 @@
 import { Reseña } from "./clases/classJuego.js";
-import { getLocalStorage, insertLocalStorage } from "./dataStorageManager.js";
+import { getLocalStorage, insertLocalStorage, getSessionStorage } from "./dataStorageManager.js";
 
 let d = document;
 let titleJuego = d.getElementById("tituloJuego");
@@ -12,6 +12,7 @@ let pLikes = d.getElementById("pLikes");
 let pDislikes = d.getElementById("pDislikes");
 
 let reseña = new Reseña();
+let usuarioLogueado = getSessionStorage('sesion');
 
 /*
 Funcion para mostrar comentarios
@@ -30,7 +31,6 @@ let mostrarComentarios = (comentarios) => {
 };
 
 /*Se crea la logica para guardar las reseñas*/
-//let reseñasData = getLocalStorage("juegos") || { comentarios: [],likes:0,dislike:0 };
 
 let juegos = getLocalStorage("juegos");
 
@@ -66,15 +66,34 @@ if (reseniasData.comentarios.length > 0) {
 /*Logica para añadir las reseñas*/
 
 añadirReseñaBtn.addEventListener("click", (e) => {
-  let texto = textoReseña.value;
-  reseña.agregarComentario(texto);
 
-  reseniasData.comentarios.push(texto);
-  juego.resenias = reseniasData;
-
-  insertLocalStorage("juegos", juegos);
-
-  mostrarComentarios(reseniasData.comentarios);
+  if(usuarioLogueado && usuarioLogueado.rol === 'invitado'){
+    let texto = `${usuarioLogueado.usuario}: ${textoReseña.value}`;
+    reseña.agregarComentario(texto);
+  
+    reseniasData.comentarios.push(texto);
+    juego.resenias = reseniasData;
+  
+    insertLocalStorage("juegos", juegos);
+  
+    mostrarComentarios(reseniasData.comentarios);
+    d.getElementById("textoReseña").value = '';
+  }else{
+    Swal.fire({
+      title: "Ups!",
+      text: "Debes iniciar sesión para poder dejar una reseña.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Iniciar Sesión",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = window.location.origin + '/pages/login.html'
+      }
+    });
+  }
 });
 
 pLikes.innerHTML = reseniasData.likes;
@@ -94,7 +113,6 @@ btnDisLike.addEventListener("click", (e) => {
   reseniasData.dislikes += 1;
   reseña.agregarVotoPositivo();
   juego.resenias = reseniasData;
-  //localStorage.setItem('reseñas', JSON.stringify(reseñasData));
   insertLocalStorage("juegos", juegos);
 
   pLikes.innerHTML = reseniasData.likes;
