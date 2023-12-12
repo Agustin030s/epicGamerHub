@@ -56,8 +56,9 @@ export const validarAlmacenamiento = (select) => {
 };
 
 export const validarImagen = (inputImg) => {
-  const patron = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/;
+  const patron = /^(http|https):\/\/\S+\.(jpeg|jpg|gif|png|bmp)$/i;
   const imagenUrl = inputImg.value;
+
   if (patron.test(imagenUrl)) {
     inputImg.classList.add("is-valid");
     return true;

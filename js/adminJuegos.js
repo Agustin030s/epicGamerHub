@@ -2,10 +2,21 @@ import { Juego, RequisitosDelSistema } from "./clases/classJuego.js";
 import { limpiarFormularios, mostrarAlerta } from "./auxiliarFunctions.js";
 import { getLocalStorage, insertLocalStorage } from "./dataStorageManager.js";
 
+
 const formJuegos = document.getElementById("formJuegos");
-const modalJuegos = new bootstrap.Modal(document.getElementById("modalJuegos"));
+const modalJuegos = new bootstrap.Modal(document.getElementById("modalJuegos"), {
+  backdrop: 'static',
+  keyboard: false
+});
 const tablaDeJuego = document.getElementById("datosJuego");
 const juegos = getLocalStorage("juegos");
+const btnCerrarModal = document.getElementById("btnCloseModal");
+
+function restaurarPagina() {
+  location.reload();
+}
+btnCerrarModal.addEventListener("click", restaurarPagina);
+
 
 formJuegos.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -24,7 +35,6 @@ formJuegos.addEventListener("submit", function (event) {
   }
 });
 
-// Funcion para crear la tabla con los datos de cada juego
 const crearFila = (juego, fila) => {
   tablaDeJuego.innerHTML += `
     <tr>
@@ -82,6 +92,7 @@ function validarYObtenerDatos() {
   const categoria = document.getElementById("categoria").value;
   const imagen = document.getElementById("imagen").value.trim();
   const descripcion = document.getElementById("descripcion").value.trim();
+  
 
   if (!nombre || isNaN(precio) || !categoria || !imagen || !descripcion) {
     mostrarAlerta("Por favor, completa todos los campos", "error");
