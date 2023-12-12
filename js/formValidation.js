@@ -9,6 +9,17 @@ export const validarTexto = (input, min, max) => {
   }
 };
 
+export const validarPrecio = (input) =>{
+  const numero = parseFloat(input.value);
+  if(!isNaN(numero)){
+    input.classList.add("is-valid");
+    return true;
+  }else{
+    input.classList.add("is-invalid");
+    return false;
+  }
+}
+
 export const validarCategoria = (select) => {
   const categoria = select.value;
   if (
