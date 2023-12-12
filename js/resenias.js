@@ -55,6 +55,26 @@ const mostrarVentanaError = (texto) =>{
   });
 }
 
+const cargaInicial = () =>{
+  if (reseniasData.comentarios.length > 0) {
+    let total = reseniasData.likes + reseniasData.dislikes;
+    let parrafoPrincipal = d.createElement("p");
+    parrafoPrincipal.classList.add("parrafoPrincipal");
+    parrafoPrincipal.innerHTML = `Se muestran ${
+      reseniasData.comentarios.length
+    } reseñas con una valoración del juego de <b> ${
+      (reseniasData.likes/total)*10
+    }</b> puntos`;
+    containerReseña.innerHTML = '';
+    containerReseña.appendChild(parrafoPrincipal);
+  
+    mostrarComentarios(reseniasData.comentarios);
+  } else {
+    containerReseña.innerHTML =
+      "El juego aun no tiene reseñas... Quieres añadir?";
+  }
+}
+
 /*Se crea la logica para guardar las reseñas*/
 let juegos = getLocalStorage("juegos");
 
@@ -68,25 +88,9 @@ let reseniasData = {
   valoracion: juego.resenias.valoracion || 0,
 };
 
-if (reseniasData.comentarios.length > 0) {
-  let total = reseniasData.likes + reseniasData.dislikes;
-  let parrafoPrincipal = d.createElement("p");
-  parrafoPrincipal.classList.add("parrafoPrincipal");
-  parrafoPrincipal.innerHTML = `Se muestran ${
-    reseniasData.comentarios.length
-  } reseñas con una valoración del juego de <b> ${
-    (reseniasData.likes/total)*10
-  }</b> puntos`;
-  containerReseña.appendChild(parrafoPrincipal);
 
-  mostrarComentarios(reseniasData.comentarios);
-} else {
-  containerReseña.innerHTML =
-    "El juego aun no tiene reseñas... Quieres añadir?";
-}
 
 /*Logica para añadir las reseñas*/
-
 añadirReseñaBtn.addEventListener("click", (e) => {
   if(usuarioLogueado && usuarioLogueado.rol === 'invitado'){
     const comentarioUsuario = reseniasData.comentarios.find(c => c.includes(usuarioLogueado.usuario));
@@ -101,7 +105,8 @@ añadirReseñaBtn.addEventListener("click", (e) => {
     
       insertLocalStorage("juegos", juegos);
     
-      mostrarComentarios(reseniasData.comentarios);
+      cargaInicial();
+      // mostrarComentarios(reseniasData.comentarios);
       d.getElementById("textoReseña").value = '';
     }
   }else{
@@ -153,3 +158,5 @@ btnDisLike.addEventListener("click", (e) => {
     mostrarVentanaInicioSesion();
   }
 });
+
+cargaInicial();
