@@ -55,7 +55,11 @@ La penúltima opción es un botón con un icono de un "corazoncito". Si lo presi
 
 Y por último, en el icono de usuario, encontrarás las opciones para loguearte o registrarte. Si ya iniciaste sesión, en este mismo icono encontrarás la opción para cerrar la sesión y también visualizarás tu nombre de usuario.
 
-Si eres usuario administrador, visualizarás una nueva opción llamada "Administrador", desde donde podrás acceder a la administración de juegos y usuarios.
+Si eres usuario administrador, visualizarás una nueva opción llamada "Administrador", desde donde podrás acceder a la administración de juegos y usuarios. Para acceder como administrador, las credenciales por defecto son las siguientes:
+
+```Correo: admin@admin.com```
+
+```Clave: Admin1234```
 
 Esto es todo; esperamos que tengas una buena experiencia con nuestra plataforma 🙌
 

@@ -20,7 +20,7 @@ const btnAllGames = document.getElementById('btnAllGames');
 // Función para buscar juegos por texto 
 const busquedaDeJuegos = (e) => {
     e.preventDefault();
-    const juegoBuscado = listaDeJuegos.filter((juego) => juego.nombre.includes(inputJuego.value));
+    const juegoBuscado = listaDeJuegos.filter((juego) => juego.nombre.toLowerCase().includes(inputJuego.value.toLowerCase()));
     let mensaje = `<h3 class="order-first d-block text-center text-light fs-1 mb-5">Se muestran resultados de busqueda de '${inputJuego.value}'</h3>`;
 
     if (juegoBuscado.length !== 0) {
