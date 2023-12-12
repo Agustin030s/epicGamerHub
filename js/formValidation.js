@@ -9,6 +9,17 @@ export const validarTexto = (input, min, max) => {
   }
 };
 
+export const validarPrecio = (input) =>{
+  const numero = parseFloat(input.value);
+  if(!isNaN(numero)){
+    input.classList.add("is-valid");
+    return true;
+  }else{
+    input.classList.add("is-invalid");
+    return false;
+  }
+}
+
 export const validarCategoria = (select) => {
   const categoria = select.value;
   if (
@@ -56,8 +67,9 @@ export const validarAlmacenamiento = (select) => {
 };
 
 export const validarImagen = (inputImg) => {
-  const patron = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/;
+  const patron = /^(http|https):\/\/\S+\.(jpeg|jpg|gif|png|bmp)$/i;
   const imagenUrl = inputImg.value;
+
   if (patron.test(imagenUrl)) {
     inputImg.classList.add("is-valid");
     return true;
