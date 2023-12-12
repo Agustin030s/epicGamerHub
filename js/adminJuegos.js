@@ -5,7 +5,7 @@ import { getLocalStorage, insertLocalStorage } from "./dataStorageManager.js";
 const formJuegos = document.getElementById("formJuegos");
 const modalJuegos = new bootstrap.Modal(document.getElementById("modalJuegos"));
 const tablaDeJuego = document.getElementById("datosJuego");
-const juegos = getLocalStorage("juegos"); 
+const juegos = getLocalStorage("juegos");
 
 formJuegos.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -20,13 +20,8 @@ formJuegos.addEventListener("submit", function (event) {
     crearFila(nuevoJuego, juegos.length);
 
     mostrarAlerta("Juego agregado exitosamente", "success");
-    modalJuegos.hide();
-    location.reload()
+    cerrarModal();
   }
-});
-modalJuegos._element.addEventListener('hidden.bs.modal', function () {
-    formJuegos.reset();
-    resetearModal()
 });
 
 // Funcion para crear la tabla con los datos de cada juego
@@ -34,18 +29,38 @@ const crearFila = (juego, fila) => {
   tablaDeJuego.innerHTML += `
     <tr>
         <th scope="row">${fila}</th>
-        <td class="simplificarTexto overflow-hidden text-truncate">${juego.nombre}</td>
+        <td class="simplificarTexto overflow-hidden text-truncate">${
+          juego.nombre
+        }</td>
         <td>${juego.precio}</td>
-        <td class="simplificarTexto overflow-hidden text-truncate">${juego.categoria}</td>
-        <td class="simplificarTexto overflow-hidden text-truncate">${juego.imagen}</td>
-        <td class="simplificarTexto overflow-hidden text-truncate">${juego.descripcion}</td>
-        <td class="simplificarTexto overflow-hidden text-truncate">${juego.desarrollador}</td>
-        <td class="simplificarTexto overflow-hidden text-truncate">${juego.resenias.valoracion === undefined ? 'Sin reseñas' : juego.resenias.valoracion}</td>
+        <td class="simplificarTexto overflow-hidden text-truncate">${
+          juego.categoria
+        }</td>
+        <td class="simplificarTexto overflow-hidden text-truncate">${
+          juego.imagen
+        }</td>
+        <td class="simplificarTexto overflow-hidden text-truncate">${
+          juego.descripcion
+        }</td>
+        <td class="simplificarTexto overflow-hidden text-truncate">${
+          juego.desarrollador
+        }</td>
+        <td class="simplificarTexto overflow-hidden text-truncate">${
+          juego.resenias.valoracion === undefined
+            ? "Sin reseñas"
+            : juego.resenias.valoracion
+        }</td>
         <td>
             <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-info" onclick="verDetalle('${juego.codigo}')">Detalles</button>
-                <button type="button" class="btn btn-warning mx-2" onclick="editarJuego('${juego.codigo}')">Editar</button>
-                <button type="button" class="btn btn-danger" onclick="eliminarJuego('${juego.codigo}')">Eliminar</button>
+                <button type="button" class="btn btn-info" onclick="verDetalle('${
+                  juego.codigo
+                }')">Detalles</button>
+                <button type="button" class="btn btn-warning mx-2" onclick="editarJuego('${
+                  juego.codigo
+                }')">Editar</button>
+                <button type="button" class="btn btn-danger" onclick="eliminarJuego('${
+                  juego.codigo
+                }')">Eliminar</button>
             </div>
         </td>
     </tr>`;
@@ -151,136 +166,116 @@ window.verDetalle = (codigoDeJuego) => {
   window.location.href = "./detalleJuego.html?codigo=" + codigoDeJuego;
 };
 
-
 window.editarJuego = (codigo) => {
-    const JuegoAEditar = juegos.find(juego => juego.codigo === codigo);
-    const indiceJuego = juegos.findIndex(juego => juego.codigo === codigo);
-    
-    console.log(modalJuegos._element)
+  const JuegoAEditar = juegos.find((juego) => juego.codigo === codigo);
+  const indiceJuego = juegos.findIndex((juego) => juego.codigo === codigo);
 
-    let formJuego = modalJuegos._element.querySelector('#formJuegos')
-    let tituloModal = modalJuegos._element.querySelector('#modalJuegosLabel')
-    let btnSubmit = formJuego.querySelector('button[type="submit"]')
+  console.log(modalJuegos._element);
 
-    let nombreInput = formJuego.querySelector('#nombre')
-    let precioInput = formJuego.querySelector('#precio');
-    let categoriaSelect = formJuego.querySelector('#categoria');;
-    let imagenInput = formJuego.querySelector('#imagen');
-    let descripcionInput = formJuego.querySelector('#descripcion');
-    let sistOperativoR =formJuego.querySelector('#sistOperativo');;
-    let procesadorR = formJuego.querySelector('#procesador');
-    let ramSelectR = formJuego.querySelector('#ram');
-    let tarjetaGraficaR = formJuego.querySelector('#tarjGraf');;
-    let almacenamientoR = formJuego.querySelector('#almacenamiento');;
+  let formJuego = modalJuegos._element.querySelector("#formJuegos");
+  let tituloModal = modalJuegos._element.querySelector("#modalJuegosLabel");
+  let btnSubmit = formJuego.querySelector('button[type="submit"]');
 
-    let sistOperativoM = formJuego.querySelector('#sistOperativoMin');;
-    let procesadorM = formJuego.querySelector('#procesadorMin');
-    let ramSelectM= formJuego.querySelector('#ramMin');
-    let tarjetaGraficaM= formJuego.querySelector('#tarjGrafMin');
-    let almacenamientoM = formJuego.querySelector('#almacenamientoMin');
+  let nombreInput = formJuego.querySelector("#nombre");
+  let precioInput = formJuego.querySelector("#precio");
+  let categoriaSelect = formJuego.querySelector("#categoria");
+  let imagenInput = formJuego.querySelector("#imagen");
+  let descripcionInput = formJuego.querySelector("#descripcion");
+  let sistOperativoR = formJuego.querySelector("#sistOperativo");
+  let procesadorR = formJuego.querySelector("#procesador");
+  let ramSelectR = formJuego.querySelector("#ram");
+  let tarjetaGraficaR = formJuego.querySelector("#tarjGraf");
+  let almacenamientoR = formJuego.querySelector("#almacenamiento");
 
-    let desarrolladorInput = formJuego.querySelector('#desarrollador');
+  let sistOperativoM = formJuego.querySelector("#sistOperativoMin");
+  let procesadorM = formJuego.querySelector("#procesadorMin");
+  let ramSelectM = formJuego.querySelector("#ramMin");
+  let tarjetaGraficaM = formJuego.querySelector("#tarjGrafMin");
+  let almacenamientoM = formJuego.querySelector("#almacenamientoMin");
 
-    tituloModal.textContent = 'Editar juego'
-    nombreInput.value = JuegoAEditar.nombre
-    precioInput.value = JuegoAEditar.precio
-    categoriaSelect.value = JuegoAEditar.categoria
-    imagenInput.value = JuegoAEditar.imagen
-    descripcionInput.value = JuegoAEditar.descripcion
+  let desarrolladorInput = formJuego.querySelector("#desarrollador");
 
-    sistOperativoR.value = JuegoAEditar.requisitos.sistemaOperativo
-    procesadorR.value = JuegoAEditar.requisitos.procesador
-    ramSelectR.value = JuegoAEditar.requisitos.ram
-    tarjetaGraficaR.value = JuegoAEditar.requisitos.tarjetaGrafica
-    almacenamientoR.value = JuegoAEditar.requisitos.almacenamiento
+  tituloModal.textContent = "Editar juego";
+  nombreInput.value = JuegoAEditar.nombre;
+  precioInput.value = JuegoAEditar.precio;
+  categoriaSelect.value = JuegoAEditar.categoria;
+  imagenInput.value = JuegoAEditar.imagen;
+  descripcionInput.value = JuegoAEditar.descripcion;
 
-    sistOperativoM.value = JuegoAEditar.requisitosMinimos.sistemaOperativo
-    procesadorM.value = JuegoAEditar.requisitosMinimos.procesador
-    ramSelectM.value = JuegoAEditar.requisitosMinimos.ram
-    tarjetaGraficaM.value = JuegoAEditar.requisitosMinimos.tarjetaGrafica
-    almacenamientoM.value = JuegoAEditar.requisitosMinimos.almacenamiento
+  sistOperativoR.value = JuegoAEditar.requisitos.sistemaOperativo;
+  procesadorR.value = JuegoAEditar.requisitos.procesador;
+  ramSelectR.value = JuegoAEditar.requisitos.ram;
+  tarjetaGraficaR.value = JuegoAEditar.requisitos.tarjetaGrafica;
+  almacenamientoR.value = JuegoAEditar.requisitos.almacenamiento;
 
-    desarrolladorInput.value= JuegoAEditar.desarrollador
-    btnSubmit.textContent = "Editar"
+  sistOperativoM.value = JuegoAEditar.requisitosMinimos.sistemaOperativo;
+  procesadorM.value = JuegoAEditar.requisitosMinimos.procesador;
+  ramSelectM.value = JuegoAEditar.requisitosMinimos.ram;
+  tarjetaGraficaM.value = JuegoAEditar.requisitosMinimos.tarjetaGrafica;
+  almacenamientoM.value = JuegoAEditar.requisitosMinimos.almacenamiento;
 
-    modalJuegos.show()
-    console.log(JuegoAEditar)
+  desarrolladorInput.value = JuegoAEditar.desarrollador;
+  btnSubmit.textContent = "Editar";
 
-    if (btnSubmit.textContent==="editar"){
-        btnSubmit.addEventListener("click",(e) => {
-        e.preventDefault()
-        JuegoAEditar.nombre = nombreInput.value;
-        JuegoAEditar.precio = precioInput.value;
-        JuegoAEditar.categoria = categoriaSelect.value;
-        JuegoAEditar.imagen = imagenInput.value;
-        JuegoAEditar.descripcion = descripcionInput.value;
-        
-        JuegoAEditar.requisitos.sistemaOperativo = sistOperativoR.value;
-        JuegoAEditar.requisitos.procesador = procesadorR.value;
-        JuegoAEditar.requisitos.ram = ramSelectR.value;
-        JuegoAEditar.requisitos.tarjetaGrafica = tarjetaGraficaR.value;
-        JuegoAEditar.requisitos.almacenamiento = almacenamientoR.value;
-        
-        JuegoAEditar.requisitosMinimos.sistemaOperativo = sistOperativoM.value;
-        JuegoAEditar.requisitosMinimos.procesador = procesadorM.value;
-        JuegoAEditar.requisitosMinimos.ram = ramSelectM.value;
-        JuegoAEditar.requisitosMinimos.tarjetaGrafica = tarjetaGraficaM.value;
-        JuegoAEditar.requisitosMinimos.almacenamiento = almacenamientoM.value;
-        
-        JuegoAEditar.desarrollador = desarrolladorInput.value;
-        
-        let nuevoArrayConElJuegoEditado = juegos.map((juego,i) => {
-            if(i === indiceJuego ){
-                return juego = JuegoAEditar
-            }else{
-                return juego
-            }
-        });
+  modalJuegos.show();
+  console.log(JuegoAEditar);
 
+  btnSubmit.addEventListener("click", (e) => {
+    e.preventDefault();
+    JuegoAEditar.nombre = nombreInput.value;
+    JuegoAEditar.precio = precioInput.value;
+    JuegoAEditar.categoria = categoriaSelect.value;
+    JuegoAEditar.imagen = imagenInput.value;
+    JuegoAEditar.descripcion = descripcionInput.value;
+
+    JuegoAEditar.requisitos.sistemaOperativo = sistOperativoR.value;
+    JuegoAEditar.requisitos.procesador = procesadorR.value;
+    JuegoAEditar.requisitos.ram = ramSelectR.value;
+    JuegoAEditar.requisitos.tarjetaGrafica = tarjetaGraficaR.value;
+    JuegoAEditar.requisitos.almacenamiento = almacenamientoR.value;
+
+    JuegoAEditar.requisitosMinimos.sistemaOperativo = sistOperativoM.value;
+    JuegoAEditar.requisitosMinimos.procesador = procesadorM.value;
+    JuegoAEditar.requisitosMinimos.ram = ramSelectM.value;
+    JuegoAEditar.requisitosMinimos.tarjetaGrafica = tarjetaGraficaM.value;
+    JuegoAEditar.requisitosMinimos.almacenamiento = almacenamientoM.value;
+
+    JuegoAEditar.desarrollador = desarrolladorInput.value;
+
+    let nuevoArrayConElJuegoEditado = juegos.map((juego, i) => {
+      if (i === indiceJuego) {
+        return (juego = JuegoAEditar);
+      } else {
+        return juego;
+      }
+    });
+
+    Swal.fire({
+      title: "Confirmación",
+      text: "Estás seguro de editar el Juego?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Editar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        insertLocalStorage("juegos", nuevoArrayConElJuegoEditado);
+        limpiarFormularios(formJuego);
+        cerrarModal();
         Swal.fire({
-          title: "Confirmación",
-          text: "Estás seguro de editar el Juego?",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Editar",
-          cancelButtonText: "Cancelar",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            insertLocalStorage('juegos',nuevoArrayConElJuegoEditado)
-            location.reload()
-            Swal.fire({
-              title: "Juego editado!",
-              text: "El juego fue editado exitosamente.",
-              icon: "success",
-            });
-          }
+          title: "Juego editado!",
+          text: "El juego fue editado exitosamente.",
+          icon: "success",
+          willClose: () => {
+            location.reload();
+          },
         });
-    })
-    } else if (btnSubmit.textContent==="Agregar"){
-        formJuegos.addEventListener("submit", function (event) {
-            event.preventDefault();
-          
-            const nuevoJuego = validarYObtenerDatos();
-          
-            if (nuevoJuego) {
-              juegos.push(nuevoJuego);
-              insertLocalStorage("juegos", juegos);
-          
-              limpiarFormularios(formJuegos);
-              crearFila(nuevoJuego, juegos.length);
-          
-              mostrarAlerta("Juego agregado exitosamente", "success");
-              modalJuegos.hide();
-              location.reload
-            }
-          });
-    }
-
-    
-}
-
+      }
+    });
+  });
+};
 
 window.eliminarJuego = (codigo) => {
   Swal.fire({
@@ -310,55 +305,5 @@ window.eliminarJuego = (codigo) => {
 const limpiarTabla = () => {
   tablaDeJuego.innerHTML = "";
 };
-const estadoOriginalModal = {
-    titulo: 'Agregar juego',
-    nombre: "",
-    precio: "",
-    categoria: "",
-    imagen: "",
-    descripcion: "",
-    sistOperativoR: "",
-    procesadorR: "",
-    ramSelectR: "",
-    tarjetaGraficaR: "",
-    almacenamientoR: "",
-
-    sistOperativoM: "",
-    procesadorM: "",
-    ramSelectM: "",
-    tarjetaGraficaM: "",
-    almacenamientoM: "",
-
-    desarrollador: "",
-    btnSubmitText: "Agregar"
-};
-
-function resetearModal() {
-    const modalLabel = modalJuegos._element.querySelector('#modalJuegosLabel');
-    const formJuego = modalJuegos._element.querySelector('#formJuegos');
-    const btnSubmit = formJuego.querySelector('button[type="submit"]');
-
-    modalLabel.textContent = estadoOriginalModal.titulo;
-
-    document.getElementById('nombre').value = estadoOriginalModal.nombre;
-    document.getElementById('precio').value = estadoOriginalModal.precio;
-    document.getElementById('categoria').value = estadoOriginalModal.categoria;
-    document.getElementById('imagen').value = estadoOriginalModal.imagen;
-    document.getElementById('descripcion').value = estadoOriginalModal.descripcion;
-    document.getElementById('sistOperativo').value = estadoOriginalModal.sistOperativoR;
-    document.getElementById('procesador').value = estadoOriginalModal.procesadorR;
-    document.getElementById('ram').value = estadoOriginalModal.ramSelectR;
-    document.getElementById('tarjGraf').value = estadoOriginalModal.tarjetaGraficaR;
-    document.getElementById('almacenamiento').value = estadoOriginalModal.almacenamientoR;
-
-    document.getElementById('sistOperativoMin').value = estadoOriginalModal.sistOperativoM;
-    document.getElementById('procesadorMin').value = estadoOriginalModal.procesadorM;
-    document.getElementById('ramMin').value = estadoOriginalModal.ramSelectM;
-    document.getElementById('tarjGrafMin').value = estadoOriginalModal.tarjetaGraficaM;
-    document.getElementById('almacenamientoMin').value = estadoOriginalModal.almacenamientoM;
-
-    document.getElementById('desarrollador').value = estadoOriginalModal.desarrollador;
-    btnSubmit.textContent = estadoOriginalModal.btnSubmitText;
-}
 
 cargaInicialDeJuegos();
