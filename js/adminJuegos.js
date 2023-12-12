@@ -21,7 +21,12 @@ formJuegos.addEventListener("submit", function (event) {
 
     mostrarAlerta("Juego agregado exitosamente", "success");
     modalJuegos.hide();
+    location.reload()
   }
+});
+modalJuegos._element.addEventListener('hidden.bs.modal', function () {
+    formJuegos.reset();
+    resetearModal()
 });
 
 // Funcion para crear la tabla con los datos de cada juego
@@ -201,7 +206,8 @@ window.editarJuego = (codigo) => {
     modalJuegos.show()
     console.log(JuegoAEditar)
 
-    btnSubmit.addEventListener("click",(e) => {
+    if (btnSubmit.textContent==="editar"){
+        btnSubmit.addEventListener("click",(e) => {
         e.preventDefault()
         JuegoAEditar.nombre = nombreInput.value;
         JuegoAEditar.precio = precioInput.value;
@@ -238,7 +244,7 @@ window.editarJuego = (codigo) => {
           showCancelButton: true,
           confirmButtonColor: "#3085d6",
           cancelButtonColor: "#d33",
-          confirmButtonText: "Eliminar",
+          confirmButtonText: "Editar",
           cancelButtonText: "Cancelar",
         }).then((result) => {
           if (result.isConfirmed) {
@@ -252,6 +258,27 @@ window.editarJuego = (codigo) => {
           }
         });
     })
+    } else if (btnSubmit.textContent==="Agregar"){
+        formJuegos.addEventListener("submit", function (event) {
+            event.preventDefault();
+          
+            const nuevoJuego = validarYObtenerDatos();
+          
+            if (nuevoJuego) {
+              juegos.push(nuevoJuego);
+              insertLocalStorage("juegos", juegos);
+          
+              limpiarFormularios(formJuegos);
+              crearFila(nuevoJuego, juegos.length);
+          
+              mostrarAlerta("Juego agregado exitosamente", "success");
+              modalJuegos.hide();
+              location.reload
+            }
+          });
+    }
+
+    
 }
 
 
@@ -283,5 +310,55 @@ window.eliminarJuego = (codigo) => {
 const limpiarTabla = () => {
   tablaDeJuego.innerHTML = "";
 };
+const estadoOriginalModal = {
+    titulo: 'Agregar juego',
+    nombre: "",
+    precio: "",
+    categoria: "",
+    imagen: "",
+    descripcion: "",
+    sistOperativoR: "",
+    procesadorR: "",
+    ramSelectR: "",
+    tarjetaGraficaR: "",
+    almacenamientoR: "",
+
+    sistOperativoM: "",
+    procesadorM: "",
+    ramSelectM: "",
+    tarjetaGraficaM: "",
+    almacenamientoM: "",
+
+    desarrollador: "",
+    btnSubmitText: "Agregar"
+};
+
+function resetearModal() {
+    const modalLabel = modalJuegos._element.querySelector('#modalJuegosLabel');
+    const formJuego = modalJuegos._element.querySelector('#formJuegos');
+    const btnSubmit = formJuego.querySelector('button[type="submit"]');
+
+    modalLabel.textContent = estadoOriginalModal.titulo;
+
+    document.getElementById('nombre').value = estadoOriginalModal.nombre;
+    document.getElementById('precio').value = estadoOriginalModal.precio;
+    document.getElementById('categoria').value = estadoOriginalModal.categoria;
+    document.getElementById('imagen').value = estadoOriginalModal.imagen;
+    document.getElementById('descripcion').value = estadoOriginalModal.descripcion;
+    document.getElementById('sistOperativo').value = estadoOriginalModal.sistOperativoR;
+    document.getElementById('procesador').value = estadoOriginalModal.procesadorR;
+    document.getElementById('ram').value = estadoOriginalModal.ramSelectR;
+    document.getElementById('tarjGraf').value = estadoOriginalModal.tarjetaGraficaR;
+    document.getElementById('almacenamiento').value = estadoOriginalModal.almacenamientoR;
+
+    document.getElementById('sistOperativoMin').value = estadoOriginalModal.sistOperativoM;
+    document.getElementById('procesadorMin').value = estadoOriginalModal.procesadorM;
+    document.getElementById('ramMin').value = estadoOriginalModal.ramSelectM;
+    document.getElementById('tarjGrafMin').value = estadoOriginalModal.tarjetaGraficaM;
+    document.getElementById('almacenamientoMin').value = estadoOriginalModal.almacenamientoM;
+
+    document.getElementById('desarrollador').value = estadoOriginalModal.desarrollador;
+    btnSubmit.textContent = estadoOriginalModal.btnSubmitText;
+}
 
 cargaInicialDeJuegos();
