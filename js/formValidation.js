@@ -40,7 +40,7 @@ export const validarCategoria = (select) => {
 
 export const validarRam = (select) => {
   const ram = select.value;
-  if (ram === "4Gb" || ram === "8Gb" || ram === "16Gb" || ram === "32Gb") {
+  if (ram === "4Gb" || ram === "8Gb" || ram === "12Gb" || ram === "16Gb" || ram === "32Gb") {
     select.classList.add("is-valid");
     return true;
   } else {
@@ -54,6 +54,7 @@ export const validarAlmacenamiento = (select) => {
   if (
     almacenamiento === "40Gb" ||
     almacenamiento === "80Gb" ||
+    almacenamiento === "100Gb" ||
     almacenamiento === "128Gb" ||
     almacenamiento === "240Gb" ||
     almacenamiento === "512Gb"
