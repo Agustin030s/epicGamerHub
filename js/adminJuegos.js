@@ -229,11 +229,28 @@ window.editarJuego = (codigo) => {
             }else{
                 return juego
             }
-        })
+        });
 
-        insertLocalStorage('juegos',nuevoArrayConElJuegoEditado)
-        alert('Juego editado exitosamente!')
-        location.reload()
+        Swal.fire({
+          title: "Confirmación",
+          text: "Estás seguro de editar el Juego?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Eliminar",
+          cancelButtonText: "Cancelar",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            insertLocalStorage('juegos',nuevoArrayConElJuegoEditado)
+            location.reload()
+            Swal.fire({
+              title: "Juego editado!",
+              text: "El juego fue editado exitosamente.",
+              icon: "success",
+            });
+          }
+        });
     })
 }
 
