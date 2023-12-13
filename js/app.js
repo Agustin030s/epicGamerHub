@@ -12,15 +12,27 @@ const juegosIniciales = getLocalStorage("juegos");
 
 if (juegosIniciales.length === 0) {
   let gta5 = new Juego(
-      undefined, // Se generará automáticamente un código UUID
-      "Grand Theft Auto V",
-      29.99,
-      "Accion",
-      "https://media.vandal.net/m/15192/grand-theft-auto-v-2015413122229_1.jpg",
-      "Cuando un joven estafador callejero, un ladrón de bancos retirado y un psicópata aterrador se ven involucrados con lo peor y más desquiciado del mundo criminal, del gobierno de los EE. UU. y de la industria del espectáculo, tendrán que llevar a cabo una serie de peligrosos golpes para sobrevivir en una ciudad implacable en la que no pueden confiar en nadie. Y mucho menos los unos en los otros.",
-      new RequisitosDelSistema("Windows 10 64 Bit, Windows 8.1 64 Bit, Windows 8 64 Bit, Windows 7 64 Bit Service Pack 1", "Intel Core i5 3470 @ 3.2GHZ (4 CPUs) / AMD X8 FX-8350 @ 4GHZ (8 CPUs)", "8Gb", "NVIDIA GTX 660 2GB / AMD HD7870 2GB", "128Gb"), 
-      new RequisitosDelSistema("Windows 10 64 Bit, Windows 8.1 64 Bit, Windows 8 64 Bit, Windows 7 64 Bit", "Intel Core 2 Quad CPU Q6600 a 2,4 GHz (4 CPU)/AMD Phenom 9850 Quad-Core (4 CPU) a 2,5 GHz.", "4Gb", " NVIDIA 9800 GT 1 GB/AMD HD 4870 1 GB (DX 10, 10.1, 11).", "128Gb"),
-      "Rockstar Games"
+    undefined, // Se generará automáticamente un código UUID
+    "Grand Theft Auto V",
+    29.99,
+    "Accion",
+    "https://media.vandal.net/m/15192/grand-theft-auto-v-2015413122229_1.jpg",
+    "Cuando un joven estafador callejero, un ladrón de bancos retirado y un psicópata aterrador se ven involucrados con lo peor y más desquiciado del mundo criminal, del gobierno de los EE. UU. y de la industria del espectáculo, tendrán que llevar a cabo una serie de peligrosos golpes para sobrevivir en una ciudad implacable en la que no pueden confiar en nadie. Y mucho menos los unos en los otros.",
+    new RequisitosDelSistema(
+      "Windows 10 64 Bit, Windows 8.1 64 Bit, Windows 8 64 Bit, Windows 7 64 Bit Service Pack 1",
+      "Intel Core i5 3470 @ 3.2GHZ (4 CPUs) / AMD X8 FX-8350 @ 4GHZ (8 CPUs)",
+      "8Gb",
+      "NVIDIA GTX 660 2GB / AMD HD7870 2GB",
+      "128Gb"
+    ),
+    new RequisitosDelSistema(
+      "Windows 10 64 Bit, Windows 8.1 64 Bit, Windows 8 64 Bit, Windows 7 64 Bit",
+      "Intel Core 2 Quad CPU Q6600 a 2,4 GHz (4 CPU)/AMD Phenom 9850 Quad-Core (4 CPU) a 2,5 GHz.",
+      "4Gb",
+      " NVIDIA 9800 GT 1 GB/AMD HD 4870 1 GB (DX 10, 10.1, 11).",
+      "128Gb"
+    ),
+    "Rockstar Games"
   );
 
   let hogwartLegacy = new Juego(
@@ -33,7 +45,7 @@ if (juegosIniciales.length === 0) {
       new RequisitosDelSistema("64-bit Windows 10", "Intel Core i7-8700 (3.2Ghz) or AMD Ryzen 5 3600 (3.6 Ghz)", "16Gb", "NVIDIA GeForce 1080 Ti or AMD Radeon RX 5700 XT or INTEL Arc A770", "128Gb"),
       new RequisitosDelSistema("64-bit Windows 10", "Intel Core i5-6600 (3.3Ghz) or AMD Ryzen 5 1400 (3.2Ghz)", "16Gb", "NVIDIA GeForce GTX 960 4GB or AMD Radeon RX 470 4GB", "128Gb"),
       "Warner Bros"
-  )
+  );
 
   let fifa24 = new Juego(
     undefined,
@@ -107,7 +119,7 @@ if (juegosIniciales.length === 0) {
       "AMD Ryzen 5 3600 / Intel Core i7 8700",
       "16Gb",
       "AMD Radeon RX 5700 / NVIDIA GeForce GTX 1070",
-      "128GB"
+      "128Gb"
     ),
     new RequisitosDelSistema(
       "Windows 10 (64 bit)",
@@ -295,15 +307,13 @@ if (users.length === 0) {
   insertLocalStorage("usuarios", users);
 }
 
+const listaDeJuegos = getLocalStorage("juegos");
+let contenedorJuegos = document.getElementById("gamesContainer");
+const buscarJuegos = document.getElementById("searchGames");
+const inputJuego = document.getElementById("inputGames");
 
-const listaDeJuegos = getLocalStorage('juegos');
-let contenedorJuegos = document.getElementById('gamesContainer');
-const buscarJuegos = document.getElementById('searchGames');
-const inputJuego = document.getElementById('inputGames');
-
-const tituloDeJuego = document.querySelectorAll('.titleGame');
-const btnContainer = document.querySelectorAll('.btn-container');
-
+const tituloDeJuego = document.querySelectorAll(".titleGame");
+const btnContainer = document.querySelectorAll(".btn-container");
 
 // Funcion para mostrar los juegos en la pagina principal (solo mostramos 8 juegos)
 if (listaDeJuegos.length >= 8) {
@@ -312,40 +322,43 @@ if (listaDeJuegos.length >= 8) {
   mostrarJuegos(listaDeJuegos, listaDeJuegos.length, contenedorJuegos);
 }
 
-// Funcion para buscar juegos en la pagina principal 
+// Funcion para buscar juegos en la pagina principal
 const busquedaDeJuegos = (e) => {
   e.preventDefault();
-  const juegoBuscado = listaDeJuegos.filter((juego) => juego.nombre.toLowerCase().includes(inputJuego.value.toLowerCase()));
+  const juegoBuscado = listaDeJuegos.filter((juego) =>
+    juego.nombre.toLowerCase().includes(inputJuego.value.toLowerCase())
+  );
   let mensaje = `<h3 class="order-first d-block text-center text-light fs-1 mb-5">Se muestran resultados de busqueda de '${inputJuego.value}'</h3>`;
 
   if (juegoBuscado.length !== 0) {
-
     if (juegoBuscado.length === listaDeJuegos.length) {
-      mostrarJuegos(listaDeJuegos,8,contenedorJuegos);
-    } else if (juegoBuscado.length <= 8){
-      mostrarJuegos(juegoBuscado,juegoBuscado.length,contenedorJuegos);
+      mostrarJuegos(listaDeJuegos, 8, contenedorJuegos);
+    } else if (juegoBuscado.length <= 8) {
+      mostrarJuegos(juegoBuscado, juegoBuscado.length, contenedorJuegos);
       contenedorJuegos.innerHTML += mensaje;
     }
-
   } else {
-    contenedorJuegos.innerHTML = `<p class="text-center text-secondary display-6 mb-5">No se encontro el juego buscado</p>`
+    contenedorJuegos.innerHTML = `<p class="text-center text-secondary display-6 mb-5">No se encontro el juego buscado</p>`;
     contenedorJuegos.innerHTML += mensaje;
   }
-}
+};
 
-// Funcion para ir a detalles de los juegos del carousel 
+// Funcion para ir a detalles de los juegos del carousel
 const detallesJuegosCarousel = () => {
   for (let i = 0; i < tituloDeJuego.length; i++) {
-    const juego = listaDeJuegos.find((juego) => juego.nombre === tituloDeJuego[i].textContent);
-    btnContainer[i].innerHTML = `<button class="btn-customized" onclick="verDetalle('${juego.codigo}')">Más información</button>`
+    const juego = listaDeJuegos.find(
+      (juego) => juego.nombre === tituloDeJuego[i].textContent
+    );
+    btnContainer[
+      i
+    ].innerHTML = `<button class="btn-customized" onclick="verDetalle('${juego.codigo}')">Más información</button>`;
   }
-}
+};
 
-detallesJuegosCarousel()
+detallesJuegosCarousel();
 
-buscarJuegos.addEventListener('submit',busquedaDeJuegos);
+buscarJuegos.addEventListener("submit", busquedaDeJuegos);
 
 window.verDetalle = (codigoDeJuego) => {
   window.location.href = "./pages/detalleJuego.html?codigo=" + codigoDeJuego;
 };
-
