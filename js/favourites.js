@@ -17,8 +17,9 @@ window.eliminarFavorito = (codigo) => {
   );
   listaFavoritos.splice(posicionJuego, 1);
   insertLocalStorage("favoritos", listaFavoritos);
-  const canvas = document.querySelector(".offcanvas-body");
-  canvas.removeChild(canvas.children[posicionJuego + 1]);
+  const canvas = document.querySelector(".listaFavoritos-container");
+  canvas.removeChild(canvas.children[posicionJuego]);
+  cargaInicialDeFavoritos(listaFavoritos);
 };
 
 btnFavoritos.addEventListener("click", abrirCanvas);

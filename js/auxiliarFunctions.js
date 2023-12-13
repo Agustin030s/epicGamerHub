@@ -31,7 +31,7 @@ export const desencriptarContrasenia = (encryptedPassword, key) => {
 
 //Favoritos
 export const crearCardFavorito = (juego) => {
-  const canvas = document.querySelector(".offcanvas-body");
+  const canvas = document.querySelector(".listaFavoritos-container");
   canvas.innerHTML += `<div class="card card-customized mt-3">
     <div class="row g-0 justify-content-center align-items-center">
       <div class="col-3 img-favoritos-container">
@@ -49,11 +49,12 @@ export const crearCardFavorito = (juego) => {
 };
 
 export const cargaInicialDeFavoritos = (arrayFavoritos) => {
+  const canvas = document.querySelector(".listaFavoritos-container");
+  canvas.innerHTML = '';
   if (arrayFavoritos.length !== 0) {
     arrayFavoritos.map((fav) => crearCardFavorito(fav));
   } else {
-    const canvas = document.querySelector(".offcanvas-body");
-    canvas.innerHTML += `<p class='parraFav'>Aún no tienes juegos favoritos<p>`;
+    canvas.innerHTML = `<p class='parraFav mt-4 text-secondary'>Aún no tienes juegos favoritos<p>`;
   }
 };
 
