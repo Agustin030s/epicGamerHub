@@ -155,12 +155,12 @@ a {
     transform: scale(1.2);
 }
 
-.promocion {
+.publicidad {
     background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent), url("../img/img-promo.jpg") no-repeat;
     background-position: 70% 0%;
     background-size: cover;
-    height: 75vh;
-    max-height: 40rem;
+    height: 80vh;
+    max-height: 50rem;
     display: flex;
     justify-content: center;
     align-items: center;
