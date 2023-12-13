@@ -34,14 +34,14 @@ export const crearCardFavorito = (juego) => {
   const canvas = document.querySelector(".offcanvas-body");
   canvas.innerHTML += `<div class="card card-customized mt-3">
     <div class="row g-0 justify-content-center align-items-center">
-      <div class="col-md-4">
-        <img src="${juego.imagen}" alt="Imagen del juego" class="img-fluid">
+      <div class="col-3 img-favoritos-container">
+        <img src="${juego.imagen}" alt="Imagen del juego" class="img-favoritos">
       </div>
-      <div class="col-md-8">
-        <div class="card-body text-end">
+      <div class="col-9">
+        <div class="card-body text-center">
           <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0" aria-label="Eliminar" onclick="eliminarFavorito('${juego.codigo}')"></button>
-          <h5 class="card-title text-light mb-4">${juego.nombre}</h5>
-          <button class="btn-customized" onclick="verDetalle('${juego.codigo}')">Ver detalles</button>
+          <h5 class="card-title text-light mb-4 fs-6">${juego.nombre}</h5>
+          <button class="btn-customized fs-6" onclick="verDetalle('${juego.codigo}')">Ver detalles</button>
         </div>
       </div>
     </div>

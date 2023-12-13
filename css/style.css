@@ -36,6 +36,17 @@ li {
 textarea {
     resize: none;
 }
+
+.img-favoritos-container{
+    height: 120px;
+}
+
+.img-favoritos{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
 /*Estilos pagina registro */
 
 .bg-register{
