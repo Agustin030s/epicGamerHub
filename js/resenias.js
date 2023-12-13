@@ -63,7 +63,7 @@ const cargaInicial = () =>{
     parrafoPrincipal.innerHTML = `Se muestran ${
       reseniasData.comentarios.length
     } reseñas con una valoración del juego de <b> ${
-      (reseniasData.likes/total)*10
+      (isNaN(reseniasData.likes/total)) ? 0 : Math.round((reseniasData.likes/total)*10)
     }</b> puntos`;
     containerReseña.innerHTML = '';
     containerReseña.appendChild(parrafoPrincipal);
